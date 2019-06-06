@@ -4,22 +4,28 @@
              android:layout_width="match_parent"
              android:layout_height="match_parent"
              tools:context=".Fragments.Menu_Fragment"
-android:background="@color/colorAccent">
+android:background="@color/colorPrimary">
     <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
         <Button
                 android:id="@+id/btn_fr_1"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@color/colorPrimary"/>
         <Button
                 android:id="@+id/btn_fr_2"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@color/colorPrimaryDark"/>
         <Button
                 android:id="@+id/btn_fr_3"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@color/colorPrimaryDark"/>
 
 
     </LinearLayout>
