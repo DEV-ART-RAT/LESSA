@@ -4,44 +4,70 @@
               xmlns:tools="http://schemas.android.com/tools"
               android:orientation="horizontal"
               android:layout_width="match_parent"
-              android:layout_height="wrap_content" android:layout_margin="10dp" android:id="@+id/item_view">
+              android:layout_height="wrap_content" android:id="@+id/item_view">
 
 
     <androidx.cardview.widget.CardView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                card_view:cardElevation="5dp"
-                card_view:cardUseCompatPadding="true"
-                card_view:cardBackgroundColor="#B39DDB">
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            card_view:cardElevation="5dp"
+            card_view:cardUseCompatPadding="true"
+            card_view:cardBackgroundColor="#B39DDB">
 
-        <LinearLayout
-                android:orientation="horizontal"
+        <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="match_parent">
+
+            <ImageView
+                    android:id="@+id/img_categoria"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/category_size"
+                    android:scaleType="centerCrop"
+                    card_view:srcCompat="@drawable/ic_launcher_background"/>
+
             <LinearLayout
                     android:orientation="vertical"
-                    android:layout_width="42dp"
-                    android:layout_height="match_parent" android:layout_weight="1"
-                    android:id="@+id/status"/>
+                    android:layout_width="20dp"
+                    android:layout_height="@dimen/category_size" android:layout_weight="1"
+                    android:id="@+id/status" android:background="#360202">
+            </LinearLayout>
             <LinearLayout
                     android:orientation="horizontal"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:padding="20dp" android:layout_weight="5">
-                <TextView
-                        android:text="TextView"
-                        android:layout_width="wrap_content"
-                        android:layout_height="match_parent" android:id="@+id/tv_word" android:layout_weight="1"
-                        android:textSize="30sp" android:gravity="center"/>
-                <Button
-                        android:layout_width="57dp"
-                        android:layout_height="match_parent" android:id="@+id/btn_favorite"
-                        android:background="@android:drawable/btn_star_big_off"/>
+                    android:layout_height="@dimen/category_size" android:background="#9C1A1919">
+                <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent" android:layout_weight="5">
+
+                    <TextView
+                            android:text="TextView"
+                            android:layout_width="wrap_content"
+                            android:layout_height="70dp" android:id="@+id/tv_word" android:layout_weight="1"
+                            android:textSize="36sp" android:gravity="center" android:layout_gravity="start|right"
+                            android:layout_marginStart="8dp"
+                            card_view:layout_constraintStart_toStartOf="parent" android:layout_marginEnd="8dp"
+                            card_view:layout_constraintEnd_toStartOf="@+id/btn_favorite"
+                            android:layout_marginBottom="8dp" card_view:layout_constraintBottom_toBottomOf="parent"
+                            android:layout_marginTop="8dp" card_view:layout_constraintTop_toTopOf="parent"
+                            card_view:layout_constraintHorizontal_bias="0.179"
+                            card_view:layout_constraintVertical_bias="0.125" android:textColor="#FFFFFF"/>
+                    <Button
+                            android:layout_width="50dp"
+                            android:layout_height="50dp" android:id="@+id/btn_favorite"
+                            android:background="@android:drawable/btn_star_big_off"
+                            android:layout_gravity="bottom|top|left|end"
+                            android:layout_marginTop="8dp"
+                            card_view:layout_constraintTop_toTopOf="parent" android:layout_marginEnd="8dp"
+                            card_view:layout_constraintEnd_toEndOf="parent" android:layout_marginStart="8dp"
+                            card_view:layout_constraintStart_toStartOf="parent" android:layout_marginBottom="8dp"
+                            card_view:layout_constraintBottom_toBottomOf="parent"
+                            card_view:layout_constraintHorizontal_bias="1.0"
+                            card_view:layout_constraintVertical_bias="1.0"/>
+                </androidx.constraintlayout.widget.ConstraintLayout>
             </LinearLayout>
-        </LinearLayout>
+        </RelativeLayout>
 
     </androidx.cardview.widget.CardView>
-
 
 
 </LinearLayout>

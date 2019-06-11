@@ -25,6 +25,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
 import com.e_sea_Ruby.e_sea_language.Entities.Word
@@ -44,6 +45,7 @@ abstract class WordAdapter internal constructor(
         val tv_word: TextView = itemView.findViewById(R.id.tv_word)
         val favorite: Button = itemView.findViewById(R.id.btn_favorite)
         val status: LinearLayout = itemView.findViewById(R.id.status)
+        val img_categoria: ImageView = itemView.findViewById(R.id.img_categoria)
         val word_container:LinearLayout = itemView.findViewById(R.id.item_view)
     }
 
@@ -56,6 +58,7 @@ abstract class WordAdapter internal constructor(
     override fun onBindViewHolder(holder: WordViewHolder, position: Int) {
         val current = words[position]
         holder.tv_word.text = current.palabra
+        holder.img_categoria.setImageResource(current.seña)
         if (current.status){
             holder.status.setBackgroundColor(R.color.black)
         }else{

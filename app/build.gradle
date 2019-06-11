@@ -24,6 +24,7 @@ android {
     packagingOptions {
         exclude 'META-INF/atomicfu.kotlin_module'
     }
+    android.defaultConfig.vectorDrawables.useSupportLibrary = true
 }
 
 repositories {
