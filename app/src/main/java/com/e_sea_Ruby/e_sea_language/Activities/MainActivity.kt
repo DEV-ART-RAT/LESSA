@@ -1,6 +1,7 @@
 package com.e_sea_Ruby.e_sea_language.Activities
 
 import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.android.material.snackbar.Snackbar
@@ -19,7 +20,10 @@ import com.e_sea_Ruby.e_sea_language.Fragments.Search_Fragment
 import com.e_sea_Ruby.e_sea_language.Login.ui.login.LoginActivity
 import kotlinx.android.synthetic.main.fragment_menu_.*
 
-class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
+class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener, Home_Fragment.OnFragmentInteractionListener{
+
+    override fun onFragmentInteraction(uri: Uri) {
+    }
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -59,11 +63,6 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         //
 
 //
-        val fab: FloatingActionButton = findViewById(R.id.fab)
-        fab.setOnClickListener { view ->
-            Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                .setAction("Action", null).show()
-        }
         val drawerLayout: DrawerLayout = findViewById(R.id.drawer_layout)
         val navView: NavigationView = findViewById(R.id.nav_view)
         val toggle = ActionBarDrawerToggle(

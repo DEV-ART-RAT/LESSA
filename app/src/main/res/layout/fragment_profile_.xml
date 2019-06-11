@@ -3,24 +3,15 @@
              xmlns:tools="http://schemas.android.com/tools"
              android:layout_width="match_parent"
              android:layout_height="match_parent"
-             tools:context=".Fragments.Profile_Fragment">
+             tools:context=".Fragments.Profile_Fragment"
+             android:background="#4D4D4D">
 
     <!-- TODO: Update blank fragment layout -->
-    <LinearLayout
+    <TextView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="vertical"
-    >
-
-        <TextView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:text="Soy el prefil xd xd"/>
-        <ImageView android:layout_width="match_parent"
-                   android:layout_height="match_parent"
-                   android:src="@drawable/ic_menu_camera"
-        />
-    </LinearLayout>
+            android:text="FRAGMENT 2"
+            android:gravity="center"/>
 
 
 </FrameLayout>
