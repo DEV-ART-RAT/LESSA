@@ -83,7 +83,7 @@ abstract class WordDataBase : RoomDatabase() {
             word = Word( 0, "OBJETOS COMUNES", "comunes", R.drawable.comunes, false,false)
             wordDao.insert(word)
 
-            word = Word( 0, "ESTADOS CIVILES", "estados", R.drawable.estadoCivil,true,true)
+            word = Word( 0, "ESTADOS CIVILES", "estados", R.drawable.estado,true,true)
             wordDao.insert(word)
 
             word = Word( 0, "OFICIOS", "oficios", R.drawable.oficios, false,false)
