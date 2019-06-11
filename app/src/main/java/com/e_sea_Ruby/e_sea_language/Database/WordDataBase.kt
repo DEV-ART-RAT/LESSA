@@ -46,7 +46,7 @@ abstract class WordDataBase : RoomDatabase() {
                 // comment out the following line.
                 INSTANCE?.let { database ->
                     scope.launch {
-                        populateDatabase(database.wordDao())
+                        //populateDatabase(database.wordDao())
                     }
                 }
             }

@@ -57,7 +57,7 @@ abstract class WordAdapter internal constructor(
         val current = words[position]
         holder.tv_word.text = current.palabra
         if (current.status){
-            holder.status.setBackgroundColor(R.color.colorAccent)
+            holder.status.setBackgroundColor(R.color.black)
         }else{
             holder.status.setBackgroundColor(R.color.colorPrimaryDark)
         }
