@@ -20,7 +20,7 @@ import com.e_sea_Ruby.e_sea_language.Fragments.Search_Fragment
 import com.e_sea_Ruby.e_sea_language.Login.ui.login.LoginActivity
 import kotlinx.android.synthetic.main.fragment_menu_.*
 
-class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener, Home_Fragment.OnFragmentInteractionListener{
+class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener, Search_Fragment.OnFragmentInteractionListener,Home_Fragment.OnFragmentInteractionListener{
 
     override fun onFragmentInteraction(uri: Uri) {
     }

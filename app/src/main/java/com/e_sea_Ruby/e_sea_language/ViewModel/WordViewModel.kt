@@ -12,11 +12,13 @@ import kotlinx.coroutines.launch
 class WordViewModel (application: Application): AndroidViewModel(application) {
     private val wordRepository: WordRepository
     val allWords: LiveData<List<Word>>
+    val favoriteWords: LiveData<List<Word>>
 
     init {
         val wordDao = WordDataBase.getDatabase(application, viewModelScope).wordDao()
         wordRepository = WordRepository(wordDao)
         allWords = wordRepository.allWord
+        favoriteWords=wordRepository.allFavorite
     }
 
     fun insert(word: Word) = viewModelScope.launch {
