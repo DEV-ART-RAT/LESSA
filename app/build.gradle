@@ -7,7 +7,7 @@ android {
     compileSdkVersion 28
     buildToolsVersion '28.0.3'
     defaultConfig {
-        applicationId "com.example.android.roomwordssample"
+        applicationId "com.e_sea_Ruby.e_sea_languaje"
         minSdkVersion 20
         targetSdkVersion 28
         versionCode 1
@@ -24,7 +24,6 @@ android {
     packagingOptions {
         exclude 'META-INF/atomicfu.kotlin_module'
     }
-    android.defaultConfig.vectorDrawables.useSupportLibrary = true
 }
 
 repositories {
