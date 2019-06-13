@@ -1,6 +1,6 @@
 # Proyecto Moviles iniciado el 03 de mayo de 2019 :thumbsup:
 
-# :relieved::relieved::relieved::relieved::relieved::relieved::relieved::relieved:
+
 
 #VERSIONES
 ## 1.0 - Alpha - No files
@@ -51,5 +51,5 @@
 
 
 - [ ] 
-
+# :relieved::relieved::relieved::relieved::relieved::relieved::relieved::relieved:
  
