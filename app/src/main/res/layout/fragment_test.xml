@@ -9,6 +9,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:text="Songs" />
+        android:text="@string/title_test" />
 
 </FrameLayout>

@@ -10,9 +10,9 @@
 
     </style>
     <style name="ItemTheme" parent="Theme.AppCompat.Light.NoActionBar">
-        <item name="android:background">#000000</item>
-        <item name="itemIconTint">#FFFFFF</item>
-        <item name="itemTextColor">#FFFFFF</item>
+        <item name="android:background">#333333</item>
+        <item name="itemIconTint">#640101</item>
+        <item name="itemTextColor">#3F3F3F</item>
 
 
     </style>

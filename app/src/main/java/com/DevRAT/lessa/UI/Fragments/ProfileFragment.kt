@@ -9,11 +9,11 @@ import com.DevRAT.lessa.R
 
 
 
-class MusicFragment : Fragment() {
+class ProfileFragment : Fragment() {
     companion object {
-        fun newInstance(): MusicFragment = MusicFragment()
+        fun newInstance(): ProfileFragment = ProfileFragment()
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? =
-        inflater.inflate(R.layout.fragment_music, container, false)
+        inflater.inflate(R.layout.fragment_profile, container, false)
 }
