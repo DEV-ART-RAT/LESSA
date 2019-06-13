@@ -1,4 +1,4 @@
-package com.DevRAT.lessa.fragments
+package com.DevRAT.lessa.ui.Fragments
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -9,11 +9,11 @@ import com.DevRAT.lessa.R
 
 
 
-class FilmsFragment : Fragment() {
+class BooksFragment : Fragment() {
     companion object {
-        fun newInstance(): FilmsFragment = FilmsFragment()
+        fun newInstance(): BooksFragment = BooksFragment()
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? =
-        inflater.inflate(R.layout.fragment_films, container, false)
+        inflater.inflate(R.layout.fragment_books, container, false)
 }

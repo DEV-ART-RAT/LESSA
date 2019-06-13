@@ -3,9 +3,9 @@ package com.DevRAT.lessa
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
-import com.DevRAT.lessa.fragments.BooksFragment
-import com.DevRAT.lessa.fragments.FilmsFragment
-import com.DevRAT.lessa.fragments.MusicFragment
+import com.DevRAT.lessa.ui.Fragments.BooksFragment
+import com.DevRAT.lessa.ui.Fragments.FilmsFragment
+import com.DevRAT.lessa.ui.Fragments.MusicFragment
 import kotlinx.android.synthetic.main.activity_main.nav_view
 
 class MainActivity : AppCompatActivity() {
