@@ -1,2 +1,2 @@
-package com.DevRAT.lessa.database
+package com.DevRAT.lessa.Database
 

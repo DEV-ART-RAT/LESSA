@@ -1,4 +1,4 @@
-package com.DevRAT.lessa.ui.Fragments
+package com.DevRAT.lessa.UI.Fragments
 
 import android.os.Bundle
 import android.view.LayoutInflater

@@ -1,2 +1,2 @@
-package com.DevRAT.lessa.ui
+package com.DevRAT.lessa.UI
 
