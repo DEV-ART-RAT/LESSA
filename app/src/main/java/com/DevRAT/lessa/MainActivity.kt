@@ -1,9 +1,12 @@
-package com.sergiomarrero.kotlineando
+package com.DevRAT.lessa
 
-import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
-import android.support.v4.app.Fragment
-import kotlinx.android.synthetic.main.activity_main.*
+import androidx.appcompat.app.AppCompatActivity
+import androidx.fragment.app.Fragment
+import com.DevRAT.lessa.fragments.BooksFragment
+import com.DevRAT.lessa.fragments.FilmsFragment
+import com.DevRAT.lessa.fragments.MusicFragment
+import kotlinx.android.synthetic.main.activity_main.nav_view
 
 class MainActivity : AppCompatActivity() {
 
@@ -11,7 +14,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        bottom_navigation_view.setOnNavigationItemSelectedListener { menuItem ->
+        nav_view.setOnNavigationItemSelectedListener { menuItem ->
             when (menuItem.itemId) {
                 R.id.action_music -> {
                     val fragment = MusicFragment.newInstance()
@@ -31,7 +34,7 @@ class MainActivity : AppCompatActivity() {
                 else -> false
             }
         }
-        bottom_navigation_view.selectedItemId = R.id.action_music
+        nav_view.selectedItemId = R.id.action_music
     }
 
     private fun openFragment(fragment: Fragment) {
