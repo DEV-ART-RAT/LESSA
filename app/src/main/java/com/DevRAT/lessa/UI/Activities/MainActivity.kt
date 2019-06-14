@@ -1,5 +1,6 @@
 package com.DevRAT.lessa.UI.Activities
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
@@ -8,6 +9,7 @@ import com.DevRAT.lessa.UI.Fragments.HomeFragment
 import com.DevRAT.lessa.UI.Fragments.TestFragment
 import com.DevRAT.lessa.UI.Fragments.ProfileFragment
 import kotlinx.android.synthetic.main.activity_main.nav_view
+import kotlinx.android.synthetic.main.fragment_profile.*
 
 class MainActivity : AppCompatActivity() {
 
@@ -36,6 +38,11 @@ class MainActivity : AppCompatActivity() {
             }
         }
         nav_view.selectedItemId = R.id.action_home
+
+        actividad_session_lanzar.setOnClickListener {
+            intent = Intent(this,session::class.java)
+            startActivity(intent)
+        }
     }
 
     private fun openFragment(fragment: Fragment) {

@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "441308582763",
+    "firebase_url": "https://lessa-c8cf6.firebaseio.com",
+    "project_id": "lessa-c8cf6",
+    "storage_bucket": "lessa-c8cf6.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:441308582763:android:a5eca3b7afc86288",
+        "android_client_info": {
+          "package_name": "com.DevRAT.lessa"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "441308582763-ljdpo3t4vnuq5r3m4lghisd3r1k8uagk.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.DevRAT.lessa",
+            "certificate_hash": "2ca9d0d3fba2dbecc1699f342fd3ded59ca6a20a"
+          }
+        },
+        {
+          "client_id": "441308582763-utrjad4qr549f2774mt17fo6l2fc27i2.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBRbN8zBhHceqVGoels1JwD0Re8t-jfmLY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "441308582763-utrjad4qr549f2774mt17fo6l2fc27i2.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
