@@ -9,11 +9,11 @@ import com.DevRAT.lessa.R
 
 
 
-class BooksFragment : Fragment() {
+class HomeFragment : Fragment() {
     companion object {
-        fun newInstance(): BooksFragment = BooksFragment()
+        fun newInstance(): HomeFragment = HomeFragment()
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? =
-        inflater.inflate(R.layout.fragment_books, container, false)
+        inflater.inflate(R.layout.fragment_home, container, false)
 }
