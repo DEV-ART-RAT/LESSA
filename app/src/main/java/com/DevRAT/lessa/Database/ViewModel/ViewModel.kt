@@ -15,7 +15,7 @@ class ViewModel (application: Application): AndroidViewModel(application) {
     private val wordRepository: WordRepository
     private val categoryRepository: CategoryRepository
     val allCategory: LiveData<List<Category>>
-    val allWords: LiveData<List<Word>>
+    //val allWords: LiveData<List<Word>>
     val favoriteWords: LiveData<List<Word>>
 
     init {
@@ -24,7 +24,7 @@ class ViewModel (application: Application): AndroidViewModel(application) {
         wordRepository = WordRepository(wordDao)
         categoryRepository = CategoryRepository(categoryDao)
         allCategory = categoryRepository.allCategory
-        allWords = wordRepository.allWordPerCategory
+        //allWords = wordRepository.allWordPerCategory
         favoriteWords=wordRepository.allFavorite
     }
 
