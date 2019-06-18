@@ -13,7 +13,7 @@
     <Button android:id="@+id/signOutButton"
         android:text="singout" android:layout_width="wrap_content" android:layout_height="wrap_content"
         />
-    <TextView android:id="@+id/txt_register"
+    <Button android:id="@+id/disconnectButton"
         android:text="desconection" android:layout_width="wrap_content" android:layout_height="wrap_content"
         />
 </LinearLayout>

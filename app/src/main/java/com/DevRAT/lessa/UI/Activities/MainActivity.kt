@@ -12,12 +12,17 @@ import kotlinx.android.synthetic.main.activity_main.nav_view
 import kotlinx.android.synthetic.main.fragment_profile.*
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.auth.FirebaseAuth
+import com.google.android.gms.auth.api.signin.GoogleSignIn
+import com.google.android.gms.auth.api.signin.GoogleSignInAccount
+
+
 
 
 
 
 
 class MainActivity : AppCompatActivity() {
+    private  var user: FirebaseUser? = null
 
     // Firebase instance variables
     private var mFirebaseAuth: FirebaseAuth? = null
@@ -25,7 +30,9 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        val account = GoogleSignIn.getLastSignedInAccount(this)
         setContentView(R.layout.activity_main)
+        user = FirebaseAuth.getInstance().currentUser
 
         // Initialize Firebase Auth
 
@@ -44,7 +51,7 @@ class MainActivity : AppCompatActivity() {
                 }
                 R.id.action_profile -> {
                     startActivity(Intent(this,GoogleSingInActivity::class.java))
-                    val fragment = ProfileFragment.newInstance()
+                    val fragment = ProfileFragment.newInstance(account)
                     openFragment(fragment)
                     true
                 }
