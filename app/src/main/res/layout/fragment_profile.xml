@@ -4,11 +4,18 @@
      android:layout_width="match_parent"
      android:layout_height="match_parent">
 
-    <TextView
-            android:id="@+id/actividad_session_lanzar"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:text="@string/title_perfil" />
+   <LinearLayout android:orientation="vertical"
+                 android:layout_width="match_parent"
+                 android:layout_height="match_parent">
+       <ImageView android:id="@+id/contenedor_de_foto_perfil"
+                  android:layout_width="wrap_content" android:layout_height="0sp" android:layout_weight="1"/>
+
+       <TextView
+               android:id="@+id/actividad_session_lanzar"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:layout_gravity="center"
+               android:text="@string/title_perfil" />
+   </LinearLayout>
 
 </FrameLayout>

@@ -50,8 +50,8 @@ class MainActivity : AppCompatActivity() {
                     true
                 }
                 R.id.action_profile -> {
-                    startActivity(Intent(this,GoogleSingInActivity::class.java))
-                    val fragment = ProfileFragment.newInstance(account)
+                    //startActivity(Intent(this,GoogleSingInActivity::class.java))
+                    val fragment = ProfileFragment.newInstance(account,this)
                     openFragment(fragment)
                     true
                 }

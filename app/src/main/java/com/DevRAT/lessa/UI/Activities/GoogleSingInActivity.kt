@@ -22,6 +22,8 @@ import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.auth.GoogleAuthProvider
 import kotlinx.android.synthetic.main.activity_google_sing_in.*
 import android.R.attr.data
+import android.net.Uri
+import com.bumptech.glide.Glide
 import com.google.android.gms.tasks.Task
 
 
@@ -57,6 +59,8 @@ class GoogleSingInActivity : AppCompatActivity(), View.OnClickListener, GoogleAp
         val gso = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
             .requestIdToken(getString(R.string.default_web_client_id))
             .requestEmail()
+            .requestProfile()
+
             .build()
         // [END config_signin]
         mGoogleApiClient = GoogleApiClient.Builder(this)
@@ -167,14 +171,14 @@ class GoogleSingInActivity : AppCompatActivity(), View.OnClickListener, GoogleAp
 
         // Google sign out
         googleSignInClient.signOut().addOnCompleteListener(this) {
-            updateUI(null)
+            //updateUI(null)
         }
     }
 
     private fun revokeAccess() {
         // Firebase sign out
         signOutButton.text = account?.email.toString()
-        Toast.makeText(applicationContext, "current user" + auth.currentUser.toString(),
+        Toast.makeText(applicationContext, "current user" + auth.currentUser.toString()+auth.currentUser?.providerData?.get(0)?.photoUrl.toString(),
             Toast.LENGTH_LONG).show()
         /*auth.signOut()
 
@@ -187,7 +191,12 @@ class GoogleSingInActivity : AppCompatActivity(), View.OnClickListener, GoogleAp
     private fun updateUI(user: FirebaseUser?) {
         //Log.d(TAG, "signInWithCredential:success")
         signOutButton.text = auth.currentUser?.email.toString()
+        Glide.with(this).load(auth.currentUser?.providerData?.get(0)?.photoUrl.toString()).into(my_perfil_icon)
+        //my_perfil_icon.setImageURI(Uri.parse("https://lh3.googleusercontent.com/-nNDxFpt8BkY/XQq1zjBcjXI/AAAAAAAAAww/m2J9GjkbNqQ0kghSNbSaDnSwcgBbUmVPwCEwYBhgL/w139-h140-p/457616_1920_1080.jpg"/*auth.currentUser?.providerData?.get(0)?.photoUrl.toString()*/ ))
+
     }
+
+
 
 
     /*{
@@ -212,7 +221,7 @@ class GoogleSingInActivity : AppCompatActivity(), View.OnClickListener, GoogleAp
         when (i) {
             R.id.signInButton -> signIn()
             R.id.signOutButton -> signOut()
-            R.id.disconnectButton -> revokeAccess()
+            R.id.disconnectButton -> signOut()
         }
     }
 
