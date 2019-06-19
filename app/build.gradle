@@ -7,7 +7,7 @@ android {
     compileSdkVersion 28
     buildToolsVersion '28.0.3'
     defaultConfig {
-        applicationId "com.e_sea_Ruby.e_sea_languaje"
+        applicationId "com.DevRAT.lessa"
         minSdkVersion 20
         targetSdkVersion 28
         versionCode 1
