@@ -1,5 +1,6 @@
 package com.DevRAT.lessa.UI.Activities
 
+import android.net.Uri
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
@@ -7,13 +8,17 @@ import com.DevRAT.lessa.R
 import com.DevRAT.lessa.UI.Fragments.HomeFragment
 import com.DevRAT.lessa.UI.Fragments.TestFragment
 import com.DevRAT.lessa.UI.Fragments.ProfileFragment
-import kotlinx.android.synthetic.main.activity_main.nav_view
+import kotlinx.android.synthetic.main.activity_main.*
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity(), HomeFragment.OnFragmentInteractionListener {
+    override fun onFragmentInteraction(uri: Uri) {
+
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        //setSupportActionBar(toolbarmain)
 
         nav_view.setOnNavigationItemSelectedListener { menuItem ->
             when (menuItem.itemId) {
