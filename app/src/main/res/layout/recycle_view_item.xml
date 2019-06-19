@@ -10,29 +10,30 @@
     <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            card_view:cardElevation="5dp"
-            card_view:cardUseCompatPadding="true">
+            card_view:cardElevation="10dp"
+            card_view:cardUseCompatPadding="true" card_view:cardCornerRadius="10dp">
 
         <LinearLayout
-                android:orientation="horizontal"
+                android:orientation="vertical"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" android:gravity="center">
             <ImageView
                     android:id="@+id/img_categoria"
-                    android:layout_width="100dp"
-                    android:layout_height="100dp"
+                    android:layout_width="75dp"
+                    android:layout_height="75dp"
                     android:scaleType="centerCrop"
-                    card_view:srcCompat="@drawable/ic_home_black_24dp" tools:ignore="VectorDrawableCompat"/>
+                    card_view:srcCompat="@drawable/ic_home_black_24dp" tools:ignore="VectorDrawableCompat"
+                    android:layout_marginTop="30dp"/>
             <TextView
                     android:text="TextView"
                     android:layout_width="wrap_content"
                     android:layout_height="70dp" android:id="@+id/tv_word" android:layout_weight="1"
-                    android:textSize="36sp" android:gravity="center" android:layout_gravity="center|start|right"
+                    android:textSize="12sp" android:gravity="center" android:layout_gravity="center"
                     android:layout_marginStart="8dp"
                     android:layout_marginEnd="8dp"
                     android:layout_marginBottom="8dp"
                     android:layout_marginTop="8dp"
-                    android:textColor="#0A0A0A"/>
+                    android:textColor="#3A3A3A"/>
         </LinearLayout>
 
     </androidx.cardview.widget.CardView>
