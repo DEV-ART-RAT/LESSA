@@ -11,6 +11,7 @@ import androidx.fragment.app.Fragment
 import com.DevRAT.lessa.R
 import com.DevRAT.lessa.UI.Activities.GoogleSingInActivity
 import com.bumptech.glide.Glide
+import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
@@ -49,12 +50,12 @@ class ProfileFragment : Fragment() {
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
-        Toast.makeText(conext, "Cai aqui :v" ,
-            Toast.LENGTH_LONG).show()
+        //Toast.makeText(conext, "Cai aqui :v" ,            Toast.LENGTH_LONG).show()
         if(resultCode==1){
-            actividad_session_lanzar.text = FirebaseAuth.getInstance().currentUser?.email.toString()//auth?.email.toString()
+            val account =GoogleSignIn.getLastSignedInAccount(conext)
+            actividad_session_lanzar.text = account?.email.toString()//auth?.email.toString()
 
-            Glide.with(this).load(FirebaseAuth.getInstance().currentUser?.providerData?.get(0)?.photoUrl.toString()).into(contenedor_de_foto_perfil)
+            Glide.with(this).load(account?.photoUrl.toString()).into(contenedor_de_foto_perfil)
 
         }
         else{

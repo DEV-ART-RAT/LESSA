@@ -131,8 +131,9 @@ class GoogleSingInActivity : AppCompatActivity(), View.OnClickListener, GoogleAp
             } else {
                 // failed -> update UI
                 //updateUI(null)
-                Toast.makeText(applicationContext, "SignIn: failed init!" + result.status + "finshi result",
-                    Toast.LENGTH_LONG).show()
+                //Toast.makeText(applicationContext, "SignIn: failed init!" + result.status + "finshi result",                    Toast.LENGTH_LONG).show()
+                setResult(1 )
+                finish()
             }
         }
     }
@@ -140,7 +141,7 @@ class GoogleSingInActivity : AppCompatActivity(), View.OnClickListener, GoogleAp
     // [START auth_with_google]
     private fun firebaseAuthWithGoogle(acct: GoogleSignInAccount) {
 
-        Log.d(TAG, "firebaseAuthWithGoogle:" + acct.id!!)
+        //Log.d(TAG, "firebaseAuthWithGoogle:" + acct.id!!)
         // [START_EXCLUDE silent]
         //showProgressDialog()
         // [END_EXCLUDE]
@@ -150,9 +151,8 @@ class GoogleSingInActivity : AppCompatActivity(), View.OnClickListener, GoogleAp
             .addOnCompleteListener(this) { task ->
                 if (task.isSuccessful) {
                     // Sign in success, update UI with the signed-in user's information
-                    Toast.makeText(applicationContext, "secion ya iniciada",
-                        Toast.LENGTH_LONG).show()
-                    Log.d(TAG, "signInWithCredential:success " + auth.currentUser.toString())
+                    //Toast.makeText(applicationContext, "secion ya iniciada",                        Toast.LENGTH_LONG).show()
+                    //Log.d(TAG, "signInWithCredential:success " + auth.currentUser.toString())
                     val user = auth.currentUser
                     //updateUI(user)
                 } else {
