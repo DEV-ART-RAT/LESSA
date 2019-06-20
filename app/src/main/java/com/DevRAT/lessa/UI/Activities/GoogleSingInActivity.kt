@@ -22,6 +22,7 @@ import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.auth.GoogleAuthProvider
 import kotlinx.android.synthetic.main.activity_google_sing_in.*
 import android.R.attr.data
+import android.app.ProgressDialog
 import android.net.Uri
 import com.bumptech.glide.Glide
 import com.google.android.gms.tasks.Task
@@ -47,15 +48,19 @@ class GoogleSingInActivity : AppCompatActivity(), View.OnClickListener, GoogleAp
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_google_sing_in)
+        //setContentView(R.layout.activity_google_sing_in)
 
         // Button listeners
-        signInButton.setOnClickListener(this)
-        signOutButton.setOnClickListener(this)
-        disconnectButton.setOnClickListener(this)
+        //signInButton.setOnClickListener(this)
+        //signOutButton.setOnClickListener(this)
+        //disconnectButton.setOnClickListener(this)
 
         // [START config_signin]
         // Configure Google Sign In
+        val progressDialog = ProgressDialog(this)
+        progressDialog.setMessage("shoto mate")
+        progressDialog.show()
+
         val gso = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
             .requestIdToken(getString(R.string.default_web_client_id))
             .requestEmail()
@@ -76,6 +81,14 @@ class GoogleSingInActivity : AppCompatActivity(), View.OnClickListener, GoogleAp
         auth = FirebaseAuth.getInstance()
         // [END initialize_auth]
 
+        //intent.getIntExtra("CODIGO")
+
+        if(intent.extras["CODIGO"] == 1){
+            signIn()
+        } else{
+            signOut()
+        }
+
     }
 
     // [START on_start_check_user]
@@ -84,7 +97,7 @@ class GoogleSingInActivity : AppCompatActivity(), View.OnClickListener, GoogleAp
         // Check if user is signed in (non-null) and update UI accordingly.
         val currentUser = auth.currentUser
         account = GoogleSignIn.getLastSignedInAccount(this)
-        updateUI(currentUser)
+        //updateUI(currentUser)
     }
     // [END on_start_check_user]
 
@@ -111,12 +124,13 @@ class GoogleSingInActivity : AppCompatActivity(), View.OnClickListener, GoogleAp
             if (result.isSuccess) {
                 // successful -> authenticate with Firebase
                 val account = result.signInAccount
+                setResult(1 )
                 firebaseAuthWithGoogle(account!!)
-                Toast.makeText(applicationContext, "SignIn: susses init!" + result.status,
-                    Toast.LENGTH_LONG).show()
+                //Toast.makeText(applicationContext, "SignIn: susses ;v    !" + result.status,
+                   // Toast.LENGTH_LONG).show()
             } else {
                 // failed -> update UI
-                updateUI(null)
+                //updateUI(null)
                 Toast.makeText(applicationContext, "SignIn: failed init!" + result.status + "finshi result",
                     Toast.LENGTH_LONG).show()
             }
@@ -140,18 +154,20 @@ class GoogleSingInActivity : AppCompatActivity(), View.OnClickListener, GoogleAp
                         Toast.LENGTH_LONG).show()
                     Log.d(TAG, "signInWithCredential:success " + auth.currentUser.toString())
                     val user = auth.currentUser
-                    updateUI(user)
+                    //updateUI(user)
                 } else {
                     // If sign in fails, display a message to the user.
                     Log.w(TAG, "signInWithCredential:failure", task.exception)
                     //Snackbar.make(main_layout, "Authentication Failed.", Snackbar.LENGTH_SHORT).show()
-                    updateUI(null)
+                    //updateUI(null)
                 }
 
                 // [START_EXCLUDE]
                 //hideProgressDialog()
                 // [END_EXCLUDE]
             }
+
+        finish()
     }
     // [END auth_with_google]
 
@@ -172,10 +188,13 @@ class GoogleSingInActivity : AppCompatActivity(), View.OnClickListener, GoogleAp
         // Google sign out
         googleSignInClient.signOut().addOnCompleteListener(this) {
             //updateUI(null)
+
+            setResult(2)
+            finish()
         }
     }
 
-    private fun revokeAccess() {
+    /*private fun revokeAccess() {
         // Firebase sign out
         signOutButton.text = account?.email.toString()
         Toast.makeText(applicationContext, "current user" + auth.currentUser.toString()+auth.currentUser?.providerData?.get(0)?.photoUrl.toString(),
@@ -186,15 +205,16 @@ class GoogleSingInActivity : AppCompatActivity(), View.OnClickListener, GoogleAp
         googleSignInClient.revokeAccess().addOnCompleteListener(this) {
             updateUI(null)
         }*/
-    }
+    }*/
 
+    /*
     private fun updateUI(user: FirebaseUser?) {
         //Log.d(TAG, "signInWithCredential:success")
         signOutButton.text = auth.currentUser?.email.toString()
         Glide.with(this).load(auth.currentUser?.providerData?.get(0)?.photoUrl.toString()).into(my_perfil_icon)
         //my_perfil_icon.setImageURI(Uri.parse("https://lh3.googleusercontent.com/-nNDxFpt8BkY/XQq1zjBcjXI/AAAAAAAAAww/m2J9GjkbNqQ0kghSNbSaDnSwcgBbUmVPwCEwYBhgL/w139-h140-p/457616_1920_1080.jpg"/*auth.currentUser?.providerData?.get(0)?.photoUrl.toString()*/ ))
 
-    }
+    }*/
 
 
 
@@ -217,12 +237,12 @@ class GoogleSingInActivity : AppCompatActivity(), View.OnClickListener, GoogleAp
     }*/
 
     override fun onClick(v: View) {
-        val i = v.id
+        /*val i = v.id
         when (i) {
             R.id.signInButton -> signIn()
             R.id.signOutButton -> signOut()
             R.id.disconnectButton -> signOut()
-        }
+        }*/
     }
 
     companion object {
