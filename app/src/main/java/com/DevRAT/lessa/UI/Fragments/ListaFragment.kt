@@ -1,6 +1,4 @@
 package com.DevRAT.lessa.UI.Fragments
-
-
 import android.content.Context
 import android.net.Uri
 import android.os.Bundle
@@ -11,16 +9,13 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.GridLayoutManager
-import androidx.recyclerview.widget.LinearLayoutManager
 import com.DevRAT.lessa.Database.ViewModel.WordViewModel
 import com.DevRAT.lessa.R
 import com.example.myapplication.Adapter.WordAdapter
 import kotlinx.android.synthetic.main.fragment_home_.view.*
 
 
-
-
-class HomeFragment : Fragment(){
+class ListaFragment : Fragment(){
 
 
     private var listener: OnFragmentInteractionListener? = null
@@ -88,8 +83,7 @@ class HomeFragment : Fragment(){
                 seña: Int
             ) {
                 holder.word_container.setOnClickListener {
-                    val fragment = ListaFragment.newInstance()
-                    fragmentManager!!.beginTransaction().replace(R.id.main_container,fragment).addToBackStack("").commit()
+
                 }
             }
 
@@ -108,4 +102,3 @@ class HomeFragment : Fragment(){
     }
 
 }
-

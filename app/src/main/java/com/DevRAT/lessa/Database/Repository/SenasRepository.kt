@@ -26,6 +26,10 @@ class SenasRepository (private val senasDao: SenasDao) {
 
     val allCalendario: LiveData<List<Senas>> = senasDao.getCalendario()
 
+    val allVerbos: LiveData<List<Senas>> = senasDao.getVerbos()
+
+    val allRopa: LiveData<List<Senas>> = senasDao.getRopa()
+
     suspend fun insert(senas: Senas) {
         senasDao.insert(senas)
     }
