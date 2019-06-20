@@ -15,6 +15,4 @@ interface WordDao {
     @Update
     fun update(word: Word)
 
-    @Query("SELECT * from word_table where favorito ")
-    fun getFavorite(): LiveData<List<Word>>
 }

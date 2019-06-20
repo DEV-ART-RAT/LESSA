@@ -11,7 +11,5 @@ data class Word (
     @PrimaryKey(autoGenerate = true) @ColumnInfo(name = "id" )val id: Int,
     @ColumnInfo (name = "Palabra") val palabra: String,
     @ColumnInfo (name = "Categoria") val categoria: String,
-    @ColumnInfo (name = "seña") val seña: Int,
-    @ColumnInfo (name = "favorito") var favorito: Boolean,
-    @ColumnInfo (name = "status") var status: Boolean
+    @ColumnInfo (name = "seña") val seña: Int
 )

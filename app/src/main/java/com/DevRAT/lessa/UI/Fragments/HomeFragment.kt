@@ -64,7 +64,6 @@ class HomeFragment : Fragment(){
     }
 
     interface OnFragmentInteractionListener {
-
         fun onFragmentInteraction(uri: Uri)
     }
 
@@ -86,12 +85,11 @@ class HomeFragment : Fragment(){
                 holder: WordViewHolder,
                 palabra: String,
                 Categoria: String,
-                seña: Int,
-                favorito: Boolean,
-                Status: Boolean
+                seña: Int
             ) {
                 holder.word_container.setOnClickListener {
-
+                    val fragment = TestFragment.newInstance()
+                    fragmentManager!!.beginTransaction().replace(R.id.main_container,fragment).addToBackStack("").commit()
                 }
             }
 

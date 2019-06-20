@@ -36,7 +36,7 @@ abstract class WordAdapter internal constructor(
     context: Context
 ) : RecyclerView.Adapter<WordAdapter.WordViewHolder>() {
 
-    abstract fun addListener(holder: WordViewHolder, palabra: String, Categoria: String, seña: Int, favorito: Boolean, Status: Boolean)
+    abstract fun addListener(holder: WordViewHolder, palabra: String, Categoria: String, seña: Int)
 
     private val inflater: LayoutInflater = LayoutInflater.from(context)
     private var words = emptyList<Word>() // Cached copy of words
@@ -57,7 +57,7 @@ abstract class WordAdapter internal constructor(
         val current = words[position]
         holder.tv_word.text = current.palabra
         holder.img_categoria.setImageResource(current.seña)
-        addListener(holder,current.palabra, current.categoria, current.seña, current.favorito, current.status)
+        addListener(holder,current.palabra, current.categoria, current.seña)
 
     }
 
