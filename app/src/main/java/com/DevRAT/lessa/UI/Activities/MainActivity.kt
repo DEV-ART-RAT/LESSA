@@ -27,7 +27,6 @@ class MainActivity : AppCompatActivity(), HomeFragment.OnFragmentInteractionList
     override fun onFragmentInteraction(uri: Uri) {
 
     }
-class MainActivity : AppCompatActivity() {
     private  var user: FirebaseUser? = null
 
     // Firebase instance variables
