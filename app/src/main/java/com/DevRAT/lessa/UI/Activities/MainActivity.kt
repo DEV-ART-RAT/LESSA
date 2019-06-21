@@ -7,6 +7,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import com.DevRAT.lessa.R
 import com.DevRAT.lessa.UI.Fragments.HomeFragment
+import com.DevRAT.lessa.UI.Fragments.ListaFragment
 import com.DevRAT.lessa.UI.Fragments.TestFragment
 import com.DevRAT.lessa.UI.Fragments.ProfileFragment
 import kotlinx.android.synthetic.main.activity_main.*
@@ -23,7 +24,7 @@ import com.google.android.gms.auth.api.signin.GoogleSignInAccount
 
 
 
-class MainActivity : AppCompatActivity(), HomeFragment.OnFragmentInteractionListener {
+class MainActivity : AppCompatActivity(), HomeFragment.OnFragmentInteractionListener, ListaFragment.OnFragmentInteractionListener {
     override fun onFragmentInteraction(uri: Uri) {
 
     }

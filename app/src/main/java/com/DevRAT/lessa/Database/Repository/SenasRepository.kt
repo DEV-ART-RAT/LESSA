@@ -6,29 +6,10 @@ import com.DevRAT.lessa.Database.Entities.Senas
 
 class SenasRepository (private val senasDao: SenasDao) {
 
-    val allColor: LiveData<List<Senas>> = senasDao.getColor()
+    val allFavoritos: LiveData<List<Senas>> = senasDao.getFavoritos()
 
-    val allComida: LiveData<List<Senas>> = senasDao.getComida()
+    fun allCategoria(catergoria:String): LiveData<List<Senas>> = senasDao.getCategoria( catergoria)
 
-    val allComunes: LiveData<List<Senas>> = senasDao.getComunes()
-
-    val allEstados: LiveData<List<Senas>> = senasDao.getEstados()
-
-    val allFamilia: LiveData<List<Senas>> = senasDao.getFamilia()
-
-    val allNumeros: LiveData<List<Senas>> = senasDao.getNumeros()
-
-    val allOficios: LiveData<List<Senas>> = senasDao.getOficios()
-
-    val allProfeciones: LiveData<List<Senas>> = senasDao.getProfeciones()
-
-    val allSaludos: LiveData<List<Senas>> = senasDao.getSaludos()
-
-    val allCalendario: LiveData<List<Senas>> = senasDao.getCalendario()
-
-    val allVerbos: LiveData<List<Senas>> = senasDao.getVerbos()
-
-    val allRopa: LiveData<List<Senas>> = senasDao.getRopa()
 
     suspend fun insert(senas: Senas) {
         senasDao.insert(senas)

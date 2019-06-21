@@ -88,6 +88,7 @@ class HomeFragment : Fragment(){
                 seña: Int
             ) {
                 holder.word_container.setOnClickListener {
+                    wordViewModel.callCategory(Categoria)
                     val fragment = ListaFragment.newInstance()
                     fragmentManager!!.beginTransaction().replace(R.id.main_container,fragment).addToBackStack("").commit()
                 }

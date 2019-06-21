@@ -28,7 +28,7 @@ abstract class SenaAdapter internal constructor(
     private var senas = emptyList<Senas>()
 
     inner class WordViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        val tv_word: TextView = itemView.findViewById(R.id.tv_sena)
+        val tv_sena: TextView = itemView.findViewById(R.id.tv_sena)
         val sena_container:LinearLayout = itemView.findViewById(R.id.ly_sena_container)
     }
 
@@ -40,12 +40,12 @@ abstract class SenaAdapter internal constructor(
     @SuppressLint("ResourceAsColor")
     override fun onBindViewHolder(holder: WordViewHolder, position: Int) {
         val current = senas[position]
-        holder.tv_word.text = current.palabra
+        holder.tv_sena.text = current.palabra
         addListener(holder,current.palabra)
 
     }
 
-    internal fun setSenas(words: List<Senas>) {
+    internal fun setSenas(senas: List<Senas>) {
         this.senas = senas
         notifyDataSetChanged()
     }

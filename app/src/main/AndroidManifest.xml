@@ -14,8 +14,6 @@
             android:theme="@style/AppTheme">
         <activity android:name=".UI.Activities.GoogleSingInActivity">
         </activity>
-        <activity android:name=".UI.Activities.HomeActivity">
-        </activity>
 
         <activity
                 android:name=".UI.Activities.MainActivity"

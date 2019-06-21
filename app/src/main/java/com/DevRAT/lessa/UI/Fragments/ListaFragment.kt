@@ -9,10 +9,13 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.DevRAT.lessa.Database.ViewModel.WordViewModel
 import com.DevRAT.lessa.R
+import com.example.myapplication.Adapter.SenaAdapter
 import com.example.myapplication.Adapter.WordAdapter
 import kotlinx.android.synthetic.main.fragment_home_.view.*
+import kotlinx.android.synthetic.main.fragment_lista.view.*
 
 
 class ListaFragment : Fragment(){
@@ -33,7 +36,7 @@ class ListaFragment : Fragment(){
 
 
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle? ): View? {
-        var view =  inflater.inflate(R.layout.fragment_home_, container, false)
+        var view =  inflater.inflate(R.layout.fragment_lista, container, false)
         initAll(view)
         return view
     }
@@ -65,7 +68,7 @@ class ListaFragment : Fragment(){
     companion object {
         @JvmStatic
         fun newInstance() =
-            HomeFragment().apply {
+            ListaFragment().apply {
                 arguments = Bundle().apply {
                 }
             }
@@ -74,29 +77,25 @@ class ListaFragment : Fragment(){
     fun initAll(view: View) {
 
 
-        val recyclerView = view.recyclerview
-        val adapter = object : WordAdapter(view.context) {
+        val recyclerView = view.recyclerviewList
+        val adapter = object : SenaAdapter(view.context) {
             override fun addListener(
                 holder: WordViewHolder,
-                palabra: String,
-                Categoria: String,
-                seña: Int
-            ) {
-                holder.word_container.setOnClickListener {
+                palabra: String) {
+                holder.sena_container.setOnClickListener {
 
                 }
             }
 
         }
         recyclerView.adapter = adapter
-        recyclerView.layoutManager = GridLayoutManager(view.context,2)
+        recyclerView.layoutManager = LinearLayoutManager(view.context)
 
 
         wordViewModel = ViewModelProviders.of(this).get(WordViewModel::class.java)
 
-        wordViewModel.allWords.observe(this, Observer { words ->
-            // Update the cached copy of the words in the adapter.
-            words?.let { adapter.setWords(it) }
+        WordViewModel.allPalabras?.observe(this, Observer { senas ->
+            senas?.let { adapter.setSenas(it) }
         })
 
     }

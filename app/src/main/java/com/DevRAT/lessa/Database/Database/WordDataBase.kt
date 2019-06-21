@@ -50,8 +50,8 @@ abstract class WordDataBase : RoomDatabase() {
                 // comment out the following line.
                 INSTANCE?.let { database ->
                     scope.launch {
-                        populateDatabase(database.wordDao())
-                        populateSenasDatabase(database.senasDao())
+                        //populateDatabase(database.wordDao())
+                        //populateSenasDatabase(database.senasDao())
                     }
                 }
             }
@@ -98,34 +98,34 @@ abstract class WordDataBase : RoomDatabase() {
 
 
         suspend fun populateSenasDatabase(senasDao: SenasDao){
-            var senas = Senas( 0, "Hola",R.drawable.abc_cab_background_top_material, true, false, false, false, false, false, false, false, false, false, false, false)
+            var senas = Senas( 0, "Hola",R.drawable.abc_cab_background_top_material, "saludo",false)
             senasDao.insert(senas)
 
-            senas = Senas( 0, "Buenos dias",R.drawable.abc_cab_background_top_material, true, false, false, false, false, false, false, false, false, false, false, false)
+            senas = Senas( 0, "Buenos dias",R.drawable.abc_cab_background_top_material, "saludo",false)
             senasDao.insert(senas)
 
-            senas = Senas( 0, "Buenas noches",R.drawable.abc_cab_background_top_material, true, false, false, false, false, false, false, false, false, false, false, false)
+            senas = Senas( 0, "Buenas noches",R.drawable.abc_cab_background_top_material, "saludo",false)
             senasDao.insert(senas)
 
-            senas = Senas( 0, "Buenas tardes",R.drawable.abc_cab_background_top_material, true, false, false, false, false, false, false, false, false, false, false, false)
+            senas = Senas( 0, "Buenas tardes",R.drawable.abc_cab_background_top_material, "saludo",false)
             senasDao.insert(senas)
 
-            senas = Senas( 0, "¿Como estas?",R.drawable.abc_cab_background_top_material, true, false, false, false, false, false, false, false, false, false, false, false)
+            senas = Senas( 0, "¿Como estas?",R.drawable.abc_cab_background_top_material, "saludo",false)
             senasDao.insert(senas)
 
-            senas = Senas( 0, "Bien",R.drawable.abc_cab_background_top_material, true, false, false, false, false, false, false, false, false, false, false, false)
+            senas = Senas( 0, "Bien",R.drawable.abc_cab_background_top_material,"saludo",false)
             senasDao.insert(senas)
 
-            senas = Senas( 0, "Mal",R.drawable.abc_cab_background_top_material, true, false, false, false, false, false, false, false, false, false, false, false)
+            senas = Senas( 0, "Mal",R.drawable.abc_cab_background_top_material, "saludo",false)
             senasDao.insert(senas)
 
-            senas = Senas( 0, "¿Como te llamas?",R.drawable.abc_cab_background_top_material, true, false, false, false, false, false, false, false, false, false, false, false)
+            senas = Senas( 0, "¿Como te llamas?",R.drawable.abc_cab_background_top_material, "saludo",false)
             senasDao.insert(senas)
 
-            senas = Senas( 0, "Mi nombre es",R.drawable.abc_cab_background_top_material, true, false, false, false, false, false, false, false, false, false, false, false)
+            senas = Senas( 0, "Mi nombre es",R.drawable.abc_cab_background_top_material, "saludo",false)
             senasDao.insert(senas)
 
-            senas = Senas( 0, "Mucho gusto",R.drawable.abc_cab_background_top_material, true, false, false, false, false, false, false, false, false, false, false, false)
+            senas = Senas( 0, "Mucho gusto",R.drawable.abc_cab_background_top_material, "saludo",false)
             senasDao.insert(senas)
         }
     }
