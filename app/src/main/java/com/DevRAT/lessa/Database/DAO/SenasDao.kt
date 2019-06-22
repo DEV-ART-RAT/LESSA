@@ -12,13 +12,13 @@ interface SenasDao {
     @Insert(onConflict = OnConflictStrategy.IGNORE)
     suspend fun insert(senas: Senas)
 
-    @Update
-    fun update(word: Senas)
-
     @Query("SELECT * from senas_table where categoria = :catergoria ")
     fun getCategoria(catergoria:String): LiveData<List<Senas>>
 
     @Query("SELECT * from senas_table where favorito ")
     fun getFavoritos(): LiveData<List<Senas>>
+
+    @Update(onConflict = OnConflictStrategy.REPLACE)
+    suspend fun update (senas: Senas)
 
 }
