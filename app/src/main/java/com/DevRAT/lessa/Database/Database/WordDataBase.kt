@@ -57,7 +57,7 @@ abstract class WordDataBase : RoomDatabase() {
 
         suspend fun populateDatabase(wordDao: WordDao) {
 
-            var word = Word("SALUDOS", "saludo", R.drawable.five)
+            var word = Word("SALUDOS", "saludo", R.drawable.handshake)
             wordDao.insert(word)
 
             word = Word(  "MESES Y DIAS", "calendario", R.drawable.calendar)
@@ -66,7 +66,7 @@ abstract class WordDataBase : RoomDatabase() {
             word = Word(  "COLORES", "color", R.drawable.rgb)
             wordDao.insert(word)
 
-            word = Word( "COMIDAS", "comida", R.drawable.dish)
+            word = Word( "COMIDAS", "comida", R.drawable.diet)
             wordDao.insert(word)
 
             word = Word(  "NUMEROS", "numero",R.drawable.number)
@@ -99,7 +99,7 @@ abstract class WordDataBase : RoomDatabase() {
 
             //SALUDOS
 
-            var senas = Senas(  "Hola",R.drawable.abc_cab_background_top_material, "saludo",false)
+            var senas = Senas(  "Hola",R.drawable.abc_cab_background_top_material, "saludo",true)
             senasDao.insert(senas)
 
             senas = Senas(  "Buenos dias",R.drawable.abc_cab_background_top_material, "saludo",false)
@@ -111,7 +111,7 @@ abstract class WordDataBase : RoomDatabase() {
             senas = Senas(  "Buenas tardes",R.drawable.abc_cab_background_top_material, "saludo",false)
             senasDao.insert(senas)
 
-            senas = Senas(  "¿Como estas?",R.drawable.abc_cab_background_top_material, "saludo",false)
+            senas = Senas(  "¿Como estas?",R.drawable.abc_cab_background_top_material, "saludo",true)
             senasDao.insert(senas)
 
             senas = Senas(  "Bien",R.drawable.abc_cab_background_top_material,"saludo",false)
@@ -123,7 +123,7 @@ abstract class WordDataBase : RoomDatabase() {
             senas = Senas(  "¿Como te llamas?",R.drawable.abc_cab_background_top_material, "saludo",false)
             senasDao.insert(senas)
 
-            senas = Senas(  "Mi nombre es",R.drawable.abc_cab_background_top_material, "saludo",false)
+            senas = Senas(  "Mi nombre es",R.drawable.abc_cab_background_top_material, "saludo",true)
             senasDao.insert(senas)
 
             senas = Senas(  "Mucho gusto",R.drawable.abc_cab_background_top_material, "saludo",false)

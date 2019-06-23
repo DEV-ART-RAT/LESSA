@@ -9,10 +9,7 @@ import androidx.recyclerview.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
-import android.widget.ImageView
-import android.widget.LinearLayout
-import android.widget.TextView
+import android.widget.*
 import com.DevRAT.lessa.Database.Entities.Senas
 import com.DevRAT.lessa.Database.Entities.Word
 import com.DevRAT.lessa.R
@@ -30,6 +27,7 @@ abstract class SenaAdapter internal constructor(
     inner class WordViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val tv_sena: TextView = itemView.findViewById(R.id.tv_sena)
         val sena_container:LinearLayout = itemView.findViewById(R.id.ly_sena_container)
+        val likeButton: ImageButton = itemView.findViewById(R.id.like)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): WordViewHolder {
@@ -41,6 +39,17 @@ abstract class SenaAdapter internal constructor(
     override fun onBindViewHolder(holder: WordViewHolder, position: Int) {
         val current = senas[position]
         holder.tv_sena.text = current.palabra
+        if (current.favorito){
+            holder.likeButton.setImageResource(R.drawable.likeon)
+            holder.likeButton.setOnClickListener(View.OnClickListener {
+                holder.likeButton.setImageResource(R.drawable.like)
+            })
+        } else {
+            holder.likeButton.setOnClickListener(View.OnClickListener {
+                holder.likeButton.setImageResource(R.drawable.likeon)
+            })
+        }
+
         addListener(holder,current.palabra)
 
     }
