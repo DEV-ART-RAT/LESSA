@@ -57,40 +57,40 @@ abstract class WordDataBase : RoomDatabase() {
 
         suspend fun populateDatabase(wordDao: WordDao) {
 
-            var word = Word("SALUDOS", "saludo", R.drawable.abc_ab_share_pack_mtrl_alpha)
+            var word = Word("SALUDOS", "saludo", R.drawable.five)
             wordDao.insert(word)
 
-            word = Word(  "MESES Y DIAS", "calendario", R.drawable.abc_ab_share_pack_mtrl_alpha)
+            word = Word(  "MESES Y DIAS", "calendario", R.drawable.calendar)
             wordDao.insert(word)
 
-            word = Word(  "COLORES", "color", R.drawable.abc_ab_share_pack_mtrl_alpha)
+            word = Word(  "COLORES", "color", R.drawable.rgb)
             wordDao.insert(word)
 
-            word = Word( "COMIDAS", "comida", R.drawable.abc_ab_share_pack_mtrl_alpha)
+            word = Word( "COMIDAS", "comida", R.drawable.dish)
             wordDao.insert(word)
 
-            word = Word(  "NUMEROS", "numero",R.drawable.abc_ab_share_pack_mtrl_alpha)
+            word = Word(  "NUMEROS", "numero",R.drawable.number)
             wordDao.insert(word)
 
-            word = Word( "VESTUARIO Y ACCESORIOS", "ropa", R.drawable.abc_ab_share_pack_mtrl_alpha)
+            word = Word( "VESTUARIO Y ACCESORIOS", "ropa", R.drawable.laundry)
             wordDao.insert(word)
 
-            word = Word( "FAMILIA", "familia", R.drawable.abc_ab_share_pack_mtrl_alpha)
+            word = Word( "FAMILIA", "familia", R.drawable.family)
             wordDao.insert(word)
 
-            word = Word( "VERBOS", "verbos", R.drawable.abc_ab_share_pack_mtrl_alpha)
+            word = Word( "VERBOS", "verbos", R.drawable.running)
             wordDao.insert(word)
 
-            word = Word( "OBJETOS COMUNES", "comunes", R.drawable.abc_ab_share_pack_mtrl_alpha)
+            word = Word( "OBJETOS COMUNES", "comunes", R.drawable.desk)
             wordDao.insert(word)
 
-            word = Word(  "ESTADOS CIVILES", "estados",R.drawable.abc_ab_share_pack_mtrl_alpha)
+            word = Word(  "ESTADOS CIVILES", "estados",R.drawable.rings)
             wordDao.insert(word)
 
-            word = Word(  "OFICIOS", "oficios", R.drawable.abc_ab_share_pack_mtrl_alpha)
+            word = Word(  "OFICIOS", "oficios", R.drawable.farmer)
             wordDao.insert(word)
 
-            word = Word(  "PROFESIONES", "profeciones", R.drawable.abc_ab_share_pack_mtrl_alpha)
+            word = Word(  "PROFESIONES", "profeciones", R.drawable.doctor)
             wordDao.insert(word)
         }
 

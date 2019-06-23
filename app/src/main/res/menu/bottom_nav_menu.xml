@@ -1,10 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <item android:title="@string/title_test" android:id="@+id/action_test" android:icon="@drawable/ic_dashboard_black_24dp"/>
+    <item android:title="@string/title_test" android:id="@+id/action_test"
+          android:icon="@drawable/search"/>
     <item android:title="@string/title_home" android:id="@+id/action_home"
-          android:icon="@drawable/ic_home_black_24dp"/>
-    <item android:title="@string/title_perfil" android:id="@+id/action_profile" android:icon="@drawable/ic_dashboard_black_24dp"/>
+          android:icon="@drawable/home"/>
+    <item android:title="@string/title_perfil" android:id="@+id/action_profile"
+          android:icon="@drawable/avatar"/>
 
 
 </menu>
