@@ -58,7 +58,7 @@ class GoogleSingInActivity : AppCompatActivity(), View.OnClickListener, GoogleAp
         // [START config_signin]
         // Configure Google Sign In
         val progressDialog = ProgressDialog(this)
-        progressDialog.setMessage("chotto matte kudasai")
+        progressDialog.setMessage("Un momento porfavor")
         progressDialog.show()
 
         val gso = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)

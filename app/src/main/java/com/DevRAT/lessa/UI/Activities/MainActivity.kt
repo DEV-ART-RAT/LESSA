@@ -24,6 +24,7 @@ import com.google.android.gms.auth.api.signin.GoogleSignInAccount
 /*
 SHA1: 71:18:89:C4:84:6A:DF:78:8A:31:B8:48:7D:32:B9:8C:86:53:0A:63
 SHA-256: 89:2D:9B:78:B5:A4:49:11:D5:D6:97:0D:9B:FE:E4:54:EB:E5:52:5D:91:C0:56:5D:9E:78:39:F5:F2:AE:24:6B
+<div>Icons made by <a href="https://www.flaticon.com/authors/gregor-cresnar" title="Gregor Cresnar">Gregor Cresnar</a> from <a href="https://www.flaticon.com/"             title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/"             title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></div>
  */
 
 

@@ -222,8 +222,7 @@ abstract class WordDataBase : RoomDatabase() {
 
             //COMIDAS
 
-
-            senas = Senas(  "Pupusas",R.drawable.abc_cab_background_top_material, "saludo",false)
+            senas = Senas(  "Pupusas",R.drawable.abc_cab_background_top_material, "comida" ,false)
             senasDao.insert(senas)
 
             senas = Senas(  "Pizza",R.drawable.abc_cab_background_top_material, "comida",false)

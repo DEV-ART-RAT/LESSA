@@ -11,4 +11,15 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content" android:id="@+id/tv_sena" android:textColor="#FD2B2B2B"
             android:textSize="24sp" android:paddingLeft="30dp" android:paddingTop="10dp" android:paddingBottom="10dp"/>
+    <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="1dp">
+        <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" android:background="#6BB3B2B2" android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp">
+        </LinearLayout>
+    </LinearLayout>
 </LinearLayout>

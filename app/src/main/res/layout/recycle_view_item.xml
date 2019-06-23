@@ -16,7 +16,7 @@
         <LinearLayout
                 android:orientation="vertical"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" android:gravity="center">
+                android:layout_height="match_parent" android:gravity="center" android:background="#E4E2E2">
             <ImageView
                     android:id="@+id/img_categoria"
                     android:layout_width="75dp"
