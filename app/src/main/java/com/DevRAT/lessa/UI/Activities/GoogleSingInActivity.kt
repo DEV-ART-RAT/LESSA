@@ -57,9 +57,7 @@ class GoogleSingInActivity : AppCompatActivity(), View.OnClickListener, GoogleAp
 
         // [START config_signin]
         // Configure Google Sign In
-        val progressDialog = ProgressDialog(this)
-        progressDialog.setMessage("Un momento porfavor")
-        progressDialog.show()
+
 
         val gso = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
             .requestIdToken(getString(R.string.default_web_client_id))
@@ -84,6 +82,9 @@ class GoogleSingInActivity : AppCompatActivity(), View.OnClickListener, GoogleAp
         //intent.getIntExtra("CODIGO")
 
         if(intent.extras["CODIGO"] == 1){
+            val progressDialog = ProgressDialog(this)
+            progressDialog.setMessage("Un momento porfavor")
+            progressDialog.show()
             signIn()
         } else{
             signOut()
@@ -128,11 +129,12 @@ class GoogleSingInActivity : AppCompatActivity(), View.OnClickListener, GoogleAp
                 firebaseAuthWithGoogle(account!!)
                 //Toast.makeText(applicationContext, "SignIn: susses ;v    !" + result.status,
                    // Toast.LENGTH_LONG).show()
+                //setResult(1)
             } else {
                 // failed -> update UI
                 //updateUI(null)
                 //Toast.makeText(applicationContext, "SignIn: failed init!" + result.status + "finshi result",                    Toast.LENGTH_LONG).show()
-                setResult(1 )
+                setResult(2)
                 finish()
             }
         }
@@ -150,19 +152,22 @@ class GoogleSingInActivity : AppCompatActivity(), View.OnClickListener, GoogleAp
         auth.signInWithCredential(credential)
             .addOnCompleteListener(this) { task ->
                 if (task.isSuccessful) {
+                    setResult(1)
+                    finish()
                     // Sign in success, update UI with the signed-in user's information
                     //Toast.makeText(applicationContext, "secion ya iniciada",                        Toast.LENGTH_LONG).show()
                     //Log.d(TAG, "signInWithCredential:success " + auth.currentUser.toString())
-                    val user = auth.currentUser
+                    //val user = auth.currentUser
                     //updateUI(user)
-                    setResult(1 )
+
                 } else {
                     // If sign in fails, display a message to the user.
-                    Log.w(TAG, "signInWithCredential:failure", task.exception)
+                    //Log.w(TAG, "signInWithCredential:failure", task.exception)
                     //Snackbar.make(main_layout, "Authentication Failed.", Snackbar.LENGTH_SHORT).show()
                     //updateUI(null)
                     Toast.makeText(applicationContext, "NO tiene conección a Internet",Toast.LENGTH_LONG).show()
-                    setResult(2 )
+                    setResult(2)
+                    finish()
                 }
 
                 // [START_EXCLUDE]
@@ -170,7 +175,7 @@ class GoogleSingInActivity : AppCompatActivity(), View.OnClickListener, GoogleAp
                 // [END_EXCLUDE]
             }
 
-        finish()
+        //finish()
     }
     // [END auth_with_google]
 

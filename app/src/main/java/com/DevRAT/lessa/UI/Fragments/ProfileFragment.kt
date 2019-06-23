@@ -33,30 +33,26 @@ class ProfileFragment : Fragment() {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         return inflater.inflate(R.layout.fragment_profile, container, false).apply {
-            actividad_session_lanzar2.text = FirebaseAuth.getInstance().currentUser?.email.toString()//auth?.email.toString()
-
-
             actividad_session_lanzar.setOnClickListener {
-                //startActivity(Intent(conext, GoogleSingInActivity::class.java))
                 startActivityForResult(Intent(conext, GoogleSingInActivity::class.java).putExtra("CODIGO",1), 1)
-
             }
             boton_salir_google.setOnClickListener {
                 startActivityForResult(Intent(conext, GoogleSingInActivity::class.java).putExtra("CODIGO",2), 2)
             }
             if(GoogleSignIn.getLastSignedInAccount(conext)!=null){
-                actividad_session_lanzar.visibility =View.INVISIBLE
-                actividad_session_lanzar.setSize(0)
+                val account =GoogleSignIn.getLastSignedInAccount(conext)
+                actividad_session_lanzar2.text = account?.email.toString()//auth?.email.toString()
+                actividad_session_lanzar.visibility =View.GONE
                 boton_salir_google.visibility =View.VISIBLE
                 actividad_session_lanzar2.visibility = View.VISIBLE
-                        Glide.with(this).load(FirebaseAuth.getInstance().currentUser?.providerData?.get(0)?.photoUrl.toString()).into(contenedor_de_foto_perfil)
+                Glide.with(this).load(account?.photoUrl.toString()).into(contenedor_de_foto_perfil)
 
             }
             else{
-                actividad_session_lanzar.visibility =View.VISIBLE
+                actividad_session_lanzar.visibility =View.VISIBLE//auth?.email.toString()
                 boton_salir_google.visibility =View.INVISIBLE
                 actividad_session_lanzar2.visibility = View.INVISIBLE
-                contenedor_de_foto_perfil.setImageResource(R.drawable.design_snackbar_background)
+                contenedor_de_foto_perfil.visibility = View.GONE//Glide.with(this).load(FirebaseAuth.getInstance().currentUser?.providerData?.get(0)?.photoUrl.toString()).into(contenedor_de_foto_perfil)
 
             }
 
@@ -66,23 +62,26 @@ class ProfileFragment : Fragment() {
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
         //Toast.makeText(conext, "Cai aqui :v" ,            Toast.LENGTH_LONG).show()
+
         if(resultCode==1){
+            //--------------si la session se inicia correctamente----------------
             val account =GoogleSignIn.getLastSignedInAccount(conext)
-            actividad_session_lanzar2.text = account?.email.toString()//auth?.email.toString()
-            actividad_session_lanzar.visibility =View.INVISIBLE
+            actividad_session_lanzar2.text = account?.email.toString()
+            actividad_session_lanzar.visibility =View.GONE
             boton_salir_google.visibility =View.VISIBLE
             actividad_session_lanzar2.visibility = View.VISIBLE
-
             Glide.with(this).load(account?.photoUrl.toString()).into(contenedor_de_foto_perfil)
-
+            contenedor_de_foto_perfil.visibility = View.VISIBLE
+            //--------------------------------------------------------------------
         }
         else{
+            //--------------si algo falla al iniciar session----------------------
             actividad_session_lanzar.visibility =View.VISIBLE//auth?.email.toString()
-            boton_salir_google.visibility =View.INVISIBLE
-            actividad_session_lanzar2.visibility = View.INVISIBLE
-
-            Glide.with(this).load(FirebaseAuth.getInstance().currentUser?.providerData?.get(0)?.photoUrl.toString()).into(contenedor_de_foto_perfil)
-
+            boton_salir_google.visibility =View.GONE
+            actividad_session_lanzar2.visibility = View.GONE
+            contenedor_de_foto_perfil.visibility = View.GONE
+            //Glide.with(this).load(FirebaseAuth.getInstance().currentUser?.providerData?.get(0)?.photoUrl.toString()).into(contenedor_de_foto_perfil)
+            //--------------------------------------------------------------------
         }
 
 
