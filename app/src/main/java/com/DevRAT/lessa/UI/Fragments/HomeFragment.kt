@@ -24,7 +24,8 @@ class HomeFragment : Fragment(){
 
 
     private var listener: OnFragmentInteractionListener? = null
-    private lateinit var wordViewModel: WordViewModel
+
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -74,6 +75,8 @@ class HomeFragment : Fragment(){
                 arguments = Bundle().apply {
                 }
             }
+
+        var wordViewModel: WordViewModel? = null
     }
 
     fun initAll(view: View) {
@@ -88,7 +91,7 @@ class HomeFragment : Fragment(){
                 seña: Int
             ) {
                 holder.word_container.setOnClickListener {
-                    wordViewModel.callCategory(Categoria)
+                    wordViewModel!!.callCategory(Categoria)
                     val fragment = ListaFragment.newInstance()
                     fragmentManager!!.beginTransaction().replace(R.id.main_container,fragment).addToBackStack("").commit()
                 }
@@ -101,7 +104,7 @@ class HomeFragment : Fragment(){
 
         wordViewModel = ViewModelProviders.of(this).get(WordViewModel::class.java)
 
-        wordViewModel.allWords.observe(this, Observer { words ->
+        wordViewModel!!.allWords.observe(this, Observer { words ->
             // Update the cached copy of the words in the adapter.
             words?.let { adapter.setWords(it) }
         })

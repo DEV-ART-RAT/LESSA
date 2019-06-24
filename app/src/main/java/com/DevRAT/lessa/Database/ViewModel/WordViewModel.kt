@@ -19,7 +19,13 @@ class WordViewModel (application: Application): AndroidViewModel(application) {
 
     companion object {
         var allPalabras: LiveData<List<Senas>>? = null
+
     }
+
+    fun updateSena(senas: Senas) = viewModelScope.launch {
+        senasRepository.update(senas)
+    }
+
 
 
     init {
@@ -28,6 +34,8 @@ class WordViewModel (application: Application): AndroidViewModel(application) {
         wordRepository = WordRepository(wordDao)
         senasRepository = SenasRepository(senasDao)
         allWords = wordRepository.allWord
+
+
 
 
     }

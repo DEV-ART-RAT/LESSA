@@ -10,6 +10,7 @@ class SenasRepository (private val senasDao: SenasDao) {
 
     fun allCategoria(catergoria:String): LiveData<List<Senas>> = senasDao.getCategoria( catergoria)
 
+    /*fun setFavorite(favorite : Boolean, palabra :String)= senasDao.upateFavorito(favorite, palabra)*/
 
     suspend fun insert(senas: Senas) {
         senasDao.insert(senas)

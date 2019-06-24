@@ -18,6 +18,10 @@ interface SenasDao {
     @Query("SELECT * from senas_table where favorito ")
     fun getFavoritos(): LiveData<List<Senas>>
 
+
+    /*@Query("UPDATE senas_table set favorito = :favorito where palabra = :palabra")
+    fun upateFavorito(favorito:Boolean,palabra : String): Boolean*/
+
     @Update(onConflict = OnConflictStrategy.REPLACE)
     suspend fun update (senas: Senas)
 
