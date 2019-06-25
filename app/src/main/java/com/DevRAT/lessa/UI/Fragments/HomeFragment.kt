@@ -70,14 +70,12 @@ class HomeFragment : Fragment(){
     }
 
     companion object {
-        @JvmStatic
         fun newInstance(context: Context) =
             HomeFragment().apply {
                 this.conext = context
                 arguments = Bundle().apply {
                 }
             }
-
         var wordViewModel: WordViewModel? = null
     }
 

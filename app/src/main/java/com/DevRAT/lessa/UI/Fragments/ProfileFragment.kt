@@ -19,6 +19,7 @@ import com.DevRAT.lessa.Database.ViewModel.SenasViewModel
 import com.DevRAT.lessa.R
 import com.DevRAT.lessa.UI.Activities.GoogleSingInActivity
 import com.DevRAT.lessa.UI.Activities.MainActivity
+import com.DevRAT.lessa.UI.Activities.SenaActivity
 import com.DevRAT.lessa.UI.Adapter.SenasAdapter
 import com.bumptech.glide.Glide
 import com.google.android.gms.auth.api.signin.GoogleSignIn
@@ -117,18 +118,16 @@ class ProfileFragment : Fragment() {
     }
 
     private fun updateRecycler(list: List<Senas>) {
-        if (rv.adapter == null) {
+
             rv.apply {
                 setHasFixedSize(true)
                 adapter = SenasAdapter(list) {
-                    Log.d("com.DevRAT.lessa", "Toco $it")
+                    SenaActivity.sena = it
+                    val intent : Intent = Intent(context, SenaActivity::class.java)
+                    startActivity(intent)
                 }
                 layoutManager = LinearLayoutManager(conext)
             }
-        } else {
-            val adapter = rv.adapter as SenasAdapter
-            adapter.senas = list
-            adapter.notifyDataSetChanged()
-        }
+
     }
 }
