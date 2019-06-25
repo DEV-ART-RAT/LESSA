@@ -3,13 +3,23 @@ package com.DevRAT.lessa.UI.Fragments
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.LifecycleOwner
+import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProviders
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import com.DevRAT.lessa.Database.Entities.Senas
+import com.DevRAT.lessa.Database.ViewModel.SenasViewModel
 import com.DevRAT.lessa.R
 import com.DevRAT.lessa.UI.Activities.GoogleSingInActivity
+import com.DevRAT.lessa.UI.Activities.MainActivity
+import com.DevRAT.lessa.UI.Adapter.SenasAdapter
 import com.bumptech.glide.Glide
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount
@@ -24,15 +34,31 @@ class ProfileFragment : Fragment() {
     var auth: GoogleSignInAccount? = null
      var  conext :Context? =null
 
+    private lateinit var vm: SenasViewModel
+    private lateinit var rv: RecyclerView
+    private lateinit var observer : Observer<List<Senas>>
+
     companion object {
         fun newInstance(auth: GoogleSignInAccount?,context : Context): ProfileFragment = ProfileFragment().apply {
             this.auth = auth
             this.conext = context
+
+
         }
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         return inflater.inflate(R.layout.fragment_profile, container, false).apply {
+
+            vm = ViewModelProviders.of(conext as MainActivity).get(SenasViewModel::class.java)
+            rv = recycle_view_profile
+            vm.load()
+            observer = Observer<List<Senas>> {
+                updateRecycler(it)
+            }
+            SenasViewModel.senass?.observe(conext as LifecycleOwner, observer)
+
+
             actividad_session_lanzar.setOnClickListener {
                 startActivityForResult(Intent(conext, GoogleSingInActivity::class.java).putExtra("CODIGO",1), 1)
             }
@@ -46,6 +72,8 @@ class ProfileFragment : Fragment() {
                 boton_salir_google.visibility =View.VISIBLE
                 actividad_session_lanzar2.visibility = View.VISIBLE
                 Glide.with(this).load(account?.photoUrl.toString()).into(contenedor_de_foto_perfil)
+                //val fragment = favoritosList.newInstance()
+                //fragmentManager!!.beginTransaction().replace(R.id.recycle_view_profile,fragment).addToBackStack("").commit()
 
             }
             else{
@@ -85,5 +113,21 @@ class ProfileFragment : Fragment() {
         }
 
 
+    }
+
+    private fun updateRecycler(list: List<Senas>) {
+        if (rv.adapter == null) {
+            rv.apply {
+                setHasFixedSize(true)
+                adapter = SenasAdapter(list) {
+                    Log.d("com.DevRAT.lessa", "Toco $it")
+                }
+                layoutManager = LinearLayoutManager(conext)
+            }
+        } else {
+            val adapter = rv.adapter as SenasAdapter
+            adapter.senas = list
+            adapter.notifyDataSetChanged()
+        }
     }
 }
