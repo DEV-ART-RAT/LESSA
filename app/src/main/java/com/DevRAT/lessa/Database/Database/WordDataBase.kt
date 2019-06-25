@@ -94,34 +94,34 @@ abstract class WordDataBase : RoomDatabase() {
 
             //SALUDOS
 
-            var senas = Senas(  "Hola",R.drawable.abc_cab_background_top_material, "saludo",false)
+            var senas = Senas(  "Hola",R.drawable.gif_hola, "saludo",false)
             senasDao.insert(senas)
 
-            senas = Senas(  "Buenos dias",R.drawable.abc_cab_background_top_material, "saludo",false)
+            senas = Senas(  "Buenos dias",R.drawable.gif_buenosdias, "saludo",false)
             senasDao.insert(senas)
 
-            senas = Senas(  "Buenas noches",R.drawable.abc_cab_background_top_material, "saludo",false)
+            senas = Senas(  "Buenas noches",R.drawable.gif_buenasnoches, "saludo",false)
             senasDao.insert(senas)
 
-            senas = Senas(  "Buenas tardes",R.drawable.abc_cab_background_top_material, "saludo",false)
+            senas = Senas(  "Buenas tardes",R.drawable.gif_buenastardes, "saludo",false)
             senasDao.insert(senas)
 
-            senas = Senas(  "¿Como estas?",R.drawable.abc_cab_background_top_material, "saludo",false)
+            senas = Senas(  "¿Como estas?",R.drawable.gif_comoestas, "saludo",false)
             senasDao.insert(senas)
 
-            senas = Senas(  "Bien",R.drawable.abc_cab_background_top_material,"saludo",false)
+            senas = Senas(  "Bien",R.drawable.gif_bien,"saludo",false)
             senasDao.insert(senas)
 
-            senas = Senas(  "Mal",R.drawable.abc_cab_background_top_material, "saludo",false)
+            senas = Senas(  "Mal",R.drawable.gif_mal, "saludo",false)
             senasDao.insert(senas)
 
-            senas = Senas(  "¿Como te llamas?",R.drawable.abc_cab_background_top_material, "saludo",false)
+            senas = Senas(  "¿Como te llamas?",R.drawable.gif_cualestunombre, "saludo",false)
             senasDao.insert(senas)
 
-            senas = Senas(  "Mi nombre es",R.drawable.abc_cab_background_top_material, "saludo",false)
+            senas = Senas(  "Mi nombre es",R.drawable.gif_minombrees, "saludo",false)
             senasDao.insert(senas)
 
-            senas = Senas(  "Mucho gusto",R.drawable.abc_cab_background_top_material, "saludo",false)
+            senas = Senas(  "Mucho gusto",R.drawable.gif_muchogusto, "saludo",false)
             senasDao.insert(senas)
 
             //CALENDARIO

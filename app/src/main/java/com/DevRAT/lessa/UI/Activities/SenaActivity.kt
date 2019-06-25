@@ -14,7 +14,8 @@ class SenaActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_sena).apply {
-            textView2.text = sena?.palabra
+            tv_nameSena.text = sena?.palabra
+            gifSena.setImageResource(sena?.seña!!)
         }
 
     }
