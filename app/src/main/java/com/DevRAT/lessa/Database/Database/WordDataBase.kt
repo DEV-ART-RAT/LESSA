@@ -57,41 +57,36 @@ abstract class WordDataBase : RoomDatabase() {
 
         suspend fun populateDatabase(wordDao: WordDao) {
 
-            var word = Word("SALUDOS", "saludo", R.drawable.handshake)
+            var word = Word("SALUDOS", "saludo", R.drawable.icon_handshake)
             wordDao.insert(word)
 
-            word = Word(  "MESES Y DIAS", "calendario", R.drawable.calendar)
+            word = Word(  "MESES Y DIAS", "calendario", R.drawable.icon_calendar)
             wordDao.insert(word)
 
-            word = Word(  "COLORES", "color", R.drawable.rgb)
+            word = Word(  "COLORES", "color", R.drawable.icon_rgb)
             wordDao.insert(word)
 
-            word = Word( "COMIDAS", "comida", R.drawable.diet)
+            word = Word( "COMIDAS", "comida", R.drawable.icon_diet)
             wordDao.insert(word)
 
-            word = Word(  "NUMEROS", "numero",R.drawable.number)
+            word = Word(  "NUMEROS", "numero",R.drawable.icon_number)
             wordDao.insert(word)
 
-            word = Word( "VESTUARIO Y ACCESORIOS", "ropa", R.drawable.laundry)
+            word = Word( "VESTUARIO Y ACCESORIOS", "ropa", R.drawable.icon_laundry)
             wordDao.insert(word)
 
-            word = Word( "FAMILIA", "familia", R.drawable.family)
+            word = Word( "FAMILIA", "familia", R.drawable.icon_family)
             wordDao.insert(word)
 
-            word = Word( "VERBOS", "verbos", R.drawable.running)
+            word = Word( "VERBOS", "verbos", R.drawable.icon_rgb)
             wordDao.insert(word)
 
-            word = Word( "OBJETOS COMUNES", "comunes", R.drawable.desk)
+            word = Word( "OBJETOS COMUNES", "comunes", R.drawable.icon_desk)
             wordDao.insert(word)
 
-            word = Word(  "ESTADOS CIVILES", "estados",R.drawable.rings)
+            word = Word(  "TRABAJOS", "trabajos", R.drawable.icon_farmer)
             wordDao.insert(word)
 
-            word = Word(  "OFICIOS", "oficios", R.drawable.farmer)
-            wordDao.insert(word)
-
-            word = Word(  "PROFESIONES", "profeciones", R.drawable.doctor)
-            wordDao.insert(word)
         }
 
 
@@ -99,7 +94,7 @@ abstract class WordDataBase : RoomDatabase() {
 
             //SALUDOS
 
-            var senas = Senas(  "Hola",R.drawable.abc_cab_background_top_material, "saludo",true)
+            var senas = Senas(  "Hola",R.drawable.abc_cab_background_top_material, "saludo",false)
             senasDao.insert(senas)
 
             senas = Senas(  "Buenos dias",R.drawable.abc_cab_background_top_material, "saludo",false)
@@ -111,7 +106,7 @@ abstract class WordDataBase : RoomDatabase() {
             senas = Senas(  "Buenas tardes",R.drawable.abc_cab_background_top_material, "saludo",false)
             senasDao.insert(senas)
 
-            senas = Senas(  "¿Como estas?",R.drawable.abc_cab_background_top_material, "saludo",true)
+            senas = Senas(  "¿Como estas?",R.drawable.abc_cab_background_top_material, "saludo",false)
             senasDao.insert(senas)
 
             senas = Senas(  "Bien",R.drawable.abc_cab_background_top_material,"saludo",false)
@@ -123,7 +118,7 @@ abstract class WordDataBase : RoomDatabase() {
             senas = Senas(  "¿Como te llamas?",R.drawable.abc_cab_background_top_material, "saludo",false)
             senasDao.insert(senas)
 
-            senas = Senas(  "Mi nombre es",R.drawable.abc_cab_background_top_material, "saludo",true)
+            senas = Senas(  "Mi nombre es",R.drawable.abc_cab_background_top_material, "saludo",false)
             senasDao.insert(senas)
 
             senas = Senas(  "Mucho gusto",R.drawable.abc_cab_background_top_material, "saludo",false)
@@ -234,12 +229,6 @@ abstract class WordDataBase : RoomDatabase() {
             senas = Senas(  "Hamburguesa",R.drawable.abc_cab_background_top_material, "comida",false)
             senasDao.insert(senas)
 
-            senas = Senas(  "Salsa",R.drawable.abc_cab_background_top_material, "comida",false)
-            senasDao.insert(senas)
-
-            senas = Senas(  "Curtidos",R.drawable.abc_cab_background_top_material,"comida",false)
-            senasDao.insert(senas)
-
             senas = Senas(  "Arroz",R.drawable.abc_cab_background_top_material, "comida",false)
             senasDao.insert(senas)
 
@@ -258,7 +247,7 @@ abstract class WordDataBase : RoomDatabase() {
             senas = Senas(  "Agua",R.drawable.abc_cab_background_top_material, "comida",false)
             senasDao.insert(senas)
 
-            senas = Senas(  "Fresco",R.drawable.abc_cab_background_top_material, "comida",false)
+            senas = Senas(  "Jugo de naranja",R.drawable.abc_cab_background_top_material, "comida",false)
             senasDao.insert(senas)
 
             senas = Senas(  "Pan dulce",R.drawable.abc_cab_background_top_material, "comida",false)
@@ -267,13 +256,7 @@ abstract class WordDataBase : RoomDatabase() {
             senas = Senas(  "Pan frances",R.drawable.abc_cab_background_top_material,"comida",false)
             senasDao.insert(senas)
 
-            senas = Senas(  "Macarrones",R.drawable.abc_cab_background_top_material, "comida",false)
-            senasDao.insert(senas)
-
             senas = Senas(  "Pollo",R.drawable.abc_cab_background_top_material, "comida",false)
-            senasDao.insert(senas)
-
-            senas = Senas(  "Ensalada",R.drawable.abc_cab_background_top_material, "comida",false)
             senasDao.insert(senas)
 
             senas = Senas(  "Pastel",R.drawable.abc_cab_background_top_material, "comida",false)
@@ -303,65 +286,31 @@ abstract class WordDataBase : RoomDatabase() {
             senas = Senas(  "Tomar",R.drawable.abc_cab_background_top_material, "verbos",false)
             senasDao.insert(senas)
 
-            senas = Senas(  "Cambiar",R.drawable.abc_cab_background_top_material, "verbos",false)
-            senasDao.insert(senas)
-
             senas = Senas(  "Escribir",R.drawable.abc_cab_background_top_material, "verbos",false)
             senasDao.insert(senas)
 
             senas = Senas(  "Leer",R.drawable.abc_cab_background_top_material, "verbos",false)
             senasDao.insert(senas)
 
-            //ESTADOS
 
-            senas = Senas(  "Casado/a",R.drawable.abc_cab_background_top_material, "estados",false)
+            //TRABAJOS
+
+
+            senas = Senas(  "Carpintero/a",R.drawable.abc_cab_background_top_material, "trabajos",false)
             senasDao.insert(senas)
 
-            senas = Senas(  "Divorciado/a",R.drawable.abc_cab_background_top_material, "estados",false)
+            senas = Senas(  "Motorista",R.drawable.abc_cab_background_top_material, "trabajos",false)
             senasDao.insert(senas)
 
-            senas = Senas( "Viudo/a",R.drawable.abc_cab_background_top_material, "estados",false)
+            senas = Senas(  "Profesor/a",R.drawable.abc_cab_background_top_material, "trabajos",false)
             senasDao.insert(senas)
 
-            senas = Senas(  "Soltero/a",R.drawable.abc_cab_background_top_material, "estados",false)
+            senas = Senas(  "Enfermero/a",R.drawable.abc_cab_background_top_material, "trabajos",false)
             senasDao.insert(senas)
 
-            senas = Senas(  "Acompañado/a",R.drawable.abc_cab_background_top_material, "estados",false)
+            senas = Senas(  "Secretario/a",R.drawable.abc_cab_background_top_material, "trabajos",false)
             senasDao.insert(senas)
 
-            //OFICIOS
-
-            senas = Senas(  "Panadero/a",R.drawable.abc_cab_background_top_material, "oficios",false)
-            senasDao.insert(senas)
-
-            senas = Senas(  "Carpintero/a",R.drawable.abc_cab_background_top_material, "oficios",false)
-            senasDao.insert(senas)
-
-            senas = Senas(  "Soldador/a",R.drawable.abc_cab_background_top_material, "oficios",false)
-            senasDao.insert(senas)
-
-            senas = Senas(  "Agricultor/a",R.drawable.abc_cab_background_top_material, "oficios",false)
-            senasDao.insert(senas)
-
-            senas = Senas(  "Motorista",R.drawable.abc_cab_background_top_material, "oficios",false)
-            senasDao.insert(senas)
-
-            //PROFECIONES
-
-            senas = Senas(  "Profesor/a",R.drawable.abc_cab_background_top_material, "profeciones",false)
-            senasDao.insert(senas)
-
-            senas = Senas(  "Doctor/a",R.drawable.abc_cab_background_top_material, "profeciones",false)
-            senasDao.insert(senas)
-
-            senas = Senas(  "Enfermero/a",R.drawable.abc_cab_background_top_material, "profeciones",false)
-            senasDao.insert(senas)
-
-            senas = Senas(  "Secretario/a",R.drawable.abc_cab_background_top_material, "profeciones",false)
-            senasDao.insert(senas)
-
-            senas = Senas(  "Ingeniero/a",R.drawable.abc_cab_background_top_material, "profeciones",false)
-            senasDao.insert(senas)
 
             //COMUNES
 
@@ -383,10 +332,7 @@ abstract class WordDataBase : RoomDatabase() {
             senas = Senas(  "Telefono",R.drawable.abc_cab_background_top_material, "comunes",false)
             senasDao.insert(senas)
 
-            senas = Senas(  "Cartera",R.drawable.abc_cab_background_top_material, "comunes",false)
-            senasDao.insert(senas)
-
-            senas = Senas(  "Carro",R.drawable.abc_cab_background_top_material, "comunes",false)
+            senas = Senas(  "Celular",R.drawable.abc_cab_background_top_material, "comunes",false)
             senasDao.insert(senas)
 
             senas = Senas(  "Bus",R.drawable.abc_cab_background_top_material, "comunes",false)
@@ -402,9 +348,6 @@ abstract class WordDataBase : RoomDatabase() {
             senasDao.insert(senas)
 
             senas = Senas(  "Cuaderno",R.drawable.abc_cab_background_top_material, "comunes",false)
-            senasDao.insert(senas)
-
-            senas = Senas(  "Libro",R.drawable.abc_cab_background_top_material, "comunes",false)
             senasDao.insert(senas)
 
 
@@ -434,12 +377,6 @@ abstract class WordDataBase : RoomDatabase() {
             senas = Senas( "Hija", R.drawable.abc_cab_background_top_material, "familia",false)
             senasDao.insert(senas)
 
-            senas = Senas(  "Prima",R.drawable.abc_cab_background_top_material, "familia",false)
-            senasDao.insert(senas)
-
-            senas = Senas(  "Primo",R.drawable.abc_cab_background_top_material, "familia",false)
-            senasDao.insert(senas)
-
             senas = Senas(  "Tío",R.drawable.abc_cab_background_top_material, "familia",false)
             senasDao.insert(senas)
 
@@ -463,16 +400,10 @@ abstract class WordDataBase : RoomDatabase() {
             senas = Senas(  "Short",R.drawable.abc_cab_background_top_material, "ropa",false)
             senasDao.insert(senas)
 
-            senas = Senas(  "Blusa",R.drawable.abc_cab_background_top_material, "ropa",false)
-            senasDao.insert(senas)
-
             senas = Senas(  "Vestido",R.drawable.abc_cab_background_top_material, "ropa",false)
             senasDao.insert(senas)
 
             senas = Senas(  "Calcetines",R.drawable.abc_cab_background_top_material, "ropa",false)
-            senasDao.insert(senas)
-
-            senas = Senas(  "Zapatos",R.drawable.abc_cab_background_top_material, "ropa",false)
             senasDao.insert(senas)
 
             senas = Senas(  "Cincho",R.drawable.abc_cab_background_top_material, "ropa",false)
@@ -491,9 +422,6 @@ abstract class WordDataBase : RoomDatabase() {
             senasDao.insert(senas)
 
             senas = Senas(  "Reloj",R.drawable.abc_cab_background_top_material, "ropa",false)
-            senasDao.insert(senas)
-
-            senas = Senas(  "Camiseta",R.drawable.abc_cab_background_top_material, "ropa",false)
             senasDao.insert(senas)
 
             //NUMEROS

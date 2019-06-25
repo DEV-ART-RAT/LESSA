@@ -16,6 +16,8 @@ class SenasRepository (private val senasDao: SenasDao) {
         senasDao.insert(senas)
     }
 
+    fun getSena(sena: String): LiveData<Senas> = senasDao.getSena(sena)
+
     suspend fun update(senas: Senas){
         senasDao.update(senas)
     }

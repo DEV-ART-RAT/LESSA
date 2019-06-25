@@ -9,7 +9,7 @@
     <LinearLayout
             android:orientation="horizontal"
             android:layout_width="match_parent"
-            android:layout_height="match_parent" android:padding="5dp">
+            android:layout_height="match_parent" android:padding="5dp" android:background="#FFFFFF">
         <TextView
                 android:text="TextView"
                 android:layout_width="match_parent"
@@ -18,7 +18,7 @@
                 android:paddingBottom="10dp" android:layout_weight="3"/>
         <ImageButton
                 android:layout_width="80dp"
-                android:layout_height="50dp" card_view:srcCompat="@drawable/like" android:id="@+id/like"
+                android:layout_height="50dp" card_view:srcCompat="@drawable/button_like" android:id="@+id/like"
                 android:layout_weight="1" android:background="#02FFFFFF" android:paddingRight="30dp"
                 android:paddingLeft="5dp"/>
     </LinearLayout>

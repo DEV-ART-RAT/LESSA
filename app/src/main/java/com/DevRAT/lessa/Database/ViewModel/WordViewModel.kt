@@ -21,6 +21,7 @@ class WordViewModel(application: Application) : AndroidViewModel(application) {
     companion object{
         var allPalabras : LiveData<List<Senas>>? = null
         var allfavoritos : LiveData<List<Senas>>? = null
+        var getSena: LiveData<Senas>? = null
     }
 
     fun updateSena(senas: Senas) = viewModelScope.launch {
@@ -50,4 +51,6 @@ class WordViewModel(application: Application) : AndroidViewModel(application) {
     fun callFavoritos() {
         //allfavoritos = senasRepository.allFavoritos()
     }
+
+    fun callSena (sena: String) { getSena = senasRepository.getSena(sena)}
 }

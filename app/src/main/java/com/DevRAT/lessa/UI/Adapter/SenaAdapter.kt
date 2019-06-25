@@ -53,7 +53,7 @@ abstract class SenaAdapter internal constructor(
 
             })*/
 
-            holder.likeButton.setImageResource(R.drawable.likeon)
+            holder.likeButton.setImageResource(R.drawable.button_likeon)
             activateB(holder,current)
         } else {
             /*holder.likeButton.setOnClickListener(View.OnClickListener {
@@ -78,7 +78,7 @@ abstract class SenaAdapter internal constructor(
             //Log.d("com.DevRAT.lessa",senas.toString())
             HomeFragment.wordViewModel?.updateSena(Senas(current.palabra,current.seña,current.categoria,false))
             inActivateB(holder, current)
-            holder.likeButton.setImageResource(R.drawable.like)
+            holder.likeButton.setImageResource(R.drawable.button_like)
             //current.favorito=false
             //HomeFragment.wordViewModel?.callCategory("SALUDOS")
         })
@@ -93,7 +93,7 @@ abstract class SenaAdapter internal constructor(
             //
             HomeFragment.wordViewModel?.updateSena(Senas(current.palabra,current.seña,current.categoria,true))
             activateB(holder, current)
-            holder.likeButton.setImageResource(R.drawable.likeon)
+            holder.likeButton.setImageResource(R.drawable.button_likeon)
             //current.favorito=true
             //HomeFragment.wordViewModel?.callCategory("SALUDOS")
             //Log.d("com.DevRAT.lessa",current.toString())
