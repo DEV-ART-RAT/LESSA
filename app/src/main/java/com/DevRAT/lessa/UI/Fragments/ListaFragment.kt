@@ -85,21 +85,5 @@ class ListaFragment : Fragment(){
             adapter.notifyDataSetChanged()
         }
     }
-    fun activateB(holder: SenaAdapter.WordViewHolder, current: Senas){
-
-        holder.likeButton.setOnClickListener(View.OnClickListener {
-            HomeFragment.wordViewModel?.updateSena(Senas(current.palabra,current.seña,current.categoria,false))
-            //inActivateB(holder, current)
-            //holder.likeButton.setImageResource(R.drawable.like)
-        })
-
-    }
-    fun inActivateB(holder: SenaAdapter.WordViewHolder, current: Senas){
-        holder.likeButton.setOnClickListener(View.OnClickListener {
-            HomeFragment.wordViewModel?.updateSena(Senas(current.palabra,current.seña,current.categoria,true))
-            //activateB(holder, current)
-            //holder.likeButton.setImageResource(R.drawable.likeon)
-        })
-    }
 
 }

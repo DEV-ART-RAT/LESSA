@@ -31,17 +31,18 @@ import kotlinx.android.synthetic.main.fragment_profile.view.*
 
 
 class ProfileFragment : Fragment() {
-    var auth: GoogleSignInAccount? = null
-     var  conext :Context? =null
+
 
     private lateinit var vm: SenasViewModel
     private lateinit var rv: RecyclerView
     private lateinit var observer : Observer<List<Senas>>
 
     companion object {
-        fun newInstance(auth: GoogleSignInAccount?,context : Context): ProfileFragment = ProfileFragment().apply {
-            this.auth = auth
-            this.conext = context
+        var auth: GoogleSignInAccount? = null
+        var  conext :Context? =null
+        fun newInstance(authy: GoogleSignInAccount?,context : Context): ProfileFragment = ProfileFragment().apply {
+            auth = authy
+            conext = context
 
 
         }
