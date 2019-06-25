@@ -52,7 +52,7 @@ class ListaFragment : Fragment(){
             updateRecycler(it)
         }
         vm.callCategory(categoria)
-        WordViewModel.allPalabras?.observe(conext as LifecycleOwner, observer)
+        vm.allPalabras.observe(conext as LifecycleOwner, observer)
 
         //return view
     }
@@ -73,22 +73,18 @@ class ListaFragment : Fragment(){
 
 
     private fun updateRecycler(list: List<Senas>) {
-        if (rv.adapter == null) {
+
             rv.apply {
                 setHasFixedSize(true)
                 adapter = SenasAdapter(list) {
-                    wordViewModel?.callSena(it.palabra)
+                    //wordViewModel?.callSena(it.palabra)
                     SenaActivity.sena = it
                     val intent : Intent = Intent(context, SenaActivity::class.java)
                     startActivity(intent)
                 }
                 layoutManager = LinearLayoutManager(conext)
             }
-        } else {
-            val adapter = rv.adapter as SenasAdapter
-            adapter.senas = list
-            adapter.notifyDataSetChanged()
-        }
+
     }
 
 }

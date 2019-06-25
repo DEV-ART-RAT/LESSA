@@ -1,5 +1,6 @@
 package com.DevRAT.lessa.UI.Adapter
 
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -24,6 +25,7 @@ class SenasAdapter(var senas: List<Senas>, private val clickListener: (Senas) ->
 
     class ViewHolder(item: View) : RecyclerView.ViewHolder(item) {
         fun bind(senas: Senas, clickListener: (Senas) -> Unit) = with(itemView) {
+            Log.d("com.DevRAT.lessa",senas.toString())
             tv_sena.text = senas.palabra
             if (senas.favorito){
                 like.setImageResource(R.drawable.button_likeon)

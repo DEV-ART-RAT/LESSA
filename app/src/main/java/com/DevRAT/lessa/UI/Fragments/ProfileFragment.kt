@@ -118,7 +118,7 @@ class ProfileFragment : Fragment() {
     }
 
     private fun updateRecycler(list: List<Senas>) {
-        if (rv.adapter == null) {
+
             rv.apply {
                 setHasFixedSize(true)
                 adapter = SenasAdapter(list) {
@@ -129,10 +129,6 @@ class ProfileFragment : Fragment() {
                 }
                 layoutManager = LinearLayoutManager(conext)
             }
-        } else {
-            val adapter = rv.adapter as SenasAdapter
-            adapter.senas = list
-            adapter.notifyDataSetChanged()
-        }
+
     }
 }
