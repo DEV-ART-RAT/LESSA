@@ -2,102 +2,104 @@ package com.DevRAT.lessa.UI.Fragments
 import android.content.Context
 import android.net.Uri
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import com.DevRAT.lessa.Database.Entities.Senas
+import com.DevRAT.lessa.Database.ViewModel.SenasViewModel
 import com.DevRAT.lessa.Database.ViewModel.WordViewModel
 import com.DevRAT.lessa.R
+import com.DevRAT.lessa.UI.Activities.MainActivity
+import com.DevRAT.lessa.UI.Adapter.SenasAdapter
 import com.example.myapplication.Adapter.SenaAdapter
 import com.example.myapplication.Adapter.WordAdapter
 import kotlinx.android.synthetic.main.fragment_home_.view.*
+import kotlinx.android.synthetic.main.fragment_lista.*
 import kotlinx.android.synthetic.main.fragment_lista.view.*
+import kotlinx.android.synthetic.main.fragment_profile.view.*
 
 
 class ListaFragment : Fragment(){
 
 
-    private var listener: OnFragmentInteractionListener? = null
-    private lateinit var wordViewModel: WordViewModel
+    var  conext :Context? =null
+    lateinit var categoria: String
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {
+    private lateinit var vm: WordViewModel
+    private lateinit var rv: RecyclerView
 
+    private lateinit var observer : Observer<List<Senas>>
+
+
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle? ): View? {
+        return  inflater.inflate(R.layout.fragment_lista, container, false).apply{
+        vm = ViewModelProviders.of(conext as MainActivity).get(WordViewModel::class.java)
+        rv = recyclerviewList
+
+
+        observer = Observer<List<Senas>> {
+            updateRecycler(it)
         }
+        vm.callCategory(categoria)
+        WordViewModel.allPalabras?.observe(conext as LifecycleOwner, observer)
 
+        //return view
+    }
     }
 
-    override fun onCreateView(
-
-
-        inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle? ): View? {
-        var view =  inflater.inflate(R.layout.fragment_lista, container, false)
-        initAll(view)
-        return view
-    }
-
-
-
-    fun onButtonPressed(uri: Uri) {
-        listener?.onFragmentInteraction(uri)
-    }
-
-    override fun onAttach(context: Context) {
-        super.onAttach(context)
-        if (context is OnFragmentInteractionListener) {
-            listener = context
-        } else {
-            throw RuntimeException(context.toString() + " must implement OnFragmentInteractionListener")
-        }
-    }
-
-    override fun onDetach() {
-        super.onDetach()
-        listener = null
-    }
-
-    interface OnFragmentInteractionListener {
-        fun onFragmentInteraction(uri: Uri)
-    }
 
     companion object {
         @JvmStatic
-        fun newInstance() =
+        fun newInstance(context: Context,categoria :String) =
             ListaFragment().apply {
+                this.conext = context
+                this.categoria = categoria
                 arguments = Bundle().apply {
                 }
             }
     }
 
-    fun initAll(view: View) {
 
 
-        val recyclerView = view.recyclerviewList
-        val adapter = object : SenaAdapter(view.context) {
-            override fun addListener(
-                holder: WordViewHolder,
-                palabra: String) {
-                holder.sena_container.setOnClickListener {
+    private fun updateRecycler(list: List<Senas>) {
+        if (rv.adapter == null) {
+            rv.apply {
+                setHasFixedSize(true)
+                adapter = SenasAdapter(list) {
+                    Log.d("com.DevRAT.lessa", "Toco $it")
 
                 }
+                layoutManager = LinearLayoutManager(conext)
             }
-
+        } else {
+            val adapter = rv.adapter as SenasAdapter
+            adapter.senas = list
+            adapter.notifyDataSetChanged()
         }
-        recyclerView.adapter = adapter
-        recyclerView.layoutManager = LinearLayoutManager(view.context)
+    }
+    fun activateB(holder: SenaAdapter.WordViewHolder, current: Senas){
 
-
-        wordViewModel = ViewModelProviders.of(this).get(WordViewModel::class.java)
-
-        WordViewModel.allPalabras?.observe(this, Observer { senas ->
-            senas?.let { adapter.setSenas(it) }
+        holder.likeButton.setOnClickListener(View.OnClickListener {
+            HomeFragment.wordViewModel?.updateSena(Senas(current.palabra,current.seña,current.categoria,false))
+            //inActivateB(holder, current)
+            //holder.likeButton.setImageResource(R.drawable.like)
         })
 
+    }
+    fun inActivateB(holder: SenaAdapter.WordViewHolder, current: Senas){
+        holder.likeButton.setOnClickListener(View.OnClickListener {
+            HomeFragment.wordViewModel?.updateSena(Senas(current.palabra,current.seña,current.categoria,true))
+            //activateB(holder, current)
+            //holder.likeButton.setImageResource(R.drawable.likeon)
+        })
     }
 
 }

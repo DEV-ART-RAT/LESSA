@@ -1,32 +1,32 @@
 package com.DevRAT.lessa.UI.Fragments
 
-
 import android.content.Context
 import android.net.Uri
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
-import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import com.DevRAT.lessa.Database.Entities.Senas
+import com.DevRAT.lessa.Database.ViewModel.SenasViewModel
 import com.DevRAT.lessa.Database.ViewModel.WordViewModel
 import com.DevRAT.lessa.R
-import com.example.myapplication.Adapter.WordAdapter
-import kotlinx.android.synthetic.main.fragment_home_.view.*
+import com.DevRAT.lessa.UI.Adapter.SenasAdapter
+import com.example.myapplication.Adapter.SenaAdapter
+import kotlinx.android.synthetic.main.fragment_lista.*
+import kotlinx.android.synthetic.main.fragment_lista.view.*
+import kotlinx.android.synthetic.main.fragment_profile.*
 
+class favoritosList : Fragment(){
 
-
-
-class HomeFragment : Fragment(){
-
-    private var  conext :Context? =null
 
     private var listener: OnFragmentInteractionListener? = null
-
-
+    private lateinit var wordViewModel: WordViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -40,7 +40,7 @@ class HomeFragment : Fragment(){
 
 
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle? ): View? {
-        var view =  inflater.inflate(R.layout.fragment_home_, container, false)
+        var view =  inflater.inflate(R.layout.fragment_lista, container, false)
         initAll(view)
         return view
     }
@@ -71,47 +71,41 @@ class HomeFragment : Fragment(){
 
     companion object {
         @JvmStatic
-        fun newInstance(context: Context) =
-            HomeFragment().apply {
-                this.conext = context
+        fun newInstance() =
+            ListaFragment().apply {
                 arguments = Bundle().apply {
                 }
             }
-
-        var wordViewModel: WordViewModel? = null
     }
 
     fun initAll(view: View) {
 
 
-        val recyclerView = view.recyclerview
-        val adapter = object : WordAdapter(view.context) {
+        val recyclerView = view.recyclerviewList
+        val adapter = object : SenaAdapter(view.context) {
             override fun addListener(
                 holder: WordViewHolder,
-                palabra: String,
-                Categoria: String,
-                seña: Int
-            ) {
-                holder.word_container.setOnClickListener {
-                    //wordViewModel!!.callCategory(Categoria)
-                    val fragment = ListaFragment.newInstance(conext!!,Categoria)
-                    fragmentManager!!.beginTransaction().replace(R.id.main_container,fragment).addToBackStack("").commit()
+                palabra: String) {
+                holder.sena_container.setOnClickListener {
+
                 }
             }
 
         }
         recyclerView.adapter = adapter
-        recyclerView.layoutManager = GridLayoutManager(view.context,2)
+        recyclerView.layoutManager = LinearLayoutManager(view.context)
 
 
         wordViewModel = ViewModelProviders.of(this).get(WordViewModel::class.java)
+        wordViewModel.callFavoritos()
 
-        wordViewModel!!.allWords.observe(this, Observer { words ->
-            // Update the cached copy of the words in the adapter.
-            words?.let { adapter.setWords(it) }
+        WordViewModel.allfavoritos?.observe(this, Observer { senas ->
+            senas.let { adapter.setSenas(it)
+                //recyclerView.adapter.notifyDataSetChanged()
+            }
+
         })
 
     }
 
 }
-

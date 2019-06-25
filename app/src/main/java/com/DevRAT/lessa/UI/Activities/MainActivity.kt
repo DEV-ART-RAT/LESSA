@@ -28,15 +28,15 @@ SHA-256: 89:2D:9B:78:B5:A4:49:11:D5:D6:97:0D:9B:FE:E4:54:EB:E5:52:5D:91:C0:56:5D
  */
 
 
-class MainActivity : AppCompatActivity(), HomeFragment.OnFragmentInteractionListener, ListaFragment.OnFragmentInteractionListener {
+class MainActivity : AppCompatActivity(), HomeFragment.OnFragmentInteractionListener {
     override fun onFragmentInteraction(uri: Uri) {
 
     }
     private  var user: FirebaseUser? = null
 
     // Firebase instance variables
-    private var mFirebaseAuth: FirebaseAuth? = null
-    private var mFirebaseUser: FirebaseUser? = null
+    //private var mFirebaseAuth: FirebaseAuth? = null
+    //private var mFirebaseUser: FirebaseUser? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -50,7 +50,7 @@ class MainActivity : AppCompatActivity(), HomeFragment.OnFragmentInteractionList
         nav_view.setOnNavigationItemSelectedListener { menuItem ->
             when (menuItem.itemId) {
                 R.id.action_home -> {
-                    val fragment = HomeFragment.newInstance()
+                    val fragment = HomeFragment.newInstance(this)
                     openFragment(fragment)
                     true
                 }
@@ -77,5 +77,8 @@ class MainActivity : AppCompatActivity(), HomeFragment.OnFragmentInteractionList
         transaction.addToBackStack(null)
         transaction.commit()
     }
+
+
+
 
 }

@@ -6,6 +6,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.DevRAT.lessa.Database.Entities.Senas
 import com.DevRAT.lessa.R
+import com.DevRAT.lessa.UI.Fragments.HomeFragment
 import kotlinx.android.synthetic.main.recycler_view_list.view.*
 
 class SenasAdapter(var senas: List<Senas>, private val clickListener: (Senas) -> Unit) :
@@ -26,12 +27,18 @@ class SenasAdapter(var senas: List<Senas>, private val clickListener: (Senas) ->
             tv_sena.text = senas.palabra
             if (senas.favorito){
                 like.setImageResource(R.drawable.likeon)
+                like.setOnClickListener {
+                    HomeFragment.wordViewModel?.updateSena(Senas(senas.palabra,senas.seña,senas.categoria,false))
+                }
             }
             else
             {
                 like.setImageResource(R.drawable.like)
+                like.setOnClickListener {
+                    HomeFragment.wordViewModel?.updateSena(Senas(senas.palabra,senas.seña,senas.categoria,true))
+                }
             }
-            this.setOnClickListener { clickListener(senas) }
+            setOnClickListener { clickListener(senas) }
         }
     }
 }

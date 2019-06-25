@@ -19,6 +19,7 @@ class SenasViewModel (app: Application) : AndroidViewModel(app) {
 
     companion object{
         var senass : LiveData<List<Senas>>? = null
+        var allPalabras : LiveData<List<Senas>>? = null
     }
     //var cJob: Job? = null
 
