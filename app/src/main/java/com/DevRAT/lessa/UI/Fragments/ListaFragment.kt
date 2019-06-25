@@ -78,6 +78,7 @@ class ListaFragment : Fragment(){
                 setHasFixedSize(true)
                 adapter = SenasAdapter(list) {
                     wordViewModel?.callSena(it.palabra)
+                    SenaActivity.sena = it
                     val intent : Intent = Intent(context, SenaActivity::class.java)
                     startActivity(intent)
                 }
