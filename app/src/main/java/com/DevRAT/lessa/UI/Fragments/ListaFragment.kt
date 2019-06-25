@@ -1,5 +1,6 @@
 package com.DevRAT.lessa.UI.Fragments
 import android.content.Context
+import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
 import android.util.Log
@@ -18,7 +19,9 @@ import com.DevRAT.lessa.Database.ViewModel.SenasViewModel
 import com.DevRAT.lessa.Database.ViewModel.WordViewModel
 import com.DevRAT.lessa.R
 import com.DevRAT.lessa.UI.Activities.MainActivity
+import com.DevRAT.lessa.UI.Activities.SenaActivity
 import com.DevRAT.lessa.UI.Adapter.SenasAdapter
+import com.DevRAT.lessa.UI.Fragments.HomeFragment.Companion.wordViewModel
 import com.example.myapplication.Adapter.SenaAdapter
 import com.example.myapplication.Adapter.WordAdapter
 import kotlinx.android.synthetic.main.fragment_home_.view.*
@@ -74,8 +77,9 @@ class ListaFragment : Fragment(){
             rv.apply {
                 setHasFixedSize(true)
                 adapter = SenasAdapter(list) {
-                    Log.d("com.DevRAT.lessa", "Toco $it")
-
+                    wordViewModel?.callSena(it.palabra)
+                    val intent : Intent = Intent(context, SenaActivity::class.java)
+                    startActivity(intent)
                 }
                 layoutManager = LinearLayoutManager(conext)
             }

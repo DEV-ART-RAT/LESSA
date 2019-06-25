@@ -26,14 +26,14 @@ class SenasAdapter(var senas: List<Senas>, private val clickListener: (Senas) ->
         fun bind(senas: Senas, clickListener: (Senas) -> Unit) = with(itemView) {
             tv_sena.text = senas.palabra
             if (senas.favorito){
-                like.setImageResource(R.drawable.likeon)
+                like.setImageResource(R.drawable.button_likeon)
                 like.setOnClickListener {
                     HomeFragment.wordViewModel?.updateSena(Senas(senas.palabra,senas.seña,senas.categoria,false))
                 }
             }
             else
             {
-                like.setImageResource(R.drawable.like)
+                //like.setImageResource(R.drawable.button_like)
                 like.setOnClickListener {
                     HomeFragment.wordViewModel?.updateSena(Senas(senas.palabra,senas.seña,senas.categoria,true))
                 }
