@@ -40,8 +40,8 @@ class ProfileFragment : Fragment() {
     companion object {
         var auth: GoogleSignInAccount? = null
         var  conext :Context? =null
-        fun newInstance(auth1: GoogleSignInAccount?,context : Context): ProfileFragment = ProfileFragment().apply {
-            auth = auth1
+        fun newInstance(authy: GoogleSignInAccount?,context : Context): ProfileFragment = ProfileFragment().apply {
+            auth = authy
             conext = context
 
 
