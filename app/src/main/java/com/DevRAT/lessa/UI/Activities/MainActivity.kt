@@ -87,7 +87,9 @@ class MainActivity : AppCompatActivity(), HomeFragment.OnFragmentInteractionList
             1 -> Snackbar.make(main_container,"Bienvenido", Snackbar.LENGTH_LONG)
                 .setAction("Action", null)
                 .show()
-            2 -> Toast.makeText(this, "Hemos actualizado, bienvenido de vuelta", Toast.LENGTH_SHORT).show()
+            2 -> Snackbar.make(main_container,"Hemos actualizado, disfruta de los cambios", Snackbar.LENGTH_LONG)
+                .setAction("Action", null)
+                .show()
         }
     }
 
