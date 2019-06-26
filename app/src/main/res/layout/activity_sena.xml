@@ -30,7 +30,7 @@
             android:layout_marginTop="8dp" android:layout_height="527dp"
             android:layout_width="318dp" app:layout_constraintHorizontal_bias="0.447"
             app:layout_constraintVertical_bias="0.479"
-            android:src="@drawable/gif_hola"
+            android:src="@drawable/gif_cargando"
             android:id="@+id/gifImageView"/>
     <TextView
             android:text="TextView"
