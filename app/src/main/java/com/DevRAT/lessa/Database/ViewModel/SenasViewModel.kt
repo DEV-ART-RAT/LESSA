@@ -21,23 +21,6 @@ class SenasViewModel (app: Application) : AndroidViewModel(app) {
         var senass : LiveData<List<Senas>>? = null
         var allPalabras : LiveData<List<Senas>>? = null
     }
-    //var cJob: Job? = null
-
-    /*fun fetchMovie(name: String) {
-        cJob?.cancel()
-        cJob = viewModelScope.launch {
-            val result = repository.movieSearch(name)
-            movieList.value = result
-            writeToDb(result)
-        }
-    }*/
-
-    /*private suspend fun writeToDb(data: List<Movie>) {
-        data.forEach {
-            it.date = Date().toString()
-            repository.insert(it)
-        }
-    }*/
 
     fun load() {
 

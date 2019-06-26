@@ -10,7 +10,7 @@ import androidx.room.PrimaryKey
 data class Senas (
     //@PrimaryKey(autoGenerate = true) @ColumnInfo(name = "id" )val id: Int,
     @PrimaryKey @ColumnInfo (name = "Palabra") val palabra: String,
-    @ColumnInfo (name = "seña") val seña: Int,
+    @ColumnInfo (name = "seña") val seña: String,
     @ColumnInfo (name = "categoria") var categoria: String,
     @ColumnInfo (name = "favorito") var favorito: Boolean
 
