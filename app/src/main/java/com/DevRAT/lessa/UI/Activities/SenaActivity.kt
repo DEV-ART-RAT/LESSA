@@ -15,8 +15,10 @@ class SenaActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_sena).apply {
-            Glider.load("https://firebasestorage.googleapis.com/v0/b/lessa-c8cf6.appspot.com/o/senas%2Fgif_hola.gif?alt=media&token=dcb56b97-9fed-4f4c-a074-a584df754b63",gifImageView)
-            textView2.text = sena?.palabra
+            tv_nameSena.text = sena?.palabra
+            //gifSena.setImageResource()
+            Glider.load(sena?.seña!!,gifSena)
+
         }
 
     }
