@@ -10,8 +10,8 @@ interface SenasDao {
     @Query("SELECT * from senas_table where favorito = :flag")
     fun getFavoritos(flag : Boolean): LiveData<List<Senas>>
 
-    @Query("SELECT * from senas_table")
-    fun getWord(): LiveData<List<Senas>>
+    @Query("SELECT * from senas_table order by palabra ASC" )
+    fun getTodo(): LiveData<List<Senas>>
 
     @Insert(onConflict = OnConflictStrategy.IGNORE)
     suspend fun insert(senas: Senas)

@@ -1,42 +1,24 @@
 package com.DevRAT.lessa.UI.Activities
 
 import android.net.Uri
-import android.content.Intent
 import android.os.Bundle
-import android.widget.Toolbar
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import com.DevRAT.lessa.R
 import com.DevRAT.lessa.UI.Fragments.HomeFragment
-import com.DevRAT.lessa.UI.Fragments.ListaFragment
 import com.DevRAT.lessa.UI.Fragments.TestFragment
 import com.DevRAT.lessa.UI.Fragments.ProfileFragment
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.activity_main.nav_view
-import kotlinx.android.synthetic.main.fragment_profile.*
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.auth.FirebaseAuth
 import com.google.android.gms.auth.api.signin.GoogleSignIn
-import com.google.android.gms.auth.api.signin.GoogleSignInAccount
-import android.R.id.edit
-import android.content.SharedPreferences
-import android.graphics.Color
 import com.DevRAT.lessa.BuildConfig
-//import android.R
-import android.util.Log
 import android.view.LayoutInflater
-import android.view.View
-import android.widget.TextView
-import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import com.google.android.material.snackbar.Snackbar
 import kotlinx.android.synthetic.main.welcome_layout.view.*
 
-
-/*
-SHA1: 71:18:89:C4:84:6A:DF:78:8A:31:B8:48:7D:32:B9:8C:86:53:0A:63
-SHA-256: 89:2D:9B:78:B5:A4:49:11:D5:D6:97:0D:9B:FE:E4:54:EB:E5:52:5D:91:C0:56:5D:9E:78:39:F5:F2:AE:24:6B
- */
 
 
 class MainActivity : AppCompatActivity(), HomeFragment.OnFragmentInteractionListener {
@@ -66,7 +48,7 @@ class MainActivity : AppCompatActivity(), HomeFragment.OnFragmentInteractionList
                     true
                 }
                 com.DevRAT.lessa.R.id.action_test -> {
-                    val fragment = TestFragment.newInstance()
+                    val fragment = TestFragment.newInstance(this)
                     openFragment(fragment)
                     true
                 }
@@ -84,9 +66,6 @@ class MainActivity : AppCompatActivity(), HomeFragment.OnFragmentInteractionList
 
         when (getFirstTimeRun()) {
             0 -> welcome_menu()
-            1 -> Snackbar.make(main_container,"Bienvenido", Snackbar.LENGTH_LONG)
-                .setAction("Action", null)
-                .show()
             2 -> Snackbar.make(main_container,"Hemos actualizado, disfruta de los cambios", Snackbar.LENGTH_LONG)
                 .setAction("Action", null)
                 .show()

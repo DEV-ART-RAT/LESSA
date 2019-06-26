@@ -22,7 +22,6 @@ import com.DevRAT.lessa.UI.Activities.MainActivity
 import com.DevRAT.lessa.UI.Activities.SenaActivity
 import com.DevRAT.lessa.UI.Adapter.SenasAdapter
 import com.DevRAT.lessa.UI.Fragments.HomeFragment.Companion.wordViewModel
-import com.example.myapplication.Adapter.SenaAdapter
 import com.example.myapplication.Adapter.WordAdapter
 import kotlinx.android.synthetic.main.fragment_home_.view.*
 import kotlinx.android.synthetic.main.fragment_lista.*

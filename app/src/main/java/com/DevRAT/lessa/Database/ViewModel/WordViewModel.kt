@@ -17,6 +17,7 @@ class WordViewModel(application: Application) : AndroidViewModel(application) {
     private val senasRepository: SenasRepository
     val allWords: LiveData<List<Word>>
     lateinit var allPalabras :  LiveData<List<Senas>>
+    lateinit var alltodo :  LiveData<List<Senas>>
     //val allfavoritos: LiveData<List<Senas>>
 
     companion object{
@@ -53,6 +54,8 @@ class WordViewModel(application: Application) : AndroidViewModel(application) {
     fun callFavoritos() {
         allfavoritos = senasRepository.allFavoritos(true)
     }
-
+    fun alltodo() {
+        alltodo = senasRepository.todaspalabras()
+    }
     fun callSena (sena: String) { getSena = senasRepository.getSena(sena)}
 }

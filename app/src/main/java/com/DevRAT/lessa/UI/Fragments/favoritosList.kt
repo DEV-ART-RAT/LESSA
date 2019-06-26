@@ -16,8 +16,8 @@ import com.DevRAT.lessa.Database.Entities.Senas
 import com.DevRAT.lessa.Database.ViewModel.SenasViewModel
 import com.DevRAT.lessa.Database.ViewModel.WordViewModel
 import com.DevRAT.lessa.R
+import com.DevRAT.lessa.UI.Adapter.SenaAdapter
 import com.DevRAT.lessa.UI.Adapter.SenasAdapter
-import com.example.myapplication.Adapter.SenaAdapter
 import kotlinx.android.synthetic.main.fragment_lista.*
 import kotlinx.android.synthetic.main.fragment_lista.view.*
 import kotlinx.android.synthetic.main.fragment_profile.*
@@ -56,7 +56,7 @@ class favoritosList : Fragment(){
         if (context is OnFragmentInteractionListener) {
             listener = context
         } else {
-            throw RuntimeException(context.toString() + " must implement OnFragmentInteractionListener")
+            throw RuntimeException(context.toString() + " must implement OnFragmentInteractionListener") as Throwable
         }
     }
 

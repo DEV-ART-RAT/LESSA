@@ -8,7 +8,9 @@ class SenasRepository (private val senasDao: SenasDao) {
 
     fun allFavoritos (flag : Boolean) : LiveData<List<Senas>> = senasDao.getFavoritos(flag)
 
-    fun allCategoria(catergoria:String): LiveData<List<Senas>> = senasDao.getCategoria( catergoria)
+    fun allCategoria(catergoria:String): LiveData<List<Senas>> = senasDao.getCategoria(catergoria)
+
+    fun todaspalabras(): LiveData<List<Senas>> = senasDao.getTodo()
 
     /*fun setFavorite(favorite : Boolean, palabra :String)= senasDao.upateFavorito(favorite, palabra)*/
 
