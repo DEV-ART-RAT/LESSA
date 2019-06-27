@@ -97,19 +97,19 @@ abstract class WordDataBase : RoomDatabase() {
             var senas = Senas(  "Hola","https://firebasestorage.googleapis.com/v0/b/lessa-c8cf6.appspot.com/o/senas%2Fgif_hola.gif?alt=media&token=dcb56b97-9fed-4f4c-a074-a584df754b63", "saludo",false)
             senasDao.insert(senas)
 
-            senas = Senas(  "Buenos dias","https://firebasestorage.googleapis.com/v0/b/lessa-c8cf6.appspot.com/o/senas%2Fgif_hola.gif?alt=media&token=dcb56b97-9fed-4f4c-a074-a584df754b63", "saludo",false)
+            senas = Senas(  "Buenos dias","https://firebasestorage.googleapis.com/v0/b/lessa-c8cf6.appspot.com/o/senas%2Fgif_buenosdias.gif?alt=media&token=37e6d61b-554e-4ef1-be95-1885c9e742fc", "saludo",false)
             senasDao.insert(senas)
 
-            senas = Senas(  "Buenas noches","https://firebasestorage.googleapis.com/v0/b/lessa-c8cf6.appspot.com/o/senas%2Fgif_hola.gif?alt=media&token=dcb56b97-9fed-4f4c-a074-a584df754b63", "saludo",false)
+            senas = Senas(  "Buenas noches","https://firebasestorage.googleapis.com/v0/b/lessa-c8cf6.appspot.com/o/senas%2Fgif_buenasnoches.gif?alt=media&token=27861584-aece-4758-b8b9-3b3dbc5f4dd0", "saludo",false)
             senasDao.insert(senas)
 
-            senas = Senas(  "Buenas tardes","https://firebasestorage.googleapis.com/v0/b/lessa-c8cf6.appspot.com/o/senas%2Fgif_hola.gif?alt=media&token=dcb56b97-9fed-4f4c-a074-a584df754b63", "saludo",false)
+            senas = Senas(  "Buenas tardes","https://firebasestorage.googleapis.com/v0/b/lessa-c8cf6.appspot.com/o/senas%2Fgif_buenastardes.gif?alt=media&token=86613a2b-7585-43fa-b0c6-8520aa5017f5", "saludo",false)
             senasDao.insert(senas)
 
             senas = Senas(  "¿Como estas?","https://firebasestorage.googleapis.com/v0/b/lessa-c8cf6.appspot.com/o/senas%2Fgif_hola.gif?alt=media&token=dcb56b97-9fed-4f4c-a074-a584df754b63", "saludo",false)
             senasDao.insert(senas)
 
-            senas = Senas(  "Bien","https://firebasestorage.googleapis.com/v0/b/lessa-c8cf6.appspot.com/o/senas%2Fgif_hola.gif?alt=media&token=dcb56b97-9fed-4f4c-a074-a584df754b63","saludo",false)
+            senas = Senas(  "Bien","https://firebasestorage.googleapis.com/v0/b/lessa-c8cf6.appspot.com/o/senas%2Fgif_bien.gif?alt=media&token=6942898d-9f0d-4d6a-b9aa-24f108579cbe","saludo",false)
             senasDao.insert(senas)
 
             senas = Senas(  "Mal","https://firebasestorage.googleapis.com/v0/b/lessa-c8cf6.appspot.com/o/senas%2Fgif_hola.gif?alt=media&token=dcb56b97-9fed-4f4c-a074-a584df754b63", "saludo",false)
@@ -155,10 +155,10 @@ abstract class WordDataBase : RoomDatabase() {
             senas = Senas(  "Negro","https://firebasestorage.googleapis.com/v0/b/lessa-c8cf6.appspot.com/o/senas%2Fgif_hola.gif?alt=media&token=dcb56b97-9fed-4f4c-a074-a584df754b63", "color",false)
             senasDao.insert(senas)
 
-            senas = Senas(  "Blanco","https://firebasestorage.googleapis.com/v0/b/lessa-c8cf6.appspot.com/o/senas%2Fgif_hola.gif?alt=media&token=dcb56b97-9fed-4f4c-a074-a584df754b63", "color",false)
+            senas = Senas(  "Blanco","https://firebasestorage.googleapis.com/v0/b/lessa-c8cf6.appspot.com/o/senas%2Fgif_blanco.gif?alt=media&token=033e73b8-377e-46b8-ae02-16215dc5058d", "color",false)
             senasDao.insert(senas)
 
-            senas = Senas(  "Azul","https://firebasestorage.googleapis.com/v0/b/lessa-c8cf6.appspot.com/o/senas%2Fgif_hola.gif?alt=media&token=dcb56b97-9fed-4f4c-a074-a584df754b63","color",false)
+            senas = Senas(  "Azul","https://firebasestorage.googleapis.com/v0/b/lessa-c8cf6.appspot.com/o/senas%2Fgif_azul.gif?alt=media&token=4dc5da40-2545-46e9-82b3-895357ede0cf","color",false)
             senasDao.insert(senas)
 
             senas = Senas(  "Celeste","https://firebasestorage.googleapis.com/v0/b/lessa-c8cf6.appspot.com/o/senas%2Fgif_hola.gif?alt=media&token=dcb56b97-9fed-4f4c-a074-a584df754b63", "color",false)
@@ -190,7 +190,7 @@ abstract class WordDataBase : RoomDatabase() {
             senas = Senas(  "Hamburguesa","https://firebasestorage.googleapis.com/v0/b/lessa-c8cf6.appspot.com/o/senas%2Fgif_hola.gif?alt=media&token=dcb56b97-9fed-4f4c-a074-a584df754b63", "comida",false)
             senasDao.insert(senas)
 
-            senas = Senas(  "Arroz","https://firebasestorage.googleapis.com/v0/b/lessa-c8cf6.appspot.com/o/senas%2Fgif_hola.gif?alt=media&token=dcb56b97-9fed-4f4c-a074-a584df754b63", "comida",false)
+            senas = Senas(  "Arroz","https://firebasestorage.googleapis.com/v0/b/lessa-c8cf6.appspot.com/o/senas%2Fgif_arroz.gif?alt=media&token=f60b41ed-b336-441e-aa5b-a6b62ea89511", "comida",false)
             senasDao.insert(senas)
 
             senas = Senas(  "Frijoles","https://firebasestorage.googleapis.com/v0/b/lessa-c8cf6.appspot.com/o/senas%2Fgif_hola.gif?alt=media&token=dcb56b97-9fed-4f4c-a074-a584df754b63", "comida",false)
@@ -199,13 +199,13 @@ abstract class WordDataBase : RoomDatabase() {
             senas = Senas(  "Platano","https://firebasestorage.googleapis.com/v0/b/lessa-c8cf6.appspot.com/o/senas%2Fgif_hola.gif?alt=media&token=dcb56b97-9fed-4f4c-a074-a584df754b63", "comida",false)
             senasDao.insert(senas)
 
-            senas = Senas(  "Cafe","https://firebasestorage.googleapis.com/v0/b/lessa-c8cf6.appspot.com/o/senas%2Fgif_hola.gif?alt=media&token=dcb56b97-9fed-4f4c-a074-a584df754b63", "comida",false)
+            senas = Senas(  "Cafe","https://firebasestorage.googleapis.com/v0/b/lessa-c8cf6.appspot.com/o/senas%2Fgif_cafe.gif?alt=media&token=26ae0515-5708-4f35-8b7a-dcda4aae32b1", "comida",false)
             senasDao.insert(senas)
 
             senas = Senas(  "Soda","https://firebasestorage.googleapis.com/v0/b/lessa-c8cf6.appspot.com/o/senas%2Fgif_hola.gif?alt=media&token=dcb56b97-9fed-4f4c-a074-a584df754b63", "comida",false)
             senasDao.insert(senas)
 
-            senas = Senas(  "Agua","https://firebasestorage.googleapis.com/v0/b/lessa-c8cf6.appspot.com/o/senas%2Fgif_hola.gif?alt=media&token=dcb56b97-9fed-4f4c-a074-a584df754b63", "comida",false)
+            senas = Senas(  "Agua","https://firebasestorage.googleapis.com/v0/b/lessa-c8cf6.appspot.com/o/senas%2Fgif_agua.gif?alt=media&token=a65a5bfd-35c8-4e00-ab30-ac3a929162c0", "comida",false)
             senasDao.insert(senas)
 
             senas = Senas(  "Jugo de naranja","https://firebasestorage.googleapis.com/v0/b/lessa-c8cf6.appspot.com/o/senas%2Fgif_hola.gif?alt=media&token=dcb56b97-9fed-4f4c-a074-a584df754b63", "comida",false)
@@ -296,7 +296,7 @@ abstract class WordDataBase : RoomDatabase() {
             senas = Senas(  "Celular","https://firebasestorage.googleapis.com/v0/b/lessa-c8cf6.appspot.com/o/senas%2Fgif_hola.gif?alt=media&token=dcb56b97-9fed-4f4c-a074-a584df754b63", "comunes",false)
             senasDao.insert(senas)
 
-            senas = Senas(  "Bus","https://firebasestorage.googleapis.com/v0/b/lessa-c8cf6.appspot.com/o/senas%2Fgif_hola.gif?alt=media&token=dcb56b97-9fed-4f4c-a074-a584df754b63", "comunes",false)
+            senas = Senas(  "Bus","https://firebasestorage.googleapis.com/v0/b/lessa-c8cf6.appspot.com/o/senas%2Fgif_bus.gif?alt=media&token=ce692c7b-1bf1-4bfb-9ad5-67be1ed5e5df", "comunes",false)
             senasDao.insert(senas)
 
             senas = Senas(  "Lapiz","https://firebasestorage.googleapis.com/v0/b/lessa-c8cf6.appspot.com/o/senas%2Fgif_hola.gif?alt=media&token=dcb56b97-9fed-4f4c-a074-a584df754b63", "comunes",false)
@@ -305,7 +305,7 @@ abstract class WordDataBase : RoomDatabase() {
             senas = Senas(  "Lapicero","https://firebasestorage.googleapis.com/v0/b/lessa-c8cf6.appspot.com/o/senas%2Fgif_hola.gif?alt=media&token=dcb56b97-9fed-4f4c-a074-a584df754b63", "comunes",false)
             senasDao.insert(senas)
 
-            senas = Senas(  "Agenda","https://firebasestorage.googleapis.com/v0/b/lessa-c8cf6.appspot.com/o/senas%2Fgif_hola.gif?alt=media&token=dcb56b97-9fed-4f4c-a074-a584df754b63", "comunes",false)
+            senas = Senas(  "Agenda","https://firebasestorage.googleapis.com/v0/b/lessa-c8cf6.appspot.com/o/senas%2Fgif_agenda.gif?alt=media&token=c1426b30-73d9-4473-8eef-e8192a368b70", "comunes",false)
             senasDao.insert(senas)
 
             senas = Senas(  "Cuaderno","https://firebasestorage.googleapis.com/v0/b/lessa-c8cf6.appspot.com/o/senas%2Fgif_hola.gif?alt=media&token=dcb56b97-9fed-4f4c-a074-a584df754b63", "comunes",false)
@@ -320,10 +320,10 @@ abstract class WordDataBase : RoomDatabase() {
             senas = Senas(  "Papá","https://firebasestorage.googleapis.com/v0/b/lessa-c8cf6.appspot.com/o/senas%2Fgif_hola.gif?alt=media&token=dcb56b97-9fed-4f4c-a074-a584df754b63", "familia",false)
             senasDao.insert(senas)
 
-            senas = Senas(  "Abuela","https://firebasestorage.googleapis.com/v0/b/lessa-c8cf6.appspot.com/o/senas%2Fgif_hola.gif?alt=media&token=dcb56b97-9fed-4f4c-a074-a584df754b63", "familia",false)
+            senas = Senas(  "Abuela","https://firebasestorage.googleapis.com/v0/b/lessa-c8cf6.appspot.com/o/senas%2Fgif_abuela.gif?alt=media&token=97ccf565-375c-432c-ae00-496847b7849d", "familia",false)
             senasDao.insert(senas)
 
-            senas = Senas(  "Abuelo","https://firebasestorage.googleapis.com/v0/b/lessa-c8cf6.appspot.com/o/senas%2Fgif_hola.gif?alt=media&token=dcb56b97-9fed-4f4c-a074-a584df754b63", "familia",false)
+            senas = Senas(  "Abuelo","https://firebasestorage.googleapis.com/v0/b/lessa-c8cf6.appspot.com/o/senas%2Fgif_abuelo.gif?alt=media&token=24917f1e-e9d8-4640-b69a-06a8b0e9d05d", "familia",false)
             senasDao.insert(senas)
 
             senas = Senas(  "Hermano","https://firebasestorage.googleapis.com/v0/b/lessa-c8cf6.appspot.com/o/senas%2Fgif_hola.gif?alt=media&token=dcb56b97-9fed-4f4c-a074-a584df754b63", "familia",false)
@@ -373,7 +373,7 @@ abstract class WordDataBase : RoomDatabase() {
             senas = Senas(  "Collar","https://firebasestorage.googleapis.com/v0/b/lessa-c8cf6.appspot.com/o/senas%2Fgif_hola.gif?alt=media&token=dcb56b97-9fed-4f4c-a074-a584df754b63", "ropa",false)
             senasDao.insert(senas)
 
-            senas = Senas(  "Aritos","https://firebasestorage.googleapis.com/v0/b/lessa-c8cf6.appspot.com/o/senas%2Fgif_hola.gif?alt=media&token=dcb56b97-9fed-4f4c-a074-a584df754b63", "ropa",false)
+            senas = Senas(  "Aritos","https://firebasestorage.googleapis.com/v0/b/lessa-c8cf6.appspot.com/o/senas%2Fgif_arrito.gif?alt=media&token=8e6972e8-8f2a-4ed8-8518-a12d61f0c72e", "ropa",false)
             senasDao.insert(senas)
 
             senas = Senas(  "Lentes","https://firebasestorage.googleapis.com/v0/b/lessa-c8cf6.appspot.com/o/senas%2Fgif_hola.gif?alt=media&token=dcb56b97-9fed-4f4c-a074-a584df754b63", "ropa",false)

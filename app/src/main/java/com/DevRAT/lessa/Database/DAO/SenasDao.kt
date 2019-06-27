@@ -23,7 +23,7 @@ interface SenasDao {
     fun getSena(sena:String): LiveData<Senas>
 
     @Query("UPDATE senas_table set favorito = :favorito")
-    fun upateFavorito(favorito:Boolean): Boolean
+    fun upateFavorito(favorito:Boolean)
 
     @Update(onConflict = OnConflictStrategy.REPLACE)
     suspend fun update (senas: Senas)

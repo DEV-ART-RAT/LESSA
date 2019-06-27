@@ -19,8 +19,8 @@
         <ImageButton
                 android:layout_width="80dp"
                 android:layout_height="50dp" card_view:srcCompat="@drawable/button_like" android:id="@+id/like"
-                android:layout_weight="1" android:background="#02FFFFFF" android:paddingRight="30dp"
-                android:paddingLeft="5dp"/>
+                android:layout_weight="1" android:background="#02FFFFFF"
+                android:layout_gravity="center" android:scaleType="fitCenter" android:paddingRight="30dp"/>
     </LinearLayout>
     <LinearLayout
             android:orientation="vertical"
