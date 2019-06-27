@@ -44,15 +44,12 @@ class TestFragment : Fragment() {
         return  inflater.inflate(R.layout.fragment_test, container, false).apply{
             vm = ViewModelProviders.of(conext as MainActivity).get(WordViewModel::class.java)
             rv = rv_busqueda
-            val intent = Intent(context, SearchActivity::class.java)
-            busca.setOnClickListener { startActivity(intent ) }
-
             observer = Observer<List<Senas>> {
                 updateRecycler(it)
             }
-
-            //vm.busca.observe(conext as LifecycleOwner, observer)
-
+            val h=""
+            vm.getSenaByNombre("%$h%")
+            vm.busca.observe(conext as LifecycleOwner, observer)
             //return view
         }
     }
@@ -64,6 +61,7 @@ class TestFragment : Fragment() {
             TestFragment().apply {
                 this.conext = context
                 arguments = Bundle().apply {
+
                 }
             }
     }
@@ -87,7 +85,9 @@ class TestFragment : Fragment() {
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
         super.onCreateOptionsMenu(menu, inflater)
         inflater.inflate(R.menu.menu, menu)
+
         val searchView = menu.findItem(R.id.app_bar_search).actionView as SearchView
+
         searchView.isSubmitButtonEnabled = true
 
         searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
@@ -100,6 +100,7 @@ class TestFragment : Fragment() {
                 //Hace que cambie dinamicamente mientras escribis, porque ejecuta lo que pongas aquí cada vez que escribis.
                 Log.e("com.DevRAT,lessa",newText?:"no hay ma")
                //queryToDatabase(newText?: "N/A")
+
                 vm.getSenaByNombre("%$newText%")
                 vm.busca.observe(conext as LifecycleOwner, observer)
                 return true
@@ -108,5 +109,5 @@ class TestFragment : Fragment() {
         })
 
     }
-    //private fun queryToDatabase(query: String) = vm.getSenaByNombre("%$query%")
+
 }

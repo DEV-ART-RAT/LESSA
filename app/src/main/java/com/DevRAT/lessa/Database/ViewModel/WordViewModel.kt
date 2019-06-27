@@ -56,7 +56,7 @@ class WordViewModel(application: Application) : AndroidViewModel(application) {
         allfavoritos = senasRepository.allFavoritos(true)
     }
     fun alltodo() {
-        alltodo = senasRepository.todaspalabras()
+        busca = senasRepository.todaspalabras()
     }
     fun callSena (sena: String) { getSena = senasRepository.getSena(sena)}
 
