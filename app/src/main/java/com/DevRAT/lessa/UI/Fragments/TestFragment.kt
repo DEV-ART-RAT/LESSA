@@ -50,8 +50,8 @@ class TestFragment : Fragment() {
             observer = Observer<List<Senas>> {
                 updateRecycler(it)
             }
-            vm.alltodo()
-            vm.alltodo.observe(conext as LifecycleOwner, observer)
+
+            //vm.busca.observe(conext as LifecycleOwner, observer)
 
             //return view
         }
@@ -99,12 +99,14 @@ class TestFragment : Fragment() {
             override fun onQueryTextChange(newText: String?): Boolean {
                 //Hace que cambie dinamicamente mientras escribis, porque ejecuta lo que pongas aquí cada vez que escribis.
                 Log.e("com.DevRAT,lessa",newText?:"no hay ma")
-               queryToDatabase(newText?: "N/A")
+               //queryToDatabase(newText?: "N/A")
+                vm.getSenaByNombre("%$newText%")
+                vm.busca.observe(conext as LifecycleOwner, observer)
                 return true
             }
 
         })
 
     }
-    private fun queryToDatabase(query: String) = vm.getSenaByNombre("%$query%")
+    //private fun queryToDatabase(query: String) = vm.getSenaByNombre("%$query%")
 }

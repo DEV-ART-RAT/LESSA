@@ -18,6 +18,7 @@ class WordViewModel(application: Application) : AndroidViewModel(application) {
     val allWords: LiveData<List<Word>>
     lateinit var allPalabras :  LiveData<List<Senas>>
     lateinit var alltodo :  LiveData<List<Senas>>
+    lateinit var busca :  LiveData<List<Senas>>
     //val allfavoritos: LiveData<List<Senas>>
 
     companion object{
@@ -62,6 +63,6 @@ class WordViewModel(application: Application) : AndroidViewModel(application) {
 
 
     fun getSenaByNombre(name: String) {
-        alltodo = senasRepository.getSenaByName(name)
+        busca = senasRepository.getSenaByName(name)
     }
  }
