@@ -142,15 +142,15 @@ class ProfileFragment : Fragment() {
 
             when (menuItem.itemId) {
                 com.DevRAT.lessa.R.id.acercade -> {
-                    val welcome = LayoutInflater.from(context).inflate(R.layout.acercade, null)
+                    val acerca = LayoutInflater.from(context).inflate(R.layout.acercade, null)
 
-                    val welcome_builder =  AlertDialog.Builder(context!!)
-                        .setView(welcome)
+                    val acerca_builder =  AlertDialog.Builder(context!!)
+                        .setView(acerca)
 
-                    val welcome_alert = welcome_builder.show()
+                    val acerca_alert = acerca_builder.show()
 
-                    welcome.welcome_button.setOnClickListener {
-                        welcome_alert.dismiss()
+                    acerca.welcome_button.setOnClickListener {
+                        acerca_alert.dismiss()
                     }
                     true
                 }
