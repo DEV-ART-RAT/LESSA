@@ -8,7 +8,7 @@
         tools:context=".UI.Activities.MainActivity">
     <androidx.appcompat.widget.Toolbar
             android:id="@+id/toolbarmain"
-            android:background="@color/colorPrimaryDark"
+            android:background="@color/colorPrimary"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
             app:layout_constraintTop_toTopOf="parent"
@@ -31,7 +31,7 @@
             style="@style/ItemTheme"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:background="@color/colorPrimaryDark"
+            android:background="@color/colorPrimary"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"

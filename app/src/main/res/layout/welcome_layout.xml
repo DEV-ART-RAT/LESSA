@@ -34,7 +34,7 @@
             app:layout_constraintTop_toBottomOf="@+id/welcome_tv"
             android:layout_marginBottom="8dp" app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintVertical_bias="0.0" android:textSize="18sp"
-            android:gravity="center" android:textColor="#FFFFFF"/>
+            android:gravity="center" android:textColor="@color/fontClear"/>
     <TextView
             android:text="¿Que servicios brinda @LESSA?"
             android:layout_width="334dp"
@@ -45,7 +45,8 @@
             android:textSize="18sp"
             android:gravity="center"
             app:layout_constraintTop_toBottomOf="@+id/textView4" app:layout_constraintVertical_bias="0.014"
-            android:textColor="#F88D8D8D" android:layout_marginEnd="8dp" app:layout_constraintEnd_toEndOf="parent"/>
+            android:textColor="@color/fontGray" android:layout_marginEnd="8dp"
+            app:layout_constraintEnd_toEndOf="parent"/>
     <TextView
             android:text="Esta aplicacion cuenta con la informacion necesaria para aprender lo basico de LESSA, en ella encontraras 3 modos importantes:"
             android:layout_width="334dp"
@@ -55,7 +56,7 @@
             android:textSize="18sp"
             android:gravity="center"
             android:layout_marginTop="8dp" app:layout_constraintTop_toBottomOf="@+id/textView5"
-            android:textColor="#FFFFFF" android:layout_marginEnd="8dp"
+            android:textColor="@color/fontClear" android:layout_marginEnd="8dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
     />
@@ -64,7 +65,7 @@
             android:layout_width="285dp"
             android:layout_height="wrap_content" android:id="@+id/textView8"
             app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="8dp"
-            android:textColor="#888787" android:textSize="16sp"
+            android:textColor="@color/fontGray" android:textSize="16sp"
             android:layout_marginEnd="8dp" app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.51"
             android:layout_marginTop="8dp" app:layout_constraintTop_toBottomOf="@+id/textView6"/>
@@ -73,7 +74,7 @@
             android:layout_width="285dp"
             android:layout_height="wrap_content" android:id="@+id/textView10"
             app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="8dp"
-            android:textColor="#888787" android:textSize="16dp"
+            android:textColor="@color/fontGray" android:textSize="16dp"
             android:layout_marginEnd="8dp" app:layout_constraintEnd_toEndOf="parent" android:layout_marginTop="8dp"
             app:layout_constraintTop_toBottomOf="@+id/textView9"/>
     <TextView
@@ -81,7 +82,7 @@
             android:layout_width="285dp"
             android:layout_height="wrap_content" android:id="@+id/textView11"
             app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="8dp"
-            android:textColor="#888787" android:textSize="14dp"
+            android:textColor="@color/fontGray" android:textSize="14dp"
             android:layout_marginEnd="8dp" app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.51"
             android:layout_marginTop="28dp" app:layout_constraintTop_toBottomOf="@+id/welcome_button"
@@ -92,7 +93,7 @@
             android:layout_width="285dp"
             android:layout_height="wrap_content" android:id="@+id/textView9"
             app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="8dp"
-            android:textColor="#888787" android:textSize="16dp"
+            android:textColor="@color/fontGray" android:textSize="16dp"
             android:layout_marginEnd="8dp" app:layout_constraintEnd_toEndOf="parent" android:layout_marginTop="8dp"
             app:layout_constraintTop_toBottomOf="@+id/textView8"/>
     <TextView
@@ -102,5 +103,5 @@
             android:id="@+id/textView7" app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="8dp"
             app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="8dp"
             app:layout_constraintBottom_toTopOf="@+id/welcome_tv" android:layout_marginTop="10dp"
-            app:layout_constraintTop_toTopOf="parent" android:textSize="18sp" android:textColor="#A7A6A6"/>
+            app:layout_constraintTop_toTopOf="parent" android:textSize="18sp" android:textColor="@color/fontGray"/>
 </androidx.constraintlayout.widget.ConstraintLayout>

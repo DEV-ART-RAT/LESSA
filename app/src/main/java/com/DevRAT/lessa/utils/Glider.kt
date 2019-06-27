@@ -19,7 +19,7 @@ object Glider {
         address: String,
         v: ImageView,
         placeholder: Int = R.drawable.loadinloadin,
-        errorHolder: Int = R.drawable.gif_error
+        errorHolder: Int = R.drawable.nowifi
     ) {
         Glide.with(v.context)
             .load(address)
@@ -37,7 +37,7 @@ object Glider {
         address: String,
         v: ImageView,
         placeholder: Int = R.drawable.gif_cargando,
-        errorHolder: Int = R.drawable.gif_error
+        errorHolder: Int = R.drawable.nowifi
     ) {
         Glide.with(v.context)
             .load(address)
