@@ -1,4 +1,5 @@
 package com.DevRAT.lessa.UI.Fragments
+
 import android.content.Context
 import android.content.Intent
 import android.net.Uri
@@ -7,6 +8,8 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
+import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.Observer
@@ -29,11 +32,15 @@ import kotlinx.android.synthetic.main.fragment_lista.view.*
 import kotlinx.android.synthetic.main.fragment_profile.view.*
 
 
+
+
+
 class ListaFragment : Fragment(){
 
 
     var  conext :Context? =null
     lateinit var categoria: String
+    lateinit var palabra: String
 
     private lateinit var vm: WordViewModel
     private lateinit var rv: RecyclerView
@@ -42,7 +49,7 @@ class ListaFragment : Fragment(){
 
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle? ): View? {
-        return  inflater.inflate(R.layout.fragment_lista, container, false).apply{
+        return  inflater.inflate(com.DevRAT.lessa.R.layout.fragment_lista, container, false).apply{
         vm = ViewModelProviders.of(conext as MainActivity).get(WordViewModel::class.java)
         rv = recyclerviewList
 
@@ -52,6 +59,55 @@ class ListaFragment : Fragment(){
         }
         vm.callCategory(categoria)
         vm.allPalabras.observe(conext as LifecycleOwner, observer)
+Log.e("com.DevRAT.lessa",categoria)
+            val img = findViewById(com.DevRAT.lessa.R.id.imagendinamicalista) as ImageView
+
+            val texto: TextView = findViewById(R.id.textodinamicolista) as TextView
+          when(categoria){
+
+               "saludo"->{
+                   img.setImageResource(com.DevRAT.lessa.R.drawable.icon_handshake)
+                   texto.setText(palabra)
+               }
+              "calendario"->{
+                  img.setImageResource(com.DevRAT.lessa.R.drawable.icon_calendar)
+                  texto.setText(palabra)
+              }
+              "color"->{
+                  img.setImageResource(com.DevRAT.lessa.R.drawable.icon_rgb)
+                  texto.setText(palabra)
+              }
+              "comida"->{
+                  img.setImageResource(com.DevRAT.lessa.R.drawable.icon_diet)
+                  texto.setText(palabra)
+              }
+              "numero"->{
+              img.setImageResource(com.DevRAT.lessa.R.drawable.icon_number)
+                  texto.setText(palabra)
+          }
+              "ropa"->{
+                  img.setImageResource(com.DevRAT.lessa.R.drawable.icon_laundry)
+                  texto.setText(palabra)
+              }
+              "familia"->{
+                  img.setImageResource(com.DevRAT.lessa.R.drawable.icon_family)
+                  texto.setText(palabra)
+              }
+              "verbos"->{
+                  img.setImageResource(com.DevRAT.lessa.R.drawable.icon_rgb)
+                  texto.setText(palabra)
+              }
+              "comunes"->{
+                  img.setImageResource(com.DevRAT.lessa.R.drawable.icon_desk)
+                  texto.setText(palabra)
+              }
+              "trabajos"->{
+              img.setImageResource(com.DevRAT.lessa.R.drawable.icon_farmer)
+                  texto.setText(palabra)
+          }
+          }
+
+
 
         //return view
     }
@@ -60,10 +116,11 @@ class ListaFragment : Fragment(){
 
     companion object {
         @JvmStatic
-        fun newInstance(context: Context,categoria :String) =
+        fun newInstance(context: Context,categoria :String,palabra:String) =
             ListaFragment().apply {
                 this.conext = context
                 this.categoria = categoria
+                this.palabra = palabra
                 arguments = Bundle().apply {
                 }
             }

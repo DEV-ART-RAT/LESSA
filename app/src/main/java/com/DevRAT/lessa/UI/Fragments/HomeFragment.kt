@@ -92,7 +92,7 @@ class HomeFragment : Fragment(){
             ) {
                 holder.word_container.setOnClickListener {
                     //wordViewModel!!.callCategory(Categoria)
-                    val fragment = ListaFragment.newInstance(conext!!,Categoria)
+                    val fragment = ListaFragment.newInstance(conext!!,Categoria,palabra)
                     fragmentManager!!.beginTransaction().replace(R.id.main_container,fragment).addToBackStack("").commit()
                 }
             }

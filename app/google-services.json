@@ -15,6 +15,22 @@
       },
       "oauth_client": [
         {
+          "client_id": "441308582763-rsn6d8niaua4ad8nr0qslqlu0octhojf.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.DevRAT.lessa",
+            "certificate_hash": "faa7b2116d1d559fb12a48c8e8ba0915fec24ffb"
+          }
+        },
+        {
+          "client_id": "441308582763-i9jm5pl04toc9t4j0d4sm7teotap7k92.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.DevRAT.lessa",
+            "certificate_hash": "711889c4846adf788a31b8487d32b98c86530a63"
+          }
+        },
+        {
           "client_id": "441308582763-set7tg25d1chh0hboornge2l2fg1dbhq.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
