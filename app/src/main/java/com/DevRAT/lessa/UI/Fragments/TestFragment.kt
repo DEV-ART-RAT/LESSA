@@ -16,11 +16,8 @@ import com.DevRAT.lessa.Database.Entities.Senas
 import com.DevRAT.lessa.Database.ViewModel.WordViewModel
 import com.DevRAT.lessa.R
 import com.DevRAT.lessa.UI.Activities.MainActivity
-import com.DevRAT.lessa.UI.Activities.SearchActivity
 import com.DevRAT.lessa.UI.Activities.SenaActivity
-import com.DevRAT.lessa.UI.Adapter.SenaAdapter
 import com.DevRAT.lessa.UI.Adapter.SenasAdapter
-import kotlinx.android.synthetic.main.fragment_lista.view.*
 import kotlinx.android.synthetic.main.fragment_test.view.*
 
 

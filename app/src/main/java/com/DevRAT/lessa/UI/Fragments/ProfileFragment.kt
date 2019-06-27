@@ -4,10 +4,9 @@ import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import android.view.*
 import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.Observer
@@ -29,6 +28,7 @@ import com.google.firebase.auth.FirebaseUser
 import kotlinx.android.synthetic.main.activity_google_sing_in.*
 import kotlinx.android.synthetic.main.fragment_profile.*
 import kotlinx.android.synthetic.main.fragment_profile.view.*
+import kotlinx.android.synthetic.main.welcome_layout.view.*
 
 
 class ProfileFragment : Fragment() {
@@ -37,7 +37,11 @@ class ProfileFragment : Fragment() {
     private lateinit var vm: SenasViewModel
     private lateinit var rv: RecyclerView
     private lateinit var observer : Observer<List<Senas>>
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setHasOptionsMenu(true)
 
+    }
     companion object {
         var auth: GoogleSignInAccount? = null
         var  conext :Context? =null
@@ -131,4 +135,27 @@ class ProfileFragment : Fragment() {
             }
 
     }
-}
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        super.onCreateOptionsMenu(menu, inflater)
+        inflater.inflate(R.menu.acercade, menu)
+        menu.findItem(R.id.acercade).setOnMenuItemClickListener { menuItem ->
+
+            when (menuItem.itemId) {
+                com.DevRAT.lessa.R.id.acercade -> {
+                    val welcome = LayoutInflater.from(context).inflate(R.layout.acercade, null)
+
+                    val welcome_builder =  AlertDialog.Builder(context!!)
+                        .setView(welcome)
+
+                    val welcome_alert = welcome_builder.show()
+
+                    welcome.welcome_button.setOnClickListener {
+                        welcome_alert.dismiss()
+                    }
+                    true
+                }
+                else -> false
+            }
+        }
+    }
+    }
