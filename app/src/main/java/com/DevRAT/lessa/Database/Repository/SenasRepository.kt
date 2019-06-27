@@ -23,4 +23,5 @@ class SenasRepository (private val senasDao: SenasDao) {
     suspend fun update(senas: Senas){
         senasDao.update(senas)
     }
+    fun getSenaByName(name: String) = senasDao.searchSenaByName(name)
 }

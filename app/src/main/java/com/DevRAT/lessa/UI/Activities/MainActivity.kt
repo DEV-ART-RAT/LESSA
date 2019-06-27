@@ -35,6 +35,7 @@ class MainActivity : AppCompatActivity(), HomeFragment.OnFragmentInteractionList
         super.onCreate(savedInstanceState)
         val account = GoogleSignIn.getLastSignedInAccount(this)
         setContentView(com.DevRAT.lessa.R.layout.activity_main)
+        setSupportActionBar(toolbarmain)
         user = FirebaseAuth.getInstance().currentUser
 
         // Initialize Firebase Auth

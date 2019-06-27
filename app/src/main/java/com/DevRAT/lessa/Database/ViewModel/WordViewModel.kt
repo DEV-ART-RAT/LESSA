@@ -58,4 +58,10 @@ class WordViewModel(application: Application) : AndroidViewModel(application) {
         alltodo = senasRepository.todaspalabras()
     }
     fun callSena (sena: String) { getSena = senasRepository.getSena(sena)}
-}
+
+
+
+    fun getSenaByNombre(name: String) {
+        alltodo = senasRepository.getSenaByName(name)
+    }
+ }

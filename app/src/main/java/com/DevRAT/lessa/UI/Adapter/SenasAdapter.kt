@@ -43,4 +43,8 @@ class SenasAdapter(var senas: List<Senas>, private val clickListener: (Senas) ->
             setOnClickListener { clickListener(senas) }
         }
     }
+    fun changeDataSet(newMovieList: List<Senas>) {
+        senas = newMovieList
+        notifyDataSetChanged()
+    }
 }
