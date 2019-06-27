@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:app="http://schemas.android.com/apk/res-auto"
+              xmlns:tools="http://schemas.android.com/tools"
+              android:orientation="vertical"
+              android:layout_width="wrap_content"
+              android:layout_height="match_parent"
+              android:id="@+id/acercadecontainer"
+              android:background="#D2000000"
+              android:layout_gravity="center"
+              android:gravity="center"
+>
+
+
+    <TextView
+            android:text="@string/bienvenido_a"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/textView7" app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="8dp"
+            app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            app:layout_constraintTop_toTopOf="parent" android:textSize="18sp" android:textColor="#A7A6A6"
+            android:layout_marginBottom="8dp" app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintHorizontal_bias="0.472" app:layout_constraintVertical_bias="0.044"/>
+
+    <ImageView
+            android:layout_width="331dp"
+            android:layout_height="96dp" android:id="@+id/welcome_tv"
+            android:textColor="#000000" android:textSize="24sp" android:gravity="center"
+            android:layout_marginBottom="8dp" app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toTopOf="parent" android:layout_marginEnd="8dp"
+            app:layout_constraintEnd_toEndOf="parent" android:layout_marginStart="8dp"
+            app:layout_constraintStart_toStartOf="parent" app:layout_constraintVertical_bias="0.124"
+            app:srcCompat="@drawable/nameicon" app:layout_constraintHorizontal_bias="1.0"
+            android:contentDescription="@string/todo"/>
+    <TextView
+            android:text="@string/esta_es_una_aplicaci_n_con_el_fin_de_ense_ar_el_lenguaje_de_se_as_salvadore_o_lessa_desarrolada_por_estudiantes_de_la_uca_para_tener_un_mejor_conocimiento_en_el_lenguaje_de_se_as_salvadore_o"
+            android:layout_width="329dp"
+            android:layout_height="160dp"
+            android:id="@+id/textView4" app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="8dp"
+            app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="8dp"
+            app:layout_constraintTop_toBottomOf="@+id/welcome_tv"
+            android:layout_marginBottom="8dp" app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintVertical_bias="0.0" android:textSize="18sp"
+            android:gravity="center" android:textColor="#FFFFFF" app:layout_constraintHorizontal_bias="1.0"/>
+    <TextView
+            android:text="@string/contacto"
+            android:layout_width="334dp"
+            android:layout_height="32dp"
+            android:id="@+id/textView5"
+            app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="8dp"
+            android:layout_marginBottom="8dp" app:layout_constraintBottom_toBottomOf="parent"
+            android:textSize="18sp"
+            android:gravity="center"
+            app:layout_constraintTop_toBottomOf="@+id/textView4" app:layout_constraintVertical_bias="0.262"
+            android:textColor="#F88D8D8D" android:layout_marginEnd="8dp" app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"/>
+    <TextView
+            android:text="@string/cristian_alfaro_00167917_uca_edu_sv_diego_rubi_00121117_uca_edu_sv_luis_trujillo_00127717_uca_edu_sv"
+            android:layout_width="326dp"
+            android:layout_height="95dp"
+            android:id="@+id/textView15"
+            app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="8dp"
+            android:layout_marginBottom="8dp" app:layout_constraintBottom_toBottomOf="parent"
+            android:textSize="18sp"
+            android:gravity="center"
+            app:layout_constraintTop_toBottomOf="@+id/textView4" app:layout_constraintVertical_bias="0.533"
+            android:textColor="#F88D8D8D" android:layout_marginEnd="8dp" app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.625"/>
+   <Button
+            android:text="@string/entiendo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:id="@+id/welcome_button"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginEnd="8dp" app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginStart="8dp"
+            android:background="#00FFFFFF" android:textColor="#FF0000"
+            android:layout_marginTop="8dp" app:layout_constraintTop_toTopOf="parent" android:layout_marginBottom="8dp"
+            app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintVertical_bias="0.881"/>
+
+    <TextView
+            android:gravity="center"
+            android:text="@string/v_0_1"
+            android:layout_width="285dp"
+            android:layout_height="wrap_content" android:id="@+id/textView11"
+            app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="8dp"
+            android:textColor="#888787" android:textSize="14sp"
+            android:layout_marginEnd="8dp" app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.51"
+            android:layout_marginTop="28dp" app:layout_constraintTop_toBottomOf="@+id/welcome_button"
+            android:layout_marginBottom="10dp" app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintVertical_bias="0.0"/>
+</LinearLayout>
