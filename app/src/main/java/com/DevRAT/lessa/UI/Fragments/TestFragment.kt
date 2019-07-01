@@ -44,8 +44,8 @@ class TestFragment : Fragment() {
             observer = Observer<List<Senas>> {
                 updateRecycler(it)
             }
-//            val h=""
-//            vm.getSenaByNombre("%$h%")
+            val h=""
+            vm.getSenaByNombre("%$h%")
             vm.busca.observe(conext as LifecycleOwner, observer)
             //return view
         }
