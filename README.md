@@ -15,7 +15,7 @@
 ## 4.0 - Delta - 
                 -Cambios Finales: para entregarlo pequeños cambios de diseño
 ##
-## Lista de Que hacer
+
 
 
 # :relieved::relieved::relieved::relieved::relieved::relieved::relieved::relieved:
