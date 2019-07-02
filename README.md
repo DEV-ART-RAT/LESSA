@@ -21,9 +21,9 @@
 
 # Desarrolladores
 
-## github.com/CristianAlfaro
-## github.com/Luist23
-## github.com/DARUBI
+## [a link](github.com/CristianAlfaro)
+## [a link](github.com/Luist23)
+## [a link](github.com/DARUBI)
 
 
 
