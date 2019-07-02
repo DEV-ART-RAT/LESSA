@@ -36,7 +36,7 @@ object Glider {
     fun loadCircle(
         address: String,
         v: ImageView,
-        placeholder: Int = R.drawable.gif_cargando,
+        placeholder: Int = R.drawable.loadinloadin,
         errorHolder: Int = R.drawable.nowifi
     ) {
         Glide.with(v.context)

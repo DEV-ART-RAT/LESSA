@@ -13,20 +13,21 @@
             android:supportsRtl="true"
             android:theme="@style/AppTheme">
 
-        <activity android:name=".UI.Activities.SenaActivity">
+        <activity android:name=".UI.Activities.SenaActivity" android:screenOrientation="portrait">
         </activity>
-        <activity android:name=".UI.Activities.LoadActivity">
+        <activity android:name=".UI.Activities.LoadActivity" android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-        <activity android:name=".UI.Activities.GoogleSingInActivity">
+        <activity android:name=".UI.Activities.GoogleSingInActivity" android:screenOrientation="portrait">
         </activity>
         <activity
                 android:name=".UI.Activities.MainActivity"
-                android:label="">
+                android:label=""
+                android:screenOrientation="portrait">
         </activity>
     </application>
 

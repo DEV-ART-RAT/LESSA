@@ -18,7 +18,7 @@ class LoadActivity : AppCompatActivity() {
         Handler().postDelayed({
             startActivity(Intent(this@LoadActivity, MainActivity::class.java))
             finish()
-        },5000)
+        },3000)
     }
 }
 

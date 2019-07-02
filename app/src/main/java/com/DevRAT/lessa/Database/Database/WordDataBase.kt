@@ -14,7 +14,7 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.launch
 
 
-@Database(entities = [Word::class, Senas::class], version = 1)
+@Database(entities = [Word::class, Senas::class], version = 2)
 abstract class WordDataBase : RoomDatabase() {
     abstract fun wordDao(): WordDao
     abstract fun senasDao(): SenasDao
@@ -78,7 +78,7 @@ abstract class WordDataBase : RoomDatabase() {
             word = Word( "FAMILIA", "familia", R.drawable.icon_family)
             wordDao.insert(word)
 
-            word = Word( "VERBOS", "verbos", R.drawable.icon_rgb)
+            word = Word( "VERBOS", "verbos", R.drawable.icon_running)
             wordDao.insert(word)
 
             word = Word( "OBJETOS COMUNES", "comunes", R.drawable.icon_desk)
@@ -135,7 +135,7 @@ abstract class WordDataBase : RoomDatabase() {
             senas = Senas(  "Miercoles","https://firebasestorage.googleapis.com/v0/b/lessa-c8cf6.appspot.com/o/senas%2Fgif_miercoles.gif?alt=media&token=9c76c096-7347-4c0b-b32c-7e21900f25d5", "calendario",false)
             senasDao.insert(senas)
 
-            senas = Senas(  "Jueves","https://firebasestorage.googleapis.com/v0/b/lessa-c8cf6.appspot.com/o/senas%2Fgif_hija.gif?alt=media&token=b785123d-55b1-4777-803d-9ea095125f00", "calendario",false)
+            senas = Senas(  "Jueves","https://firebasestorage.googleapis.com/v0/b/lessa-c8cf6.appspot.com/o/senas%2Fgif_jueves.gif?alt=media&token=f3a2bca6-8bcb-4ecd-9d28-5efcdbe9cba6", "calendario",false)
             senasDao.insert(senas)
 
             senas = Senas(  "Viernes","https://firebasestorage.googleapis.com/v0/b/lessa-c8cf6.appspot.com/o/senas%2Fgif_viernes.gif?alt=media&token=ebe13d7f-35b2-4535-9a9d-3ed570d2c8b1", "calendario",false)
@@ -144,7 +144,7 @@ abstract class WordDataBase : RoomDatabase() {
             senas = Senas(  "Sabado","https://firebasestorage.googleapis.com/v0/b/lessa-c8cf6.appspot.com/o/senas%2Fgif_sabado.gif?alt=media&token=58f26cf3-cd06-41e4-9b44-a28844ca34c8", "calendario",false)
             senasDao.insert(senas)
 
-            senas = Senas(  "Domingo","https://firebasestorage.googleapis.com/v0/b/lessa-c8cf6.appspot.com/o/senas%2Fgif_diez.gif?alt=media&token=426f8bd5-76ef-4f9d-8682-8da4791a1792", "calendario",false)
+            senas = Senas(  "Domingo","https://firebasestorage.googleapis.com/v0/b/lessa-c8cf6.appspot.com/o/senas%2Fgif_domingo.gif?alt=media&token=0693041b-4158-483b-9dbc-a41c58e6b852", "calendario",false)
             senasDao.insert(senas)
 
             //COLORES
@@ -155,7 +155,7 @@ abstract class WordDataBase : RoomDatabase() {
             senas = Senas(  "Negro","https://firebasestorage.googleapis.com/v0/b/lessa-c8cf6.appspot.com/o/senas%2Fgif_negro.gif?alt=media&token=81bbc14a-0635-4cfa-91f1-12e4403f6fc5", "color",false)
             senasDao.insert(senas)
 
-            senas = Senas(  "Blanco","", "color",false)
+            senas = Senas(  "Blanco","https://firebasestorage.googleapis.com/v0/b/lessa-c8cf6.appspot.com/o/senas%2Fgif_blanco.gif?alt=media&token=033e73b8-377e-46b8-ae02-16215dc5058d", "color",false)
             senasDao.insert(senas)
 
             senas = Senas(  "Azul","https://firebasestorage.googleapis.com/v0/b/lessa-c8cf6.appspot.com/o/senas%2Fgif_azul.gif?alt=media&token=4dc5da40-2545-46e9-82b3-895357ede0cf","color",false)
@@ -229,7 +229,7 @@ abstract class WordDataBase : RoomDatabase() {
 
             //VERBOS
 
-            senas = Senas(  "Jugar","https://firebasestorage.googleapis.com/v0/b/lessa-c8cf6.appspot.com/o/senas%2Fgif_hija.gif?alt=media&token=b785123d-55b1-4777-803d-9ea095125f00", "verbos",false)
+            senas = Senas(  "Jugar","https://firebasestorage.googleapis.com/v0/b/lessa-c8cf6.appspot.com/o/senas%2Fgif_jugar.gif?alt=media&token=b2e0a49e-321a-491e-b3a6-54d6c1ac96ae", "verbos",false)
             senasDao.insert(senas)
 
             senas = Senas(  "Comer","https://firebasestorage.googleapis.com/v0/b/lessa-c8cf6.appspot.com/o/senas%2Fgif_comer.gif?alt=media&token=1929f42f-2e29-4a06-ad86-70adef08ed90", "verbos",false)
@@ -341,7 +341,7 @@ abstract class WordDataBase : RoomDatabase() {
             senas = Senas(  "Hermana","https://firebasestorage.googleapis.com/v0/b/lessa-c8cf6.appspot.com/o/senas%2Fgif_hermana.gif?alt=media&token=ac14366c-cdb1-4878-ad0d-d56ad491a17e", "familia",false)
             senasDao.insert(senas)
 
-            senas = Senas(  "Hijo","https://firebasestorage.googleapis.com/v0/b/lessa-c8cf6.appspot.com/o/senas%2Fgif_hija.gif?alt=media&token=b785123d-55b1-4777-803d-9ea095125f00", "familia",false)
+            senas = Senas(  "Hijo","https://firebasestorage.googleapis.com/v0/b/lessa-c8cf6.appspot.com/o/senas%2Fgif_hijo.gif?alt=media&token=c152527f-fa0b-4eec-aa46-e21dada6fa62", "familia",false)
             senasDao.insert(senas)
 
             senas = Senas( "Hija", "https://firebasestorage.googleapis.com/v0/b/lessa-c8cf6.appspot.com/o/senas%2Fgif_hija.gif?alt=media&token=b785123d-55b1-4777-803d-9ea095125f00", "familia",false)
