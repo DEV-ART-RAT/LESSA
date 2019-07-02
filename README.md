@@ -1,4 +1,5 @@
-# Proyecto Moviles iniciado el 03 de mayo de 2019 :thumbsup:\
+# Proyecto Moviles iniciado el 03 de mayo de 2019 :thumbsup:
+## Sobre la Aplicacion 
 ![alt text](https://github.com/DARUBI/Imagenes_Lessa/blob/master/uno.png) 
 ![alt text](https://github.com/DARUBI/Imagenes_Lessa/blob/master/dos.png) 
 ![alt text](https://github.com/DARUBI/Imagenes_Lessa/blob/master/tres.png) 
@@ -17,7 +18,12 @@
                  - Se agrego la cuenta de Google ala aplicacion
 ## 4.0 - Delta - 
                 -Cambios Finales: para entregarlo pequeños cambios de diseño
-##
+
+# Desarrolladores
+
+## github.com/CristianAlfaro
+## github.com/Luist23
+## github.com/DARUBI
 
 
 
