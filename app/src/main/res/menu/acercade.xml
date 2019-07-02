@@ -4,5 +4,6 @@
             android:id="@+id/acercade"
             android:icon="@drawable/ic_search_black_24dp"
             android:title="Acerca de la app"
+            android:iconTint="@color/colorAccent"
           />
 </menu>
