@@ -21,9 +21,9 @@
 
 # Desarrolladores
 
-## [a link](github.com/CristianAlfaro)
-## [a link](github.com/Luist23)
-## [a link](github.com/DARUBI)
+## [Cristian Alfaro](www.github.com/CristianAlfaro)
+## [Luis Trujillo](www.github.com/Luist23)
+## [Diego Rubi](www.github.com/DARUBI)
 
 
 
