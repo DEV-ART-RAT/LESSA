@@ -17,6 +17,7 @@ import com.DevRAT.lessa.Database.ViewModel.WordViewModel
 import com.DevRAT.lessa.R
 import com.DevRAT.lessa.UI.Activities.MainActivity
 import com.DevRAT.lessa.UI.Activities.SenaActivity
+import com.DevRAT.lessa.UI.Activities.SenaPageViewActivity
 import com.DevRAT.lessa.UI.Adapter.SenasAdapter
 import kotlinx.android.synthetic.main.fragment_test.view.*
 
@@ -78,8 +79,11 @@ class TestFragment : Fragment() {
                 //change()
                 //wordViewModel?.callSena(it.palabra)
 
-                SenaActivity.sena = it
-                startActivity(Intent(context, SenaActivity::class.java))
+                SenaPageViewActivity.senaList = list
+                var index = list.indexOf(it)
+                SenaPageViewActivity.index = index
+                val intent = Intent(context, SenaPageViewActivity::class.java)
+                startActivity(intent)
 
             }
 
