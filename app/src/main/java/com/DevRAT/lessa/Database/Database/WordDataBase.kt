@@ -5,8 +5,10 @@ import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
 import androidx.sqlite.db.SupportSQLiteDatabase
+import com.DevRAT.lessa.Database.DAO.SenaUserDao
 import com.DevRAT.lessa.Database.DAO.SenasDao
 import com.DevRAT.lessa.Database.DAO.WordDao
+import com.DevRAT.lessa.Database.Entities.SenaUser
 import com.DevRAT.lessa.Database.Entities.Senas
 import com.DevRAT.lessa.Database.Entities.Word
 import com.DevRAT.lessa.R
@@ -14,10 +16,11 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.launch
 
 
-@Database(entities = [Word::class, Senas::class], version = 2)
+@Database(entities = [Word::class, Senas::class, SenaUser::class], version = 4)
 abstract class WordDataBase : RoomDatabase() {
     abstract fun wordDao(): WordDao
     abstract fun senasDao(): SenasDao
+    abstract fun senaUserDao(): SenaUserDao
 
     companion object {
         @Volatile

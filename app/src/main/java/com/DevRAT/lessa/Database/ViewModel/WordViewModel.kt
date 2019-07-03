@@ -4,6 +4,7 @@ package com.DevRAT.lessa.Database.ViewModel
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
 import com.DevRAT.lessa.Database.Database.WordDataBase
 import com.DevRAT.lessa.Database.Entities.Senas
@@ -18,7 +19,7 @@ class WordViewModel(application: Application) : AndroidViewModel(application) {
     val allWords: LiveData<List<Word>>
     lateinit var allPalabras :  LiveData<List<Senas>>
     lateinit var alltodo :  LiveData<List<Senas>>
-    lateinit var busca :  LiveData<List<Senas>>
+    val busca :  MutableLiveData<List<Senas>>
     //val allfavoritos: LiveData<List<Senas>>
 
     companion object{
@@ -38,6 +39,7 @@ class WordViewModel(application: Application) : AndroidViewModel(application) {
         wordRepository = WordRepository(wordDao)
         senasRepository = SenasRepository(senasDao)
         allWords = wordRepository.allWord
+        busca = MutableLiveData<List<Senas>>()
 
 
 
@@ -56,13 +58,16 @@ class WordViewModel(application: Application) : AndroidViewModel(application) {
         allfavoritos = senasRepository.allFavoritos(true)
     }
     fun alltodo() {
-        busca = senasRepository.todaspalabras()
+       // busca = senasRepository.todaspalabras()
     }
     fun callSena (sena: String) { getSena = senasRepository.getSena(sena)}
 
 
 
     fun getSenaByNombre(name: String) {
-        busca = senasRepository.getSenaByName(name)
+        viewModelScope.launch {
+            busca.value = senasRepository.getSenaByName(name)
+
+        }
     }
  }

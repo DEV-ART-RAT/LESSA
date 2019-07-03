@@ -1,5 +1,6 @@
 package com.DevRAT.lessa.Database.Repository
 
+import androidx.annotation.WorkerThread
 import androidx.lifecycle.LiveData
 import com.DevRAT.lessa.Database.DAO.SenasDao
 import com.DevRAT.lessa.Database.Entities.Senas
@@ -23,5 +24,7 @@ class SenasRepository (private val senasDao: SenasDao) {
     suspend fun update(senas: Senas){
         senasDao.update(senas)
     }
-    fun getSenaByName(name: String) = senasDao.searchSenaByName(name)
+
+    @WorkerThread
+    suspend fun getSenaByName(name: String) = senasDao.searchSenaByName(name)
 }

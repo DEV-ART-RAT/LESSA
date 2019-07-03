@@ -31,6 +31,7 @@ class TestFragment : Fragment() {
     private lateinit var rv: RecyclerView
     private lateinit var senasAdapter: SenasAdapter
     private lateinit var observer : Observer<List<Senas>>
+    private var searchView: SearchView? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -43,7 +44,7 @@ class TestFragment : Fragment() {
             vm = ViewModelProviders.of(conext as MainActivity).get(WordViewModel::class.java)
             rv = rv_busqueda
             observer = Observer<List<Senas>> {
-                updateRecycler(it)
+                updateRecycler(vm.busca.value!!)
             }
             val h=""
             vm.getSenaByNombre("%$h%")
@@ -70,27 +71,42 @@ class TestFragment : Fragment() {
 
         rv.apply {
             setHasFixedSize(true)
-            adapter = SenasAdapter(list) {
+            layoutManager = LinearLayoutManager(conext)
+
+            adapter = SenasAdapter(list,{
+                change(it)
+            }) {
+                //change()
                 //wordViewModel?.callSena(it.palabra)
+
                 SenaPageViewActivity.senaList = list
                 var index = list.indexOf(it)
                 SenaPageViewActivity.index = index
                 val intent = Intent(context, SenaPageViewActivity::class.java)
                 startActivity(intent)
+
             }
-            layoutManager = LinearLayoutManager(conext)
+
+
+
         }
 
+    }
+
+    fun change(position : Int){
+        //Log.d("com.DevRAT.lessa","cahneg" + searchView!!.query.toString())
+        rv.adapter!!.notifyItemChanged(position)
+        //vm.getSenaByNombre("%${searchView!!.query.toString()}%")
     }
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
         super.onCreateOptionsMenu(menu, inflater)
         inflater.inflate(R.menu.menu, menu)
 
-        val searchView = menu.findItem(R.id.app_bar_search).actionView as SearchView
+        searchView = menu.findItem(R.id.app_bar_search).actionView as SearchView
 
-        searchView.isSubmitButtonEnabled = true
+        searchView!!.isSubmitButtonEnabled = true
 
-        searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
+        searchView!!.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
             override fun onQueryTextSubmit(query: String?): Boolean {
                 //Hace que cuando presiones el botón de sumbit se ejecute lo que pongas aquí
                 return true
@@ -98,11 +114,11 @@ class TestFragment : Fragment() {
 
             override fun onQueryTextChange(newText: String?): Boolean {
                 //Hace que cambie dinamicamente mientras escribis, porque ejecuta lo que pongas aquí cada vez que escribis.
-                Log.e("com.DevRAT,lessa",newText?:"no hay ma")
+                //Log.e("com.DevRAT,lessa",newText?:"no hay ma")
                //queryToDatabase(newText?: "N/A")
 
                 vm.getSenaByNombre("%$newText%")
-                vm.busca.observe(conext as LifecycleOwner, observer)
+                //vm.busca.observe(conext as LifecycleOwner, observer)
                 return true
             }
 

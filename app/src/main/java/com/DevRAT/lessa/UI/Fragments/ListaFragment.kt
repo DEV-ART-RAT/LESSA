@@ -131,9 +131,9 @@ class ListaFragment : Fragment(){
 
             rv.apply {
                 setHasFixedSize(true)
-                adapter = SenasAdapter(list) {
+                adapter = SenasAdapter(list,{change(it)}) {
                     //wordViewModel?.callSena(it.palabra)
-                    var index = list.indexOf(it)
+                    val index = list.indexOf(it)
                     SenaPageViewActivity.index = index
                     SenaPageViewActivity.senaList = list
                     val intent = Intent(context, SenaPageViewActivity::class.java)
@@ -142,6 +142,12 @@ class ListaFragment : Fragment(){
                 layoutManager = LinearLayoutManager(conext)
             }
 
+    }
+
+    fun change(position : Int){
+        //Log.d("com.DevRAT.lessa","cahneg" + searchView!!.query.toString())
+        rv.adapter!!.notifyItemChanged(position)
+        //vm.getSenaByNombre("%${searchView!!.query.toString()}%")
     }
 
 }
