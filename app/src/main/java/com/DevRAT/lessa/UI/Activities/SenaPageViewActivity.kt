@@ -2,11 +2,17 @@ package com.DevRAT.lessa.UI.Activities
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.LayoutInflater
+import androidx.appcompat.app.AlertDialog
 import androidx.viewpager.widget.ViewPager
+import com.DevRAT.lessa.BuildConfig
 import com.DevRAT.lessa.Database.Entities.Senas
 import com.DevRAT.lessa.R
 import com.DevRAT.lessa.UI.Adapter.SenasPageAdapter
 import com.DevRAT.lessa.UI.Transformer.*
+import com.google.android.material.snackbar.Snackbar
+import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.welcome_layout.view.*
 
 
 class SenaPageViewActivity : AppCompatActivity() {
@@ -31,6 +37,7 @@ class SenaPageViewActivity : AppCompatActivity() {
 
 
     }
+
 }
 
 

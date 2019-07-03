@@ -61,7 +61,7 @@ class SenasAdapter(var senas: List<Senas>, private val clic : (Int)->Unit ,priva
 
                     val progressDialog = ProgressDialog(MainActivity.conext)
                     progressDialog.setTitle("Removiendo Favorito")
-                    progressDialog.setMessage("Chotto Matte")
+                    progressDialog.setMessage("Un momento")
                     progressDialog.setProgressStyle(ProgressDialog.STYLE_SPINNER)
                     //progressDialog.incrementProgressBy(8)
                     progressDialog.show()
@@ -88,7 +88,7 @@ class SenasAdapter(var senas: List<Senas>, private val clic : (Int)->Unit ,priva
 
                     val progressDialog = ProgressDialog(MainActivity.conext)
                     progressDialog.setTitle("Agregando Favorito")
-                    progressDialog.setMessage("Chotto Matte")
+                    progressDialog.setMessage("Un momento")
                     progressDialog.setProgressStyle(ProgressDialog . STYLE_SPINNER)
                     //progressDialog.incrementProgressBy(8)
                     progressDialog.show()
