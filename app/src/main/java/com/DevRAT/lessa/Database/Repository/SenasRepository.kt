@@ -7,10 +7,11 @@ import com.DevRAT.lessa.Database.Entities.Senas
 
 class SenasRepository (private val senasDao: SenasDao) {
 
-    fun allFavoritos (flag : Boolean) : LiveData<List<Senas>> = senasDao.getFavoritos(flag)
+    fun allFavoritos (flag : Boolean) : LiveData<List<Senas>> = senasDao.getFavoritos()
 
     @WorkerThread
     suspend fun allCategoria(catergoria:String): List<Senas> = senasDao.getCategoria(catergoria)
+
 
     fun todaspalabras(): LiveData<List<Senas>> = senasDao.getTodo()
 

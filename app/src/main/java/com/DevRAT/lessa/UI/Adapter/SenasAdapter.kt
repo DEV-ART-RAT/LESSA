@@ -57,7 +57,7 @@ class SenasAdapter(var senas: List<Senas>, private val clic : (Int)->Unit ,priva
                 like.setOnClickListener {
                     vm!!.delete(SenaUser("sho",senas.palabra))
                     MainActivity.viewModelUser!!.load()
-                    HomeFragment.wordViewModel?.updateSena(Senas(senas.palabra, senas.seña, senas.categoria, false))
+                    //HomeFragment.wordViewModel?.updateSena(Senas(senas.palabra, senas.seña, senas.categoria, false))
 
                     val progressDialog = ProgressDialog(MainActivity.conext)
                     progressDialog.setTitle("Removiendo Favorito")
@@ -68,9 +68,10 @@ class SenasAdapter(var senas: List<Senas>, private val clic : (Int)->Unit ,priva
 
                     val handler =  handler.postDelayed(Runnable {
                         click(position)
-                        progressDialog.hide()
-                            }, 2000)
-
+                        val handler =  handler.postDelayed(Runnable {
+                            progressDialog.hide()
+                        }, 500)
+                    }, 2000)
 
                     }
                     //bind(senas, clickListener)
@@ -83,7 +84,7 @@ class SenasAdapter(var senas: List<Senas>, private val clic : (Int)->Unit ,priva
                 like.setOnClickListener {
                     vm!!.insert(SenaUser("sho",senas.palabra))
                     MainActivity.viewModelUser!!.load()
-                    HomeFragment.wordViewModel?.updateSena(Senas(senas.palabra, senas.seña, senas.categoria, true))
+                    //HomeFragment.wordViewModel?.updateSena(Senas(senas.palabra, senas.seña, senas.categoria, true))
 
 
                     val progressDialog = ProgressDialog(MainActivity.conext)
@@ -95,7 +96,9 @@ class SenasAdapter(var senas: List<Senas>, private val clic : (Int)->Unit ,priva
 
                     val handler =  handler.postDelayed(Runnable {
                         click(position)
-                        progressDialog.hide()
+                        val handler =  handler.postDelayed(Runnable {
+                            progressDialog.hide()
+                        }, 500)
                     }, 2000)
 
 

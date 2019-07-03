@@ -16,6 +16,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.DevRAT.lessa.Database.Entities.Senas
 import com.DevRAT.lessa.Database.ViewModel.SenaViewModel
 import com.DevRAT.lessa.Database.ViewModel.SenasViewModel
+import com.DevRAT.lessa.Database.ViewModel.WordViewModel
 import com.DevRAT.lessa.R
 import com.DevRAT.lessa.UI.Activities.GoogleSingInActivity
 import com.DevRAT.lessa.UI.Activities.MainActivity
@@ -36,6 +37,7 @@ import kotlinx.android.synthetic.main.welcome_layout.view.*
 class ProfileFragment : Fragment() {
 
 
+    private lateinit var vmW: WordViewModel
     private lateinit var vm: SenasViewModel
     private lateinit var rv: RecyclerView
     private lateinit var observer : Observer<List<Senas>>
@@ -198,6 +200,7 @@ class ProfileFragment : Fragment() {
 
     fun updateBase(){
         //Log.d("aqui stoy","poblando :´v")
+        vmW = ViewModelProviders.of(conext as MainActivity).get(WordViewModel::class.java)
         val database = FirebaseDatabase.getInstance().reference.child(Statics.FIREBASE_TASK)
         val senaListener = object : ChildEventListener {
             override fun onCancelled(databaseError: DatabaseError) {}
@@ -208,6 +211,7 @@ class ProfileFragment : Fragment() {
                 val mark = dataSnapshot.getValue(SenaFire::class.java)
                 var sena = Senas(mark!!.palabra!!,mark!!.sena?.get(0)!!,mark!!.categoria!!,false)
 
+                vmW.updateSena(sena)
                 Log.d("aqui stoy", sena.toString())
 
             }
