@@ -40,24 +40,25 @@ class SenasAdapter(var senas: List<Senas>, private val clickListener: (Senas) ->
             tv_sena.text = senas.palabra
 
 
-            /*val vm = MainActivity.viewModelUser
-            if (SenaViewModel.senass.value!!.any { it.palabra == senas.palabra }){
+            val vm = MainActivity.viewModelUser
+
+            /*if (SenaViewModel.senass.value!!.any { it.palabra == senas.palabra }){
                 Log.d("com.DevRAT.lessa", "estoy aqui" + senas.toString())
             }*/
 
 
-            if (senas.favorito) {
+            if (senas.favorito || SenaViewModel.senass.value!!.any { it.palabra == senas.palabra }) {
                 like.setImageResource(R.drawable.button_likeon)
                 like.setOnClickListener {
-                    //vm!!.delete(SenaUser("sho",senas.palabra))
-                    //MainActivity.viewModelUser!!.load()
+                    vm!!.delete(SenaUser("sho",senas.palabra))
+                    MainActivity.viewModelUser!!.load()
                     HomeFragment.wordViewModel?.updateSena(Senas(senas.palabra, senas.seña, senas.categoria, false))
 
                 }
             } else {
                 like.setOnClickListener {
-                    //vm!!.insert(SenaUser("sho",senas.palabra))
-                    //MainActivity.viewModelUser!!.load()
+                    vm!!.insert(SenaUser("sho",senas.palabra))
+                    MainActivity.viewModelUser!!.load()
                     HomeFragment.wordViewModel?.updateSena(Senas(senas.palabra, senas.seña, senas.categoria, true))
                 }
             }

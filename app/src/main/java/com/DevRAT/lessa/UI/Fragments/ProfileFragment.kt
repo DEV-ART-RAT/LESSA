@@ -205,7 +205,7 @@ class ProfileFragment : Fragment() {
                 var sena = Senas(mark!!.palabra!!,mark!!.sena?.get(0)!!,mark!!.categoria!!,false)
 
                 Log.d("aqui stoy", sena.toString())
-                
+
             }
         }
         database!!.addChildEventListener(senaListener)
