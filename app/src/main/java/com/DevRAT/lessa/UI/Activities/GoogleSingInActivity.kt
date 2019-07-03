@@ -84,8 +84,6 @@ class GoogleSingInActivity : AppCompatActivity(), View.OnClickListener, GoogleAp
         if(intent.extras["CODIGO"] == 1){
             val progressDialog = ProgressDialog(this)
             progressDialog.setMessage("Un momento porfavor")
-            progressDialog.setProgressStyle(ProgressDialog.STYLE_SPINNER)
-
             progressDialog.show()
             signIn()
         } else{

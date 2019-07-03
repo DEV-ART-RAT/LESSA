@@ -55,7 +55,7 @@ class SenasAdapter(var senas: List<Senas>, private val clic : (Int)->Unit ,priva
             if (SenaViewModel.senass.value!!.any { it.palabra == senas.palabra }) {
                 like.setImageResource(R.drawable.button_likeon)
                 like.setOnClickListener {
-                    vm!!.delete(SenaUser("sho",senas.palabra))
+                    vm!!.delete(SenaUser(MainActivity.usery,senas.palabra))
                     MainActivity.viewModelUser!!.load()
                     //HomeFragment.wordViewModel?.updateSena(Senas(senas.palabra, senas.seña, senas.categoria, false))
 
@@ -82,7 +82,7 @@ class SenasAdapter(var senas: List<Senas>, private val clic : (Int)->Unit ,priva
             } else {
                 like.setImageResource(R.drawable.button_like)
                 like.setOnClickListener {
-                    vm!!.insert(SenaUser("sho",senas.palabra))
+                    vm!!.insert(SenaUser(MainActivity.usery,senas.palabra))
                     MainActivity.viewModelUser!!.load()
                     //HomeFragment.wordViewModel?.updateSena(Senas(senas.palabra, senas.seña, senas.categoria, true))
 

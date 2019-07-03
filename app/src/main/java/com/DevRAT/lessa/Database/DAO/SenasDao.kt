@@ -7,8 +7,8 @@ import com.DevRAT.lessa.Database.Entities.Senas
 @Dao
 interface SenasDao {
 
-    @Query("SELECT * from senas_table a inner join user_table b on a.Palabra = b.palabra ")
-    fun getFavoritos(): LiveData<List<Senas>>
+    @Query("SELECT * from senas_table a inner join user_table b on a.Palabra = b.palabra and b.usuario = :user ")
+    suspend fun getFavoritos( user : String ): List<Senas>
 
     @Query("SELECT * from senas_table order by palabra ASC" )
     fun getTodo(): LiveData<List<Senas>>

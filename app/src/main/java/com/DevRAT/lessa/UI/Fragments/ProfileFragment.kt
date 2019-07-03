@@ -41,6 +41,7 @@ class ProfileFragment : Fragment() {
     private lateinit var vm: SenasViewModel
     private lateinit var rv: RecyclerView
     private lateinit var observer : Observer<List<Senas>>
+    private lateinit var ve : View
 
     //private var _db: DatabaseReference = FirebaseDatabase.getInstance().reference.child("seb")
 
@@ -66,15 +67,16 @@ class ProfileFragment : Fragment() {
         return inflater.inflate(R.layout.fragment_profile, container, false).apply {
 
 
+            ve = this
             //.getReference("")
 
             vm = ViewModelProviders.of(conext as MainActivity).get(SenasViewModel::class.java)
             rv = recycle_view_profile
-            vm.load()
+            vm.load(MainActivity.usery)
             observer = Observer{
                 updateRecycler(it)
             }
-            SenasViewModel.senass?.observe(conext as LifecycleOwner, observer)
+            SenasViewModel.senass.observe(conext as LifecycleOwner, observer)
 
 
             MainActivity.viewModelUser!!.load()
@@ -116,11 +118,17 @@ class ProfileFragment : Fragment() {
             //--------------si la session se inicia correctamente----------------
             val account =GoogleSignIn.getLastSignedInAccount(conext)
             actividad_session_lanzar2.text = account?.email.toString()
+            MainActivity.usery = account?.email.toString()
             actividad_session_lanzar.visibility =View.GONE
             boton_salir_google.visibility =View.VISIBLE
             actividad_session_lanzar2.visibility = View.VISIBLE
             Glide.with(this).load(account?.photoUrl.toString()).into(contenedor_de_foto_perfil)
             contenedor_de_foto_perfil.visibility = View.VISIBLE
+            MainActivity.viewModelUser!!.load()
+            val handler =  ve.handler.postDelayed(Runnable {
+                vm.load(account?.email.toString())
+            }, 500)
+
             //--------------------------------------------------------------------
         }
         else{
@@ -128,7 +136,14 @@ class ProfileFragment : Fragment() {
             actividad_session_lanzar.visibility =View.VISIBLE//auth?.email.toString()
             boton_salir_google.visibility =View.GONE
             actividad_session_lanzar2.visibility = View.GONE
+            MainActivity.usery = "default"
             contenedor_de_foto_perfil.visibility = View.GONE
+            MainActivity.viewModelUser!!.load()
+            val handler =  ve.handler.postDelayed(Runnable {
+                vm.load("default")
+            }, 500)
+
+
             //Glide.with(this).load(FirebaseAuth.getInstance().currentUser?.providerData?.get(0)?.photoUrl.toString()).into(contenedor_de_foto_perfil)
             //--------------------------------------------------------------------
         }
@@ -141,7 +156,7 @@ class ProfileFragment : Fragment() {
             rv.apply {
                 setHasFixedSize(true)
                 adapter = SenasAdapter(list,{}) {
-                    HomeFragment.wordViewModel?.callSena(it.palabra)
+                    //HomeFragment.wordViewModel?.callSena(it.palabra)
                     SenaActivity.sena = it
                     var index = list.indexOf(it)
                     SenaPageViewActivity.index = index
@@ -197,6 +212,11 @@ class ProfileFragment : Fragment() {
     }
 
 
+    fun change(position : Int){
+        //Log.d("com.DevRAT.lessa","cahneg" + searchView!!.query.toString())
+        rv.adapter!!.notifyItemChanged(position)
+        //vm.getSenaByNombre("%${searchView!!.query.toString()}%")
+    }
 
     fun updateBase(){
         //Log.d("aqui stoy","poblando :´v")

@@ -58,6 +58,10 @@ class MainActivity : AppCompatActivity(), HomeFragment.OnFragmentInteractionList
         viewModelUser!!.load()
 
         conext = this
+        if(user?.email!=null){
+            usery = user?.email.toString()
+        }
+
 
 
         // Initialize Firebase Auth
@@ -142,6 +146,7 @@ class MainActivity : AppCompatActivity(), HomeFragment.OnFragmentInteractionList
     companion object{
         var viewModelUser : SenaViewModel? = null
         var conext : Context? = null
+        var usery : String = "default"
 
     }
 

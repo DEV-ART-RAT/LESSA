@@ -18,15 +18,18 @@ class SenasViewModel (app: Application) : AndroidViewModel(app) {
     private val repository = SenasRepository(senaDao)
 
     companion object{
-        var senass : LiveData<List<Senas>>? = null
+        val senass = MutableLiveData<List<Senas>>()
         var allPalabras : LiveData<List<Senas>>? = null
     }
 
-    fun load() {
+    fun load(user : String) {
 
-            var list = repository.allFavoritos(true)
-            Log.d("com.DevRAT.lesa",list.toString())
-            senass = list
+        viewModelScope.launch {
+            senass.value = repository.allFavoritos(user)
+        }
+            //var list =
+            //Log.d("com.DevRAT.lesa",list.toString())
+            //senass = list
 
     }
 
