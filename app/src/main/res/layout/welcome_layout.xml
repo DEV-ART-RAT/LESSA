@@ -3,7 +3,7 @@
                                                    xmlns:app="http://schemas.android.com/apk/res-auto"
                                                    xmlns:tools="http://schemas.android.com/tools"
                                                    android:orientation="vertical"
-                                                   android:layout_width="wrap_content"
+                                                   android:layout_width="match_parent"
                                                    android:layout_height="match_parent"
                                                    android:id="@+id/welcome_menu" android:background="#D2000000">
 
@@ -20,11 +20,11 @@
             android:text="ENTIIENDO"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" android:id="@+id/welcome_button"
-            app:layout_constraintEnd_toEndOf="parent"
-            android:layout_marginEnd="8dp" app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
             android:layout_marginStart="8dp"
             android:background="#00FFFFFF" android:textColor="#FF0000" android:layout_marginTop="28dp"
-            app:layout_constraintTop_toBottomOf="@+id/textView10"/>
+            app:layout_constraintTop_toBottomOf="@+id/textView10" android:layout_marginEnd="8dp"
+            app:layout_constraintEnd_toEndOf="parent"/>
     <TextView
             android:text="Esta es una aplicación con el fin de enseñar el lenguaje de señas Salvadoreño (LESSA)"
             android:layout_width="330dp"
@@ -45,8 +45,8 @@
             android:textSize="18sp"
             android:gravity="center"
             app:layout_constraintTop_toBottomOf="@+id/textView4" app:layout_constraintVertical_bias="0.014"
-            android:textColor="@color/fontGray" android:layout_marginEnd="8dp"
-            app:layout_constraintEnd_toEndOf="parent"/>
+            android:textColor="@color/fontGray"
+            android:layout_marginEnd="8dp" app:layout_constraintEnd_toEndOf="parent"/>
     <TextView
             android:text="Esta aplicacion cuenta con la informacion necesaria para aprender lo basico de LESSA, en ella encontraras 3 modos importantes:"
             android:layout_width="334dp"
@@ -56,46 +56,44 @@
             android:textSize="18sp"
             android:gravity="center"
             android:layout_marginTop="8dp" app:layout_constraintTop_toBottomOf="@+id/textView5"
-            android:textColor="@color/fontClear" android:layout_marginEnd="8dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-    />
+            android:textColor="@color/fontClear"
+            android:layout_marginEnd="8dp" app:layout_constraintEnd_toEndOf="parent"/>
     <TextView
             android:text="DICCIONARIO, podras ver las palabras ordenadas por categoria."
             android:layout_width="285dp"
             android:layout_height="wrap_content" android:id="@+id/textView8"
             app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="8dp"
             android:textColor="@color/fontGray" android:textSize="16sp"
-            android:layout_marginEnd="8dp" app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.51"
-            android:layout_marginTop="8dp" app:layout_constraintTop_toBottomOf="@+id/textView6"/>
+            android:layout_marginTop="8dp" app:layout_constraintTop_toBottomOf="@+id/textView6"
+            android:layout_marginEnd="8dp" app:layout_constraintEnd_toEndOf="parent"/>
     <TextView
             android:text="BUSQUEDA, podras buscar rapidamente una palabra que necesites."
             android:layout_width="285dp"
             android:layout_height="wrap_content" android:id="@+id/textView10"
             app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="8dp"
             android:textColor="@color/fontGray" android:textSize="16dp"
-            android:layout_marginEnd="8dp" app:layout_constraintEnd_toEndOf="parent" android:layout_marginTop="8dp"
-            app:layout_constraintTop_toBottomOf="@+id/textView9"/>
+            android:layout_marginTop="8dp"
+            app:layout_constraintTop_toBottomOf="@+id/textView9" android:layout_marginEnd="8dp"
+            app:layout_constraintEnd_toEndOf="parent"/>
     <TextView
             android:text="Tambien es posible iniciar cuenta google para futuras actualizaciones de la aplicación"
             android:layout_width="285dp"
             android:layout_height="wrap_content" android:id="@+id/textView11"
             app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="8dp"
             android:textColor="@color/fontGray" android:textSize="14dp"
-            android:layout_marginEnd="8dp" app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.51"
             android:layout_marginTop="28dp" app:layout_constraintTop_toBottomOf="@+id/welcome_button"
             android:layout_marginBottom="10dp" app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintVertical_bias="0.0"/>
+            app:layout_constraintVertical_bias="0.0" android:layout_marginEnd="8dp"
+            app:layout_constraintEnd_toEndOf="parent"/>
     <TextView
             android:text="PERFIL, podras ver las palabras que hayas marcado como favoritas."
             android:layout_width="285dp"
             android:layout_height="wrap_content" android:id="@+id/textView9"
             app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="8dp"
             android:textColor="@color/fontGray" android:textSize="16dp"
-            android:layout_marginEnd="8dp" app:layout_constraintEnd_toEndOf="parent" android:layout_marginTop="8dp"
-            app:layout_constraintTop_toBottomOf="@+id/textView8"/>
+            android:layout_marginTop="8dp"
+            app:layout_constraintTop_toBottomOf="@+id/textView8" android:layout_marginEnd="8dp"
+            app:layout_constraintEnd_toEndOf="parent"/>
     <TextView
             android:text="Bienvenido a"
             android:layout_width="wrap_content"

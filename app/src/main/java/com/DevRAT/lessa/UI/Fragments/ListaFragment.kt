@@ -23,6 +23,7 @@ import com.DevRAT.lessa.Database.ViewModel.WordViewModel
 import com.DevRAT.lessa.R
 import com.DevRAT.lessa.UI.Activities.MainActivity
 import com.DevRAT.lessa.UI.Activities.SenaActivity
+import com.DevRAT.lessa.UI.Activities.SenaPageViewActivity
 import com.DevRAT.lessa.UI.Adapter.SenasAdapter
 import com.DevRAT.lessa.UI.Fragments.HomeFragment.Companion.wordViewModel
 import com.example.myapplication.Adapter.WordAdapter
@@ -59,9 +60,7 @@ class ListaFragment : Fragment(){
         }
         vm.callCategory(categoria)
         vm.allPalabras.observe(conext as LifecycleOwner, observer)
-Log.e("com.DevRAT.lessa",categoria)
             val img = findViewById(com.DevRAT.lessa.R.id.imagendinamicalista) as ImageView
-
             val texto: TextView = findViewById(R.id.textodinamicolista) as TextView
           when(categoria){
 
@@ -134,8 +133,10 @@ Log.e("com.DevRAT.lessa",categoria)
                 setHasFixedSize(true)
                 adapter = SenasAdapter(list) {
                     //wordViewModel?.callSena(it.palabra)
-                    SenaActivity.sena = it
-                    val intent : Intent = Intent(context, SenaActivity::class.java)
+                    var index = list.indexOf(it)
+                    SenaPageViewActivity.index = index
+                    SenaPageViewActivity.senaList = list
+                    val intent = Intent(context, SenaPageViewActivity::class.java)
                     startActivity(intent)
                 }
                 layoutManager = LinearLayoutManager(conext)

@@ -6,7 +6,7 @@
         android:toDegrees="200">
     <shape
             android:shape="ring"
-            android:innerRadiusRatio="7"
+            android:innerRadiusRatio="10"
             android:thicknessRatio="70"
             android:useLevel="false">
 

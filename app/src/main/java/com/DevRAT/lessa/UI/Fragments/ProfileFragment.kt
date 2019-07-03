@@ -19,6 +19,7 @@ import com.DevRAT.lessa.R
 import com.DevRAT.lessa.UI.Activities.GoogleSingInActivity
 import com.DevRAT.lessa.UI.Activities.MainActivity
 import com.DevRAT.lessa.UI.Activities.SenaActivity
+import com.DevRAT.lessa.UI.Activities.SenaPageViewActivity
 import com.DevRAT.lessa.UI.Adapter.SenasAdapter
 import com.bumptech.glide.Glide
 import com.google.android.gms.auth.api.signin.GoogleSignIn
@@ -59,7 +60,7 @@ class ProfileFragment : Fragment() {
             vm = ViewModelProviders.of(conext as MainActivity).get(SenasViewModel::class.java)
             rv = recycle_view_profile
             vm.load()
-            observer = Observer<List<Senas>> {
+            observer = Observer{
                 updateRecycler(it)
             }
             SenasViewModel.senass?.observe(conext as LifecycleOwner, observer)
@@ -128,7 +129,10 @@ class ProfileFragment : Fragment() {
                 adapter = SenasAdapter(list) {
                     HomeFragment.wordViewModel?.callSena(it.palabra)
                     SenaActivity.sena = it
-                    val intent = Intent(context, SenaActivity::class.java)
+                    var index = list.indexOf(it)
+                    SenaPageViewActivity.index = index
+                    SenaPageViewActivity.senaList = list
+                    val intent = Intent(context, SenaPageViewActivity::class.java)
                     startActivity(intent)
                 }
                 layoutManager = LinearLayoutManager(conext)
