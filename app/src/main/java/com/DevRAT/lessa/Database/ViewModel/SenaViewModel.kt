@@ -6,6 +6,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
 import com.DevRAT.lessa.Database.Database.WordDataBase
 import com.DevRAT.lessa.Database.Entities.SenaUser
+import com.DevRAT.lessa.Database.Entities.Senas
 import com.DevRAT.lessa.Database.Repository.SenaUserRepository
 import kotlinx.coroutines.launch
 
@@ -42,6 +43,7 @@ class SenaViewModel (app: Application) : AndroidViewModel(app) {
         }
 
     }
+
 
 
 }

@@ -17,7 +17,7 @@ class WordViewModel(application: Application) : AndroidViewModel(application) {
     private val wordRepository: WordRepository
     private val senasRepository: SenasRepository
     val allWords: LiveData<List<Word>>
-    lateinit var allPalabras :  LiveData<List<Senas>>
+    val allPalabras =  MutableLiveData<List<Senas>>()
     lateinit var alltodo :  LiveData<List<Senas>>
     val busca :  MutableLiveData<List<Senas>>
     //val allfavoritos: LiveData<List<Senas>>
@@ -51,16 +51,17 @@ class WordViewModel(application: Application) : AndroidViewModel(application) {
     }
 
     fun callCategory(categoria: String) {
-        allPalabras = senasRepository.allCategoria(categoria)
+        viewModelScope.launch {
+            allPalabras.value = senasRepository.allCategoria(categoria)
+        }
+
     }
 
-    fun callFavoritos() {
-        allfavoritos = senasRepository.allFavoritos(true)
-    }
+
     fun alltodo() {
        // busca = senasRepository.todaspalabras()
     }
-    fun callSena (sena: String) { getSena = senasRepository.getSena(sena)}
+    //fun callSena (sena: String) { getSena = senasRepository.getSena(sena)}
 
 
 

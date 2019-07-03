@@ -7,8 +7,8 @@ import com.DevRAT.lessa.Database.Entities.SenaUser
 @Dao
 interface SenaUserDao {
 
-    @Query("SELECT * from user_table")
-    suspend fun getUser(): List<SenaUser>
+    @Query("SELECT * from user_table where usuario = :user")
+    suspend fun getUser(user: String): List<SenaUser>
 
     @Insert(onConflict = OnConflictStrategy.IGNORE)
     suspend fun insert(senaUser: SenaUser)

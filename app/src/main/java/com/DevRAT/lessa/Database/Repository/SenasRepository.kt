@@ -4,12 +4,16 @@ import androidx.annotation.WorkerThread
 import androidx.lifecycle.LiveData
 import com.DevRAT.lessa.Database.DAO.SenasDao
 import com.DevRAT.lessa.Database.Entities.Senas
+import com.DevRAT.lessa.UI.Activities.MainActivity
 
 class SenasRepository (private val senasDao: SenasDao) {
 
-    fun allFavoritos (flag : Boolean) : LiveData<List<Senas>> = senasDao.getFavoritos(flag)
+    @WorkerThread
+    suspend fun allFavoritos (user : String) : List<Senas> = senasDao.getFavoritos(user)
 
-    fun allCategoria(catergoria:String): LiveData<List<Senas>> = senasDao.getCategoria(catergoria)
+    @WorkerThread
+    suspend fun allCategoria(catergoria:String): List<Senas> = senasDao.getCategoria(catergoria)
+
 
     fun todaspalabras(): LiveData<List<Senas>> = senasDao.getTodo()
 
