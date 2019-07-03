@@ -17,7 +17,7 @@ interface SenasDao {
     suspend fun insert(senas: Senas)
 
     @Query("SELECT * from senas_table where categoria = :catergoria")
-    fun getCategoria(catergoria:String): LiveData<List<Senas>>
+    suspend fun getCategoria(catergoria:String): List<Senas>
 
     @Query("SELECT * from senas_table where palabra = :sena ")
     fun getSena(sena:String): LiveData<Senas>
