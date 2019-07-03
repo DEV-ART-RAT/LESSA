@@ -1,5 +1,6 @@
 package com.DevRAT.lessa.UI.Activities
 
+import android.content.Context
 import android.graphics.ColorSpace
 import android.net.Uri
 import android.os.Bundle
@@ -56,6 +57,7 @@ class MainActivity : AppCompatActivity(), HomeFragment.OnFragmentInteractionList
         viewModelUser= ViewModelProviders.of(this).get(SenaViewModel::class.java)
         viewModelUser!!.load()
 
+        conext = this
 
 
         // Initialize Firebase Auth
@@ -139,6 +141,7 @@ class MainActivity : AppCompatActivity(), HomeFragment.OnFragmentInteractionList
 
     companion object{
         var viewModelUser : SenaViewModel? = null
+        var conext : Context? = null
 
     }
 

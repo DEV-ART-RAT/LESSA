@@ -137,7 +137,7 @@ class ProfileFragment : Fragment() {
 
             rv.apply {
                 setHasFixedSize(true)
-                adapter = SenasAdapter(list) {
+                adapter = SenasAdapter(list,{}) {
                     HomeFragment.wordViewModel?.callSena(it.palabra)
                     SenaActivity.sena = it
                     val intent = Intent(context, SenaActivity::class.java)

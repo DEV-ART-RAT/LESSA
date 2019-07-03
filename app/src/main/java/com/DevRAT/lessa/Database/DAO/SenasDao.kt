@@ -25,7 +25,7 @@ interface SenasDao {
     @Query("UPDATE senas_table set favorito = :favorito")
     fun upateFavorito(favorito:Boolean)
     @Query("select * from senas_table where palabra like :name order by palabra")
-    fun searchSenaByName(name: String): LiveData<List<Senas>>
+    suspend fun searchSenaByName(name: String): List<Senas>
 
     @Update(onConflict = OnConflictStrategy.REPLACE)
     suspend fun update (senas: Senas)

@@ -132,7 +132,7 @@ Log.e("com.DevRAT.lessa",categoria)
 
             rv.apply {
                 setHasFixedSize(true)
-                adapter = SenasAdapter(list) {
+                adapter = SenasAdapter(list,{change(it)}) {
                     //wordViewModel?.callSena(it.palabra)
                     SenaActivity.sena = it
                     val intent : Intent = Intent(context, SenaActivity::class.java)
@@ -141,6 +141,12 @@ Log.e("com.DevRAT.lessa",categoria)
                 layoutManager = LinearLayoutManager(conext)
             }
 
+    }
+
+    fun change(position : Int){
+        //Log.d("com.DevRAT.lessa","cahneg" + searchView!!.query.toString())
+        rv.adapter!!.notifyItemChanged(position)
+        //vm.getSenaByNombre("%${searchView!!.query.toString()}%")
     }
 
 }
