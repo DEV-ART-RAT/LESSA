@@ -14,18 +14,19 @@ import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.DevRAT.lessa.Database.Entities.Senas
+import com.DevRAT.lessa.Database.ViewModel.SenaViewModel
 import com.DevRAT.lessa.Database.ViewModel.SenasViewModel
 import com.DevRAT.lessa.R
 import com.DevRAT.lessa.UI.Activities.GoogleSingInActivity
 import com.DevRAT.lessa.UI.Activities.MainActivity
 import com.DevRAT.lessa.UI.Activities.SenaActivity
 import com.DevRAT.lessa.UI.Adapter.SenasAdapter
+import com.DevRAT.lessa.firebase.SenaFire
+import com.DevRAT.lessa.firebase.Statics
 import com.bumptech.glide.Glide
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount
-import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.auth.FirebaseUser
-import kotlinx.android.synthetic.main.activity_google_sing_in.*
+import com.google.firebase.database.*
 import kotlinx.android.synthetic.main.fragment_profile.*
 import kotlinx.android.synthetic.main.fragment_profile.view.*
 import kotlinx.android.synthetic.main.welcome_layout.view.*
@@ -37,6 +38,11 @@ class ProfileFragment : Fragment() {
     private lateinit var vm: SenasViewModel
     private lateinit var rv: RecyclerView
     private lateinit var observer : Observer<List<Senas>>
+
+    //private var _db: DatabaseReference = FirebaseDatabase.getInstance().reference.child("seb")
+
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setHasOptionsMenu(true)
@@ -56,6 +62,9 @@ class ProfileFragment : Fragment() {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         return inflater.inflate(R.layout.fragment_profile, container, false).apply {
 
+
+            //.getReference("")
+
             vm = ViewModelProviders.of(conext as MainActivity).get(SenasViewModel::class.java)
             rv = recycle_view_profile
             vm.load()
@@ -64,6 +73,9 @@ class ProfileFragment : Fragment() {
             }
             SenasViewModel.senass?.observe(conext as LifecycleOwner, observer)
 
+
+            MainActivity.viewModelUser!!.load()
+            //Log.d("com.DevRAT.lessa", SenaViewModel.senass?.value.toString())
 
             actividad_session_lanzar.setOnClickListener {
                 startActivityForResult(Intent(conext, GoogleSingInActivity::class.java).putExtra("CODIGO",1), 1)
@@ -137,25 +149,70 @@ class ProfileFragment : Fragment() {
     }
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
         super.onCreateOptionsMenu(menu, inflater)
-        inflater.inflate(R.menu.acercade, menu)
-        menu.findItem(R.id.acercade).setOnMenuItemClickListener { menuItem ->
+        inflater.inflate(R.menu.acercade, menu).apply {
+            menu.findItem(R.id.acercade).setOnMenuItemClickListener { menuItem ->
 
-            when (menuItem.itemId) {
-                com.DevRAT.lessa.R.id.acercade -> {
-                    val acerca = LayoutInflater.from(context).inflate(R.layout.acercade, null)
+                when (menuItem.itemId) {
+                    com.DevRAT.lessa.R.id.acercade -> {
+                        val acerca = LayoutInflater.from(context).inflate(R.layout.acercade, null)
 
-                    val acerca_builder =  AlertDialog.Builder(context!!)
-                        .setView(acerca)
+                        val acerca_builder = AlertDialog.Builder(context!!)
+                            .setView(acerca)
 
-                    val acerca_alert = acerca_builder.show()
+                        val acerca_alert = acerca_builder.show()
 
-                    acerca.welcome_button.setOnClickListener {
-                        acerca_alert.dismiss()
+                        acerca.welcome_button.setOnClickListener {
+                            acerca_alert.dismiss()
+                        }
+                        true
                     }
-                    true
+
+                    else -> false
                 }
-                else -> false
+            }
+
+            menu.findItem(R.id.actualizar_base).setOnMenuItemClickListener { menuItem ->
+
+                when (menuItem.itemId) {
+                    com.DevRAT.lessa.R.id.actualizar_base -> {
+                        Log.d("aqui stoy", "puchando :´v")
+                        updateBase()
+                        true
+                    }
+                    else -> false
+
+                }
+
             }
         }
+
+
+
     }
+
+
+
+    fun updateBase(){
+        //Log.d("aqui stoy","poblando :´v")
+        val database = FirebaseDatabase.getInstance().reference.child(Statics.FIREBASE_TASK)
+        val senaListener = object : ChildEventListener {
+            override fun onCancelled(databaseError: DatabaseError) {}
+            override fun onChildMoved(dataSnapshot: DataSnapshot, previousName: String?) {}
+            override fun onChildChanged(dataSnapshot: DataSnapshot, previousName: String?) {}
+            override fun onChildRemoved(dataSnapshot: DataSnapshot) {}
+            override fun onChildAdded(dataSnapshot: DataSnapshot, p1: String?) {
+                val mark = dataSnapshot.getValue(SenaFire::class.java)
+                var sena = Senas(mark!!.palabra!!,mark!!.sena?.get(0)!!,mark!!.categoria!!,false)
+
+                Log.d("aqui stoy", sena.toString())
+                
+            }
+        }
+        database!!.addChildEventListener(senaListener)
+    }
+
+
+
+
+
     }

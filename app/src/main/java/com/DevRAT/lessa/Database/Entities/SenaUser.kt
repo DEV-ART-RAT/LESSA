@@ -7,6 +7,6 @@ import androidx.room.PrimaryKey
 @Entity(tableName = "user_table", primaryKeys = ["usuario","palabra"])
 
 data class SenaUser (
-    @ColumnInfo(name = "Usuario") val usuario: String,
-    @ColumnInfo(name = "Palabra") val palabra: String
+    @ColumnInfo(name = "usuario") val usuario: String,
+    @ColumnInfo(name = "palabra") val palabra: String
 )
