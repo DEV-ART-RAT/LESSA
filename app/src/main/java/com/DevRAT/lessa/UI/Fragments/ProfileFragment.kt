@@ -155,7 +155,7 @@ class ProfileFragment : Fragment() {
 
             rv.apply {
                 setHasFixedSize(true)
-                adapter = SenasAdapter(list,{}) {
+                adapter = SenasAdapter(list,{change(it)}) {
                     //HomeFragment.wordViewModel?.callSena(it.palabra)
                     SenaActivity.sena = it
                     var index = list.indexOf(it)
@@ -214,7 +214,8 @@ class ProfileFragment : Fragment() {
 
     fun change(position : Int){
         //Log.d("com.DevRAT.lessa","cahneg" + searchView!!.query.toString())
-        rv.adapter!!.notifyItemChanged(position)
+        //rv.adapter!!.notifyItemChanged(position)
+        vm.load(MainActivity.usery)
         //vm.getSenaByNombre("%${searchView!!.query.toString()}%")
     }
 

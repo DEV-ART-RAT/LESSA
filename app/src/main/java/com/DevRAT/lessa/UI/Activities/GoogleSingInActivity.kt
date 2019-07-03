@@ -47,6 +47,7 @@ class GoogleSingInActivity : AppCompatActivity(), View.OnClickListener, GoogleAp
     private var mGoogleApiClient: GoogleApiClient? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        requestedOrientation = resources.configuration.orientation
         super.onCreate(savedInstanceState)
         //setContentView(R.layout.activity_google_sing_in)
 

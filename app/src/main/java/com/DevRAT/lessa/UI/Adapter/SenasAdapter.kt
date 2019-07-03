@@ -71,7 +71,7 @@ class SenasAdapter(var senas: List<Senas>, private val clic : (Int)->Unit ,priva
                         val handler =  handler.postDelayed(Runnable {
                             progressDialog.hide()
                         }, 500)
-                    }, 2000)
+                    }, 1000)
 
                     }
                     //bind(senas, clickListener)
@@ -99,7 +99,7 @@ class SenasAdapter(var senas: List<Senas>, private val clic : (Int)->Unit ,priva
                         val handler =  handler.postDelayed(Runnable {
                             progressDialog.hide()
                         }, 500)
-                    }, 2000)
+                    }, 1000)
 
 
 
