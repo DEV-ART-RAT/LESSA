@@ -98,7 +98,7 @@ class MainActivity : AppCompatActivity(), HomeFragment.OnFragmentInteractionList
 
         when (getFirstTimeRun()) {
             0 -> welcome_menu()
-            2 -> Snackbar.make(main_container,"Hemos actualizado, disfruta de los cambios", Snackbar.LENGTH_LONG)
+            2 -> Snackbar.make(main_container,"La aplicacion ha sido actualizada con exito", Snackbar.LENGTH_LONG)
                 .setAction("Action", null)
                 .show()
         }

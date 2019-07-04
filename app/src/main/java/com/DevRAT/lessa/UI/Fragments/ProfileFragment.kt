@@ -28,7 +28,9 @@ import com.DevRAT.lessa.firebase.Statics
 import com.bumptech.glide.Glide
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount
+import com.google.android.material.snackbar.Snackbar
 import com.google.firebase.database.*
+import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.fragment_profile.*
 import kotlinx.android.synthetic.main.fragment_profile.view.*
 import kotlinx.android.synthetic.main.welcome_layout.view.*
@@ -196,8 +198,10 @@ class ProfileFragment : Fragment() {
 
                 when (menuItem.itemId) {
                     com.DevRAT.lessa.R.id.actualizar_base -> {
-                        Log.d("aqui stoy", "puchando :´v")
                         updateBase()
+                        Snackbar.make(profile_container,"La base de datos a sido actualizada", Snackbar.LENGTH_LONG)
+                            .setAction("Action", null)
+                            .show()
                         true
                     }
                     else -> false
@@ -220,7 +224,6 @@ class ProfileFragment : Fragment() {
     }
 
     fun updateBase(){
-        //Log.d("aqui stoy","poblando :´v")
         vmW = ViewModelProviders.of(conext as MainActivity).get(WordViewModel::class.java)
         val database = FirebaseDatabase.getInstance().reference.child(Statics.FIREBASE_TASK)
         val senaListener = object : ChildEventListener {
