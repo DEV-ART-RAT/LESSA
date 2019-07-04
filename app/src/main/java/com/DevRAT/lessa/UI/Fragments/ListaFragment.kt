@@ -10,6 +10,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.Observer
@@ -17,7 +18,9 @@ import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.DevRAT.lessa.Database.Entities.SenaUser
 import com.DevRAT.lessa.Database.Entities.Senas
+import com.DevRAT.lessa.Database.ViewModel.SenaViewModel
 import com.DevRAT.lessa.Database.ViewModel.SenasViewModel
 import com.DevRAT.lessa.Database.ViewModel.WordViewModel
 import com.DevRAT.lessa.R
@@ -47,6 +50,8 @@ class ListaFragment : Fragment(){
     private lateinit var rv: RecyclerView
 
     private lateinit var observer : Observer<List<Senas>>
+    private lateinit var myObserver : Observer<List<SenaUser>>
+    private var position = 0
 
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle? ): View? {
@@ -54,11 +59,20 @@ class ListaFragment : Fragment(){
         vm = ViewModelProviders.of(conext as MainActivity).get(WordViewModel::class.java)
         rv = recyclerviewList
 
-
         observer = Observer<List<Senas>> {
             updateRecycler(it)
         }
-        vm.callCategory(categoria)
+
+            vm.callCategory(categoria)
+
+
+            myObserver = Observer <List<SenaUser>>{
+                    change()
+        }
+            MainActivity.viewModelUser!!.senass.observe(conext as LifecycleOwner, myObserver)
+
+
+
         vm.allPalabras.observe(conext as LifecycleOwner, observer)
             val img = findViewById(com.DevRAT.lessa.R.id.imagendinamicalista) as ImageView
             val texto: TextView = findViewById(R.id.textodinamicolista) as TextView
@@ -131,8 +145,14 @@ class ListaFragment : Fragment(){
 
             rv.apply {
                 setHasFixedSize(true)
-                adapter = SenasAdapter(list,{change(it)}) {
-                    //wordViewModel?.callSena(it.palabra)
+                adapter = SenasAdapter(list,
+                    {
+                        position = it
+                        handler.postDelayed({
+                            MainActivity.viewModelUser!!.load()
+                        }, 300)
+
+                    }) {
                     val index = list.indexOf(it)
                     SenaPageViewActivity.index = index
                     SenaPageViewActivity.senaList = list
@@ -144,10 +164,10 @@ class ListaFragment : Fragment(){
 
     }
 
-    fun change(position : Int){
-        //Log.d("com.DevRAT.lessa","cahneg" + searchView!!.query.toString())
-        rv.adapter!!.notifyItemChanged(position)
-        //vm.getSenaByNombre("%${searchView!!.query.toString()}%")
+    fun change(){
+        if(rv.adapter!=null){
+            rv.adapter!!.notifyItemChanged(position)
+        }
     }
 
 }

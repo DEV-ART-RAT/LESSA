@@ -67,7 +67,6 @@ class ProfileFragment : Fragment() {
 
 
             ve = this
-            //.getReference("")
 
             vm = ViewModelProviders.of(conext as MainActivity).get(SenasViewModel::class.java)
             rv = recycle_view_profile
@@ -78,7 +77,7 @@ class ProfileFragment : Fragment() {
             SenasViewModel.senass.observe(conext as LifecycleOwner, observer)
 
 
-            MainActivity.viewModelUser!!.load()
+            //MainActivity.viewModelUser!!.load()
             //Log.d("com.DevRAT.lessa", SenaViewModel.senass?.value.toString())
 
             actividad_session_lanzar.setOnClickListener {
@@ -154,7 +153,10 @@ class ProfileFragment : Fragment() {
 
             rv.apply {
                 setHasFixedSize(true)
-                adapter = SenasAdapter(list,{change(it)}) {
+                adapter = SenasAdapter(list,{
+                    vm.load(MainActivity.usery)
+                    MainActivity.viewModelUser!!.load()
+                }) {
                     //HomeFragment.wordViewModel?.callSena(it.palabra)
                     SenaActivity.sena = it
                     var index = list.indexOf(it)

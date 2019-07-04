@@ -6,29 +6,20 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
 import com.DevRAT.lessa.Database.Database.WordDataBase
 import com.DevRAT.lessa.Database.Entities.SenaUser
-import com.DevRAT.lessa.Database.Entities.Senas
 import com.DevRAT.lessa.Database.Repository.SenaUserRepository
+import com.DevRAT.lessa.UI.Activities.MainActivity
 import kotlinx.coroutines.launch
 
 class SenaViewModel (app: Application) : AndroidViewModel(app) {
 
     private val senaUserDao = WordDataBase.getDatabase(app,viewModelScope).senaUserDao()
     private val repository = SenaUserRepository(senaUserDao)
-
-    companion object{
-        val senass= MutableLiveData<List<SenaUser>>()
-        //var allPalabras : LiveData<List<Senas>>? = null
-    }
+    val senass= MutableLiveData<List<SenaUser>>()
 
     fun load(){
-        //senass.value =
-       // var senas : List<SenaUser>? = null
-
         viewModelScope.launch {
-            senass.value  = repository.getFavorito()
+            senass.value  = repository.getFavorito(MainActivity.usery)
         }
-
-        //return senas!!
     }
 
     fun insert(senaUser: SenaUser) {
