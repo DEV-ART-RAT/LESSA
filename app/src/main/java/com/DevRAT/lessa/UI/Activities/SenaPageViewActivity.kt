@@ -23,7 +23,9 @@ class SenaPageViewActivity : AppCompatActivity() {
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        requestedOrientation = resources.configuration.orientation
         super.onCreate(savedInstanceState)
+        //getResources().getConfiguration().orientation
         setContentView(R.layout.activity_sena_page_view)
         init()
     }
