@@ -1,8 +1,10 @@
 package com.sovize.ultracop.controlers.network
 
 
+import android.util.DisplayMetrics
 import android.widget.ImageView
 import com.DevRAT.lessa.R
+import com.DevRAT.lessa.UI.Activities.MainActivity
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions
@@ -15,6 +17,8 @@ object Glider {
 
     private val factory = DrawableCrossFadeFactory.Builder().setCrossFadeEnabled(true).build()
 
+
+
     fun load(
         address: String,
         v: ImageView,
@@ -23,6 +27,7 @@ object Glider {
     ) {
         Glide.with(v.context)
             .load(address)
+            .override(MainActivity.displayMetrics.widthPixels - 120,MainActivity.displayMetrics.heightPixels-120)
             //.timeout(3000)
             .fitCenter()
             .transition(DrawableTransitionOptions.withCrossFade(factory))
@@ -31,6 +36,7 @@ object Glider {
             .error(errorHolder)
             .diskCacheStrategy(DiskCacheStrategy.ALL)
             .into(v)
+
     }
 
     fun loadCircle(
