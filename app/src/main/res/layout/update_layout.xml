@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                                                   xmlns:app="http://schemas.android.com/apk/res-auto"
+                                                   xmlns:tools="http://schemas.android.com/tools"
+                                                   android:orientation="vertical"
+                                                   android:layout_width="match_parent"
+                                                   android:layout_height="match_parent"
+                                                   android:id="@+id/welcome_menu" android:background="#D2000000">
+
+    <ImageView
+            android:layout_width="331dp"
+            android:layout_height="96dp" android:id="@+id/welcome_tv"
+            android:textColor="#000000" android:textSize="24sp" android:gravity="center"
+            android:layout_marginBottom="8dp" app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toTopOf="parent" android:layout_marginEnd="8dp"
+            app:layout_constraintEnd_toEndOf="parent" android:layout_marginStart="8dp"
+            app:layout_constraintStart_toStartOf="parent" app:layout_constraintVertical_bias="0.161"
+            app:srcCompat="@drawable/nameicon" app:layout_constraintHorizontal_bias="0.546"/>
+    <Button
+            android:text="ENTIENDO"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:id="@+id/update_button"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginStart="8dp"
+            android:background="#00FFFFFF" android:textColor="#FF0000"
+            android:layout_marginTop="48dp"
+            app:layout_constraintTop_toBottomOf="@+id/textView14" android:layout_marginEnd="8dp"
+            app:layout_constraintEnd_toEndOf="parent"/>
+    <TextView
+            android:text="La aplicación a sido actualizada con exito"
+            android:layout_width="330dp"
+            android:layout_height="81dp"
+            android:id="@+id/textView4" app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="8dp"
+            app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="8dp"
+            app:layout_constraintTop_toBottomOf="@+id/welcome_tv"
+            android:layout_marginBottom="8dp" app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintVertical_bias="0.0" android:textSize="18sp"
+            android:gravity="center" android:textColor="@color/fontClear"/>
+    <TextView
+            android:text="¿Que hay de nuevo?"
+            android:layout_width="334dp"
+            android:layout_height="32dp"
+            android:id="@+id/textView5"
+            app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="8dp"
+            android:layout_marginBottom="8dp" app:layout_constraintBottom_toBottomOf="parent"
+            android:textSize="18sp"
+            android:gravity="center"
+            app:layout_constraintTop_toBottomOf="@+id/textView4" app:layout_constraintVertical_bias="0.014"
+            android:textColor="@color/fontGray"
+            android:layout_marginEnd="8dp" app:layout_constraintEnd_toEndOf="parent"/>
+    <TextView
+            android:text="Apartir de ahora puedes desplazarte entre palabras para mayor comodidad"
+            android:layout_width="334dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/textView6"
+            app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="8dp"
+            android:textSize="18sp"
+            android:gravity="center"
+            android:layout_marginTop="8dp" app:layout_constraintTop_toBottomOf="@+id/textView5"
+            android:textColor="@color/fontClear"
+            android:layout_marginEnd="8dp" app:layout_constraintEnd_toEndOf="parent"/>
+    <TextView
+            android:text="Los favoritos ahora seran guardados en tu cuenta google asi que recuerda sincronizarla "
+            android:layout_width="334dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/textView14"
+            app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="8dp"
+            android:textSize="18sp"
+            android:gravity="center"
+            android:textColor="@color/fontClear"
+            android:layout_marginEnd="8dp"
+            app:layout_constraintEnd_toEndOf="parent" app:layout_constraintHorizontal_bias="0.524"
+            android:layout_marginTop="8dp" app:layout_constraintTop_toBottomOf="@+id/textView16"/>
+    <TextView
+            android:text="La base de datos puede ser actualizada desde el perfil, recuerda hacerlo amenudo para tener mas palabras que aprender"
+            android:layout_width="334dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/textView16"
+            app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="8dp"
+            android:textSize="18sp"
+            android:gravity="center"
+            android:textColor="@color/fontClear"
+            android:layout_marginTop="12dp"
+            app:layout_constraintTop_toBottomOf="@+id/textView6" android:layout_marginEnd="8dp"
+            app:layout_constraintEnd_toEndOf="parent" app:layout_constraintHorizontal_bias="0.508"/>
+    <TextView
+            android:text="Bienvenido a"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/textView7" app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="8dp"
+            app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="8dp"
+            app:layout_constraintBottom_toTopOf="@+id/welcome_tv" android:layout_marginTop="10dp"
+            app:layout_constraintTop_toTopOf="parent" android:textSize="18sp" android:textColor="@color/fontGray"
+            app:layout_constraintVertical_bias="0.582"/>
+</androidx.constraintlayout.widget.ConstraintLayout>

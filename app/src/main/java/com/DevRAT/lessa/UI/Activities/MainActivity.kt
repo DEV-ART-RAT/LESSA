@@ -1,10 +1,8 @@
 package com.DevRAT.lessa.UI.Activities
 
 import android.content.Context
-import android.graphics.ColorSpace
 import android.net.Uri
 import android.os.Bundle
-import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import com.DevRAT.lessa.R
@@ -18,22 +16,10 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.DevRAT.lessa.BuildConfig
 import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
-import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.lifecycle.ViewModelProviders
-import androidx.recyclerview.widget.RecyclerView
 import com.DevRAT.lessa.Database.ViewModel.SenaViewModel
-import com.DevRAT.lessa.firebase.SenaFire
-import com.DevRAT.lessa.firebase.Statics
-import com.firebase.ui.database.FirebaseRecyclerAdapter
-import com.firebase.ui.database.FirebaseRecyclerOptions
 import com.google.android.material.snackbar.Snackbar
-import com.google.firebase.database.*
-import kotlinx.android.synthetic.main.recycler_view_list.*
-import kotlinx.android.synthetic.main.recycler_view_list.view.*
-import kotlinx.android.synthetic.main.recycler_view_list.view.tv_sena
 import kotlinx.android.synthetic.main.welcome_layout.view.*
 
 
@@ -98,9 +84,7 @@ class MainActivity : AppCompatActivity(), HomeFragment.OnFragmentInteractionList
 
         when (getFirstTimeRun()) {
             0 -> welcome_menu()
-            2 -> Snackbar.make(main_container,"La aplicacion ha sido actualizada con exito", Snackbar.LENGTH_LONG)
-                .setAction("Action", null)
-                .show()
+            2 -> update_menu()
         }
     }
 
@@ -138,7 +122,21 @@ class MainActivity : AppCompatActivity(), HomeFragment.OnFragmentInteractionList
 
         val welcome_alert = welcome_builder.show()
 
-        welcome.welcome_button.setOnClickListener {
+        welcome.update_button.setOnClickListener {
+            welcome_alert.dismiss()
+            update_menu()
+        }
+    }
+
+    fun update_menu() {
+        val welcome = LayoutInflater.from(this).inflate(R.layout.update_layout, null)
+
+        val welcome_builder =  AlertDialog.Builder(this)
+            .setView(welcome)
+
+        val welcome_alert = welcome_builder.show()
+
+        welcome.update_button.setOnClickListener {
             welcome_alert.dismiss()
         }
     }
