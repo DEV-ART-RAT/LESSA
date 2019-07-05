@@ -1,10 +1,8 @@
 package com.DevRAT.lessa.UI.Activities
 
-import android.app.Activity
+
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
-import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.DevRAT.lessa.R
@@ -14,11 +12,8 @@ import com.google.android.gms.auth.api.signin.GoogleSignInAccount
 import com.google.android.gms.auth.api.signin.GoogleSignInClient
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 import com.google.android.gms.common.ConnectionResult
-import com.google.android.gms.common.api.ApiException
 import com.google.android.gms.common.api.GoogleApiClient
-import com.google.android.material.snackbar.Snackbar
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.auth.GoogleAuthProvider
 import kotlinx.android.synthetic.main.activity_google_sing_in.*
 import android.R.attr.data
@@ -31,10 +26,13 @@ import com.google.android.gms.tasks.Task
 import dmax.dialog.SpotsDialog
 
 
+
+
+
 /**
  * Demonstrate Firebase Authentication using a Google ID Token.
  */
-class GoogleSingInActivity : AppCompatActivity(), View.OnClickListener, GoogleApiClient.OnConnectionFailedListener {
+class GoogleSingInActivity : AppCompatActivity(), GoogleApiClient.OnConnectionFailedListener {
     override fun onConnectionFailed(p0: ConnectionResult) {
         TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
@@ -50,15 +48,6 @@ class GoogleSingInActivity : AppCompatActivity(), View.OnClickListener, GoogleAp
     override fun onCreate(savedInstanceState: Bundle?) {
         requestedOrientation = resources.configuration.orientation
         super.onCreate(savedInstanceState)
-        //setContentView(R.layout.activity_google_sing_in)
-
-        // Button listeners
-        //signInButton.setOnClickListener(this)
-        //signOutButton.setOnClickListener(this)
-        //disconnectButton.setOnClickListener(this)
-
-        // [START config_signin]
-        // Configure Google Sign In
 
 
         val gso = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
@@ -114,34 +103,15 @@ class GoogleSingInActivity : AppCompatActivity(), View.OnClickListener, GoogleAp
         super.onActivityResult(requestCode, resultCode, data)
 
         // Result returned from launching the Intent from GoogleSignInClient.getSignInIntent(...);
-        if (requestCode == RC_SIGN_IN) {
-            /*val task = GoogleSignIn.getSignedInAccountFromIntent(data)
+        if (requestCode == 1234) {
 
-            try {
-                var accounte = task.getResult(ApiException::class.java)
-                // Signed in successfully, show authenticated UI.
-                Toast.makeText(applicationContext, "SignIn: susses init!" + accounte?.email,
-                    Toast.LENGTH_LONG).show()
-
-    } catch (e: ApiException) {
-        // The ApiException status code indicates the detailed failure reason.
-        // Please refer to the GoogleSignInStatusCodes class reference for more information.
-                Toast.makeText(applicationContext, "SignIn: fail init! " + e,
-                    Toast.LENGTH_LONG).show()
-    }*/
             val result = Auth.GoogleSignInApi.getSignInResultFromIntent(data)
             if (result.isSuccess) {
                 // successful -> authenticate with Firebase
                 val account = result.signInAccount
 
                 firebaseAuthWithGoogle(account!!)
-                //Toast.makeText(applicationContext, "SignIn: susses ;v    !" + result.status,
-                   // Toast.LENGTH_LONG).show()
-                //setResult(1)
             } else {
-                // failed -> update UI
-                //updateUI(null)
-                //Toast.makeText(applicationContext, "SignIn: failed init!" + result.status + "finshi result",                    Toast.LENGTH_LONG).show()
                 setResult(2)
                 finish()
             }
@@ -151,36 +121,18 @@ class GoogleSingInActivity : AppCompatActivity(), View.OnClickListener, GoogleAp
     // [START auth_with_google]
     private fun firebaseAuthWithGoogle(acct: GoogleSignInAccount) {
 
-        //Log.d(TAG, "firebaseAuthWithGoogle:" + acct.id!!)
-        // [START_EXCLUDE silent]
-        //showProgressDialog()
-        // [END_EXCLUDE]
-
         val credential = GoogleAuthProvider.getCredential(acct.idToken, null)
         auth.signInWithCredential(credential)
             .addOnCompleteListener(this) { task ->
                 if (task.isSuccessful) {
                     setResult(1)
                     finish()
-                    // Sign in success, update UI with the signed-in user's information
-                    //Toast.makeText(applicationContext, "secion ya iniciada",                        Toast.LENGTH_LONG).show()
-                    //Log.d(TAG, "signInWithCredential:success " + auth.currentUser.toString())
-                    //val user = auth.currentUser
-                    //updateUI(user)
 
                 } else {
-                    // If sign in fails, display a message to the user.
-                    //Log.w(TAG, "signInWithCredential:failure", task.exception)
-                    //Snackbar.make(main_layout, "Authentication Failed.", Snackbar.LENGTH_SHORT).show()
-                    //updateUI(null)
                     Toast.makeText(applicationContext, "NO tiene conección a Internet",Toast.LENGTH_LONG).show()
                     setResult(2)
                     finish()
                 }
-
-                // [START_EXCLUDE]
-                //hideProgressDialog()
-                // [END_EXCLUDE]
             }
 
         //finish()
@@ -193,7 +145,7 @@ class GoogleSingInActivity : AppCompatActivity(), View.OnClickListener, GoogleAp
         //startActivityForResult(signInIntent, RC_SIGN_IN)
 
         //val signInIntent = Auth.GoogleSignInApi.getSignInIntent(mGoogleApiClient)
-        startActivityForResult(signInIntent, RC_SIGN_IN)
+        startActivityForResult(signInIntent, 1234)
     }
     // [END signin]
 
@@ -210,59 +162,4 @@ class GoogleSingInActivity : AppCompatActivity(), View.OnClickListener, GoogleAp
         }
     }
 
-    /*private fun revokeAccess() {
-        // Firebase sign out
-        signOutButton.text = account?.email.toString()
-        Toast.makeText(applicationContext, "current user" + auth.currentUser.toString()+auth.currentUser?.providerData?.get(0)?.photoUrl.toString(),
-            Toast.LENGTH_LONG).show()
-        /*auth.signOut()
-
-        // Google revoke access
-        googleSignInClient.revokeAccess().addOnCompleteListener(this) {
-            updateUI(null)
-        }*/
-    }*/
-
-    /*
-    private fun updateUI(user: FirebaseUser?) {
-        //Log.d(TAG, "signInWithCredential:success")
-        signOutButton.text = auth.currentUser?.email.toString()
-        Glide.with(this).load(auth.currentUser?.providerData?.get(0)?.photoUrl.toString()).into(my_perfil_icon)
-        //my_perfil_icon.setImageURI(Uri.parse("https://lh3.googleusercontent.com/-nNDxFpt8BkY/XQq1zjBcjXI/AAAAAAAAAww/m2J9GjkbNqQ0kghSNbSaDnSwcgBbUmVPwCEwYBhgL/w139-h140-p/457616_1920_1080.jpg"/*auth.currentUser?.providerData?.get(0)?.photoUrl.toString()*/ ))
-
-    }*/
-
-
-
-
-    /*{
-        hideProgressDialog()
-        if (user != null) {
-            status.text = getString(R.string.google_status_fmt, user.email)
-            detail.text = getString(R.string.firebase_status_fmt, user.uid)
-
-            signInButton.visibility = View.GONE
-            signOutAndDisconnect.visibility = View.VISIBLE
-        } else {
-            status.setText(R.string.signed_out)
-            detail.text = null
-
-            signInButton.visibility = View.VISIBLE
-            signOutAndDisconnect.visibility = View.GONE
-        }
-    }*/
-
-    override fun onClick(v: View) {
-        /*val i = v.id
-        when (i) {
-            R.id.signInButton -> signIn()
-            R.id.signOutButton -> signOut()
-            R.id.disconnectButton -> signOut()
-        }*/
-    }
-
-    companion object {
-        private const val TAG = "GoogleActivity"
-        private const val RC_SIGN_IN = 1234
-    }
 }
