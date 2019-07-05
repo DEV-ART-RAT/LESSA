@@ -3,7 +3,6 @@ package com.DevRAT.lessa.UI.Activities
 import android.content.Context
 import android.net.Uri
 import android.os.Bundle
-import android.util.DisplayMetrics
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import com.DevRAT.lessa.R
@@ -20,7 +19,6 @@ import android.view.LayoutInflater
 import androidx.appcompat.app.AlertDialog
 import androidx.lifecycle.ViewModelProviders
 import com.DevRAT.lessa.Database.ViewModel.SenaViewModel
-import com.google.android.material.snackbar.Snackbar
 import kotlinx.android.synthetic.main.welcome_layout.view.*
 
 
@@ -31,49 +29,35 @@ class MainActivity : AppCompatActivity(), HomeFragment.OnFragmentInteractionList
     }
     private  var user: FirebaseUser? = null
 
-    // Firebase instance variables
-    //private var mFirebaseAuth: FirebaseAuth? = null
-    //private var mFirebaseUser: FirebaseUser? = null
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         val account = GoogleSignIn.getLastSignedInAccount(this)
-        setContentView(com.DevRAT.lessa.R.layout.activity_main)
+        setContentView(R.layout.activity_main)
         setSupportActionBar(toolbarmain)
-        windowManager.defaultDisplay.getMetrics(displayMetrics)
+        //windowManager.defaultDisplay.getMetrics(displayMetrics)
         user = FirebaseAuth.getInstance().currentUser
         viewModelUser= ViewModelProviders.of(this).get(SenaViewModel::class.java)
         viewModelUser!!.load()
 
         conext = this
+
         if(user?.email!=null){
             usery = user?.email.toString()
         }
 
-
-
-        // Initialize Firebase Auth
-
-
-
-
-
-
-
         nav_view.setOnNavigationItemSelectedListener { menuItem ->
             when (menuItem.itemId) {
-                com.DevRAT.lessa.R.id.action_home -> {
+                R.id.action_home -> {
                     val fragment = HomeFragment.newInstance(this)
                     openFragmentInit(fragment)
                     true
                 }
-                com.DevRAT.lessa.R.id.action_test -> {
+                R.id.action_test -> {
                     val fragment = TestFragment.newInstance(this)
                     openFragment(fragment)
                     true
                 }
-                com.DevRAT.lessa.R.id.action_profile -> {
-                    //startActivity(Intent(this,GoogleSingInActivity::class.java))
+                R.id.action_profile -> {
                     val fragment = ProfileFragment.newInstance(account,this)
                     openFragment(fragment)
                     true
@@ -81,7 +65,7 @@ class MainActivity : AppCompatActivity(), HomeFragment.OnFragmentInteractionList
                 else -> false
             }
         }
-        nav_view.selectedItemId = com.DevRAT.lessa.R.id.action_home
+        nav_view.selectedItemId = R.id.action_home
 
 
         when (getFirstTimeRun()) {
@@ -92,14 +76,14 @@ class MainActivity : AppCompatActivity(), HomeFragment.OnFragmentInteractionList
 
     private fun openFragment(fragment: Fragment) {
         val transaction = supportFragmentManager.beginTransaction()
-        transaction.replace(com.DevRAT.lessa.R.id.main_container, fragment)
+        transaction.replace(R.id.main_container, fragment)
         transaction.addToBackStack(null)
         transaction.commit()
     }
 
     private fun openFragmentInit(fragment: Fragment) {
         val transaction = supportFragmentManager.beginTransaction()
-        transaction.replace(com.DevRAT.lessa.R.id.main_container, fragment)
+        transaction.replace(R.id.main_container, fragment)
         transaction.commit()
     }
 
@@ -147,7 +131,7 @@ class MainActivity : AppCompatActivity(), HomeFragment.OnFragmentInteractionList
         var viewModelUser : SenaViewModel? = null
         var conext : Context? = null
         var usery : String = "default"
-        val displayMetrics = DisplayMetrics()
+        //val displayMetrics = DisplayMetrics()
 
     }
 
