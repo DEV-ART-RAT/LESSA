@@ -27,8 +27,7 @@ object Glider {
     ) {
         Glide.with(v.context)
             .load(address)
-            .override(MainActivity.displayMetrics.widthPixels - 120,MainActivity.displayMetrics.heightPixels-120)
-            //.timeout(3000)
+            //.override(MainActivity.displayMetrics.widthPixels - 80,MainActivity.displayMetrics.heightPixels - 250)
             .fitCenter()
             .transition(DrawableTransitionOptions.withCrossFade(factory))
             .placeholder(placeholder)
