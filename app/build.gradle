@@ -31,6 +31,7 @@ android {
 
 repositories {
     mavenCentral()
+    jcenter()
 }
 
 apply plugin: 'com.google.gms.google-services'  // Google Play services Gradle plugin
@@ -96,5 +97,7 @@ dependencies {
 
     implementation 'com.android.support:support-v4:28.0.0'
     implementation 'com.android.support:appcompat-v7:28.0.0'
+
+    implementation 'com.github.d-max:spots-dialog:1.1@aar'
 
 }

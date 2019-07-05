@@ -22,12 +22,13 @@ import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.auth.GoogleAuthProvider
 import kotlinx.android.synthetic.main.activity_google_sing_in.*
 import android.R.attr.data
+import android.app.AlertDialog
 import android.app.ProgressDialog
+import android.app.ProgressDialog.show
 import android.net.Uri
 import com.bumptech.glide.Glide
 import com.google.android.gms.tasks.Task
-
-
+import dmax.dialog.SpotsDialog
 
 
 /**
@@ -83,9 +84,15 @@ class GoogleSingInActivity : AppCompatActivity(), View.OnClickListener, GoogleAp
         //intent.getIntExtra("CODIGO")
 
         if(intent.extras["CODIGO"] == 1){
-            val progressDialog = ProgressDialog(this)
-            progressDialog.setMessage("Un momento porfavor")
-            progressDialog.show()
+            val dialog: AlertDialog = SpotsDialog.Builder()
+                .setContext(this)
+                .setMessage("Un momento porfavor")
+                .setCancelable(false)
+            .build()
+                .apply {
+                    show()
+                }
+            dialog.show()
             signIn()
         } else{
             signOut()

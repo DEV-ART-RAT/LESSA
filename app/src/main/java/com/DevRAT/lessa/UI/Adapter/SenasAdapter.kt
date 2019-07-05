@@ -1,5 +1,6 @@
 package com.DevRAT.lessa.UI.Adapter
 
+import android.app.AlertDialog
 import android.app.ProgressDialog
 import android.content.Context
 import android.util.Log
@@ -20,6 +21,7 @@ import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 import kotlinx.android.synthetic.main.recycler_view_list.view.*
 import androidx.core.os.HandlerCompat.postDelayed
+import dmax.dialog.SpotsDialog
 import java.util.logging.Handler
 
 
@@ -59,17 +61,27 @@ class SenasAdapter(var senas: List<Senas>, private val clic : (Int)->Unit ,priva
                     MainActivity.viewModelUser!!.load()
                     //HomeFragment.wordViewModel?.updateSena(Senas(senas.palabra, senas.seña, senas.categoria, false))
 
-                    val progressDialog = ProgressDialog(MainActivity.conext)
-                    progressDialog.setTitle("Removiendo Favorito")
+                    //val progressDialog = ProgressDialog(MainActivity.conext)
+                    val dialog: AlertDialog = SpotsDialog.Builder()
+                        .setContext(context)
+                        .setMessage("Removiendo")
+                        .setCancelable(false)
+                    .build()
+                    .apply {
+                        show()
+                    }
+                    /*progressDialog.setTitle("Removiendo Favorito")
                     progressDialog.setMessage("Un momento")
                     progressDialog.setProgressStyle(ProgressDialog.STYLE_SPINNER)
                     //progressDialog.incrementProgressBy(8)
-                    progressDialog.show()
+                    progressDialog.show()*/
+                    dialog.show()
 
                     val handler =  handler.postDelayed(Runnable {
                         click(position)
                         val handler =  handler.postDelayed(Runnable {
-                            progressDialog.hide()
+                            //progressDialog.hide()
+                            dialog.dismiss()
                         }, 500)
                     }, 2000)
 
@@ -86,20 +98,31 @@ class SenasAdapter(var senas: List<Senas>, private val clic : (Int)->Unit ,priva
                     MainActivity.viewModelUser!!.load()
                     //HomeFragment.wordViewModel?.updateSena(Senas(senas.palabra, senas.seña, senas.categoria, true))
 
-
+                    val dialog: AlertDialog = SpotsDialog.Builder()
+                        .setContext(context)
+                        .setMessage("Añadiendo")
+                        .setCancelable(false)
+                        .build()
+                        .apply {
+                            show()
+                        }
+                    dialog.show()
+                    /*
                     val progressDialog = ProgressDialog(MainActivity.conext)
                     progressDialog.setTitle("Agregando Favorito")
                     progressDialog.setMessage("Un momento")
                     progressDialog.setProgressStyle(ProgressDialog . STYLE_SPINNER)
                     //progressDialog.incrementProgressBy(8)
                     progressDialog.show()
+                    */
 
                     val handler =  handler.postDelayed(Runnable {
                         click(position)
                         val handler =  handler.postDelayed(Runnable {
-                            progressDialog.hide()
+                            //progressDialog.hide()
+                            dialog.dismiss()
                         }, 500)
-                    }, 1000)
+                    }, 2000)
 
 
 
