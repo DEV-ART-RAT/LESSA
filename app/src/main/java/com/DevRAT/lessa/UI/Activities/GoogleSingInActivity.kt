@@ -15,18 +15,8 @@ import com.google.android.gms.common.ConnectionResult
 import com.google.android.gms.common.api.GoogleApiClient
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.GoogleAuthProvider
-import kotlinx.android.synthetic.main.activity_google_sing_in.*
-import android.R.attr.data
 import android.app.AlertDialog
-import android.app.ProgressDialog
-import android.app.ProgressDialog.show
-import android.net.Uri
-import com.bumptech.glide.Glide
-import com.google.android.gms.tasks.Task
 import dmax.dialog.SpotsDialog
-
-
-
 
 
 /**
