@@ -46,22 +46,16 @@ class SenasAdapter(var senas: List<Senas>, private val clic : (Int)->Unit ,priva
 
             tv_sena.text = senas.palabra
 
-
             val vm = MainActivity.viewModelUser
 
-            /*if (SenaViewModel.senass.value!!.any { it.palabra == senas.palabra }){
-                Log.d("com.DevRAT.lessa", "estoy aqui" + senas.toString())
-            }*/
 
 
-            if (SenaViewModel.senass.value!!.any { it.palabra == senas.palabra }) {
+
+            if (vm!!.senass.value!!.any { it.palabra == senas.palabra }) {
                 like.setImageResource(R.drawable.button_likeon)
                 like.setOnClickListener {
                     vm!!.delete(SenaUser(MainActivity.usery,senas.palabra))
-                    MainActivity.viewModelUser!!.load()
-                    //HomeFragment.wordViewModel?.updateSena(Senas(senas.palabra, senas.seña, senas.categoria, false))
 
-                    //val progressDialog = ProgressDialog(MainActivity.conext)
                     val dialog: AlertDialog = SpotsDialog.Builder()
                         .setContext(context)
                         .setMessage("Removiendo")
@@ -70,24 +64,18 @@ class SenasAdapter(var senas: List<Senas>, private val clic : (Int)->Unit ,priva
                     .apply {
                         show()
                     }
-                    /*progressDialog.setTitle("Removiendo Favorito")
-                    progressDialog.setMessage("Un momento")
-                    progressDialog.setProgressStyle(ProgressDialog.STYLE_SPINNER)
-                    //progressDialog.incrementProgressBy(8)
-                    progressDialog.show()*/
+
                     dialog.show()
 
-                    val handler =  handler.postDelayed(Runnable {
-                        click(position)
-                        val handler =  handler.postDelayed(Runnable {
-                            //progressDialog.hide()
+                    click(position)
+
+                    handler.postDelayed({
                             dialog.dismiss()
-                        }, 500)
-                    }, 2000)
+                    }, 1000)
+
+
 
                     }
-                    //bind(senas, clickListener)
-                    //
 
 
 
@@ -95,7 +83,7 @@ class SenasAdapter(var senas: List<Senas>, private val clic : (Int)->Unit ,priva
                 like.setImageResource(R.drawable.button_like)
                 like.setOnClickListener {
                     vm!!.insert(SenaUser(MainActivity.usery,senas.palabra))
-                    MainActivity.viewModelUser!!.load()
+                    //MainActivity.viewModelUser!!.load()
                     //HomeFragment.wordViewModel?.updateSena(Senas(senas.palabra, senas.seña, senas.categoria, true))
 
                     val dialog: AlertDialog = SpotsDialog.Builder()
@@ -107,22 +95,14 @@ class SenasAdapter(var senas: List<Senas>, private val clic : (Int)->Unit ,priva
                             show()
                         }
                     dialog.show()
-                    /*
-                    val progressDialog = ProgressDialog(MainActivity.conext)
-                    progressDialog.setTitle("Agregando Favorito")
-                    progressDialog.setMessage("Un momento")
-                    progressDialog.setProgressStyle(ProgressDialog . STYLE_SPINNER)
-                    //progressDialog.incrementProgressBy(8)
-                    progressDialog.show()
-                    */
 
-                    val handler =  handler.postDelayed(Runnable {
-                        click(position)
-                        val handler =  handler.postDelayed(Runnable {
-                            //progressDialog.hide()
+                    click(position)
+                    handler.postDelayed({
                             dialog.dismiss()
-                        }, 500)
-                    }, 2000)
+                    }, 1000)
+
+
+
 
 
 

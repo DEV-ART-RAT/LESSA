@@ -8,7 +8,7 @@ import com.DevRAT.lessa.UI.Activities.MainActivity
 class SenaUserRepository (private val senaUserDao: SenaUserDao) {
 
     @WorkerThread
-    suspend fun getFavorito() = senaUserDao.getUser(MainActivity.usery)
+    suspend fun getFavorito(user: String) = senaUserDao.getUser(user)
 
     suspend fun insert(senaUser: SenaUser) {
         senaUserDao.insert(senaUser)

@@ -3,6 +3,7 @@ package com.DevRAT.lessa.UI.Activities
 import android.content.Context
 import android.net.Uri
 import android.os.Bundle
+import android.util.DisplayMetrics
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import com.DevRAT.lessa.R
@@ -39,6 +40,7 @@ class MainActivity : AppCompatActivity(), HomeFragment.OnFragmentInteractionList
         val account = GoogleSignIn.getLastSignedInAccount(this)
         setContentView(com.DevRAT.lessa.R.layout.activity_main)
         setSupportActionBar(toolbarmain)
+        windowManager.defaultDisplay.getMetrics(displayMetrics)
         user = FirebaseAuth.getInstance().currentUser
         viewModelUser= ViewModelProviders.of(this).get(SenaViewModel::class.java)
         viewModelUser!!.load()
@@ -145,6 +147,7 @@ class MainActivity : AppCompatActivity(), HomeFragment.OnFragmentInteractionList
         var viewModelUser : SenaViewModel? = null
         var conext : Context? = null
         var usery : String = "default"
+        val displayMetrics = DisplayMetrics()
 
     }
 
