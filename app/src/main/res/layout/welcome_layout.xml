@@ -6,101 +6,106 @@
               android:orientation="vertical"
               android:layout_width="match_parent"
               android:layout_height="match_parent"
-              android:id="@+id/welcome_menu" android:background="#00000000">
+              android:id="@+id/welcome_menu"
+
+>
 
     <ScrollView
             android:layout_width="match_parent"
             android:layout_height="wrap_content" android:background="#00FFFFFF">
-        <androidx.cardview.widget.CardView
+        <LinearLayout
+                android:orientation="vertical"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:cardBackgroundColor="#2B2A2A"
-                card_view:cardElevation="5dp"
-                card_view:cardUseCompatPadding="true"
-                card_view:cardCornerRadius="30dp">
-            <LinearLayout
-                    android:orientation="vertical"
+                android:gravity="center"
+                android:background="#00000000">
+            <TextView
+                    android:text="Bienvenido a"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/textView7"
+                    android:layout_marginEnd="8dp"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="10dp"
+                    android:textSize="18sp"
+                    android:textColor="@color/fontGray"/>
+            <ImageView
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content" android:gravity="center">
-                <TextView
-                        android:text="Bienvenido a"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:id="@+id/textView7" android:layout_marginEnd="8dp"
-                        android:layout_marginStart="8dp"
-                        android:layout_marginTop="10dp"
-                        android:textSize="18sp" android:textColor="@color/fontGray"/>
-                <ImageView
-                        android:layout_width="match_parent"
-                        android:layout_height="115dp" android:id="@+id/welcome_tv"
-                        android:textColor="#000000" android:textSize="24sp" android:gravity="center"
-                        app:srcCompat="@drawable/nameicon"/>
-                <TextView
-                        android:text="Esta es una aplicación con el fin de enseñar el lenguaje de señas Salvadoreño (LESSA)"
-                        android:layout_width="330dp"
-                        android:layout_height="81dp"
-                        android:id="@+id/textView4" android:layout_marginEnd="8dp"
-                        android:layout_marginStart="8dp"
-                        android:layout_marginBottom="8dp"
-                        android:textSize="18sp"
-                        android:gravity="center" android:textColor="@color/fontClear"/>
-                <TextView
-                        android:text="Esta aplicacion cuenta con la informacion necesaria para aprender lo basico de LESSA, en ella encontraras 3 modos importantes:"
-                        android:layout_width="334dp"
-                        android:layout_height="wrap_content"
-                        android:id="@+id/textView6"
-                        android:layout_marginStart="8dp"
-                        android:textSize="18sp"
-                        android:gravity="center"
-                        android:layout_marginTop="8dp"
-                        android:textColor="@color/fontClear"
-                        android:layout_marginEnd="8dp"/>
-                <TextView
-                        android:text="¿Que servicios brinda @LESSA?"
-                        android:layout_width="334dp"
-                        android:layout_height="32dp"
-                        android:id="@+id/textView5"
-                        android:layout_marginStart="8dp"
-                        android:layout_marginBottom="8dp"
-                        android:textSize="18sp"
-                        android:gravity="center"
-                        android:textColor="@color/fontGray"
-                        android:layout_marginEnd="8dp"/>
-                <TextView
-                        android:text="DICCIONARIO, podras ver las palabras ordenadas por categoria."
-                        android:layout_width="285dp"
-                        android:layout_height="wrap_content" android:id="@+id/textView8"
-                        android:layout_marginStart="8dp"
-                        android:textColor="@color/fontGray" android:textSize="16sp"
-                        android:layout_marginTop="32dp"
-                        android:layout_marginEnd="8dp"/>
-                <TextView
-                        android:text="BUSQUEDA, podras buscar rapidamente una palabra que necesites."
-                        android:layout_width="285dp"
-                        android:layout_height="wrap_content" android:id="@+id/textView10"
-                        android:layout_marginStart="8dp"
-                        android:textColor="@color/fontGray" android:textSize="16dp"
-                        android:layout_marginTop="8dp"
-                        android:layout_marginEnd="8dp"
-                />
-                <TextView
-                        android:text="PERFIL, podras ver las palabras que hayas marcado como favoritas."
-                        android:layout_width="285dp"
-                        android:layout_height="wrap_content" android:id="@+id/textView9"
-                        android:layout_marginStart="8dp"
-                        android:textColor="@color/fontGray" android:textSize="16dp"
-                        android:layout_marginTop="8dp"
-                        android:layout_marginEnd="8dp"
-                />
-                <Button
-                        android:text="ENTIENDO"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content" android:id="@+id/update_button"
-                        android:layout_marginStart="8dp"
-                        android:background="#00FFFFFF" android:textColor="#FF0000" android:layout_marginTop="28dp"
-                        android:layout_marginEnd="8dp"
-                />
-            </LinearLayout>
-        </androidx.cardview.widget.CardView>
+                    android:layout_height="115dp"
+                    android:id="@+id/welcome_tv"
+                    android:textColor="#000000"
+                    android:textSize="24sp"
+                    android:gravity="center"
+                    app:srcCompat="@drawable/nameicon"/>
+            <TextView
+                    android:text="Esta es una aplicación con el fin de enseñar el lenguaje de señas Salvadoreño (LESSA)"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/textView4" android:layout_marginEnd="8dp"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginBottom="8dp"
+                    android:textSize="18sp"
+                    android:gravity="center" android:textColor="@color/fontClear"/>
+            <TextView
+                    android:text="Esta aplicacion cuenta con la informacion necesaria para aprender lo basico de LESSA, en ella encontraras 3 modos importantes:"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/textView6"
+                    android:layout_marginStart="8dp"
+                    android:textSize="18sp"
+                    android:gravity="center"
+                    android:layout_marginTop="8dp"
+                    android:textColor="@color/fontClear"
+                    android:layout_marginEnd="8dp"/>
+            <TextView
+                    android:text="¿Que servicios brinda @LESSA?"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/textView5"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginBottom="8dp"
+                    android:textSize="18sp"
+                    android:gravity="center"
+                    android:textColor="@color/fontGray"
+                    android:layout_marginEnd="8dp"/>
+            <TextView
+                    android:text="DICCIONARIO, podras ver las palabras ordenadas por categoria."
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/textView8"
+                    android:layout_marginStart="30dp"
+                    android:textColor="@color/fontGray" android:textSize="16sp"
+                    android:layout_marginTop="32dp"
+                    android:layout_marginEnd="30dp"/>
+            <TextView
+                    android:text="BUSQUEDA, podras buscar rapidamente una palabra que necesites."
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/textView10"
+                    android:layout_marginStart="30dp"
+                    android:textColor="@color/fontGray" android:textSize="16dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="30dp"
+            />
+            <TextView
+                    android:text="PERFIL, podras ver las palabras que hayas marcado como favoritas."
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/textView9"
+                    android:layout_marginStart="30dp"
+                    android:textColor="@color/fontGray" android:textSize="16dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="30dp"
+            />
+            <Button
+                    android:text="ENTIENDO"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/update_button"
+                    android:layout_marginStart="8dp"
+                    android:background="#00FFFFFF" android:textColor="#FF0000" android:layout_marginTop="28dp"
+                    android:layout_marginEnd="8dp"
+            />
+        </LinearLayout>
     </ScrollView>
 </LinearLayout>

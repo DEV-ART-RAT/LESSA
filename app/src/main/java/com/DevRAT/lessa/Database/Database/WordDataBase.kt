@@ -16,7 +16,7 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.launch
 
 
-@Database(entities = [Word::class, Senas::class, SenaUser::class], version = 4)
+@Database(entities = [Word::class, Senas::class, SenaUser::class], version = 5)
 abstract class WordDataBase : RoomDatabase() {
     abstract fun wordDao(): WordDao
     abstract fun senasDao(): SenasDao
@@ -60,7 +60,10 @@ abstract class WordDataBase : RoomDatabase() {
 
         suspend fun populateDatabase(wordDao: WordDao) {
 
-            var word = Word("SALUDOS", "saludo", R.drawable.icon_handshake)
+            var word = Word(  "ABECEDARIO", "abecedario", R.drawable.icon_abc)
+            wordDao.insert(word)
+
+            word = Word("SALUDOS", "saludo", R.drawable.icon_handshake)
             wordDao.insert(word)
 
             word = Word(  "MESES Y DIAS", "calendario", R.drawable.icon_calendar)
@@ -88,6 +91,15 @@ abstract class WordDataBase : RoomDatabase() {
             wordDao.insert(word)
 
             word = Word(  "TRABAJOS", "trabajos", R.drawable.icon_farmer)
+            wordDao.insert(word)
+
+            word = Word( "DEPARTAMENTOS", "departamentos", R.drawable.icon_departamentos)
+            wordDao.insert(word)
+
+            word = Word( "PAISES Y CONTINENTES", "paises", R.drawable.icon_america)
+            wordDao.insert(word)
+
+            word = Word( "EJEMPLOS", "ejemplos", R.drawable.icon_ejemplo)
             wordDao.insert(word)
 
         }

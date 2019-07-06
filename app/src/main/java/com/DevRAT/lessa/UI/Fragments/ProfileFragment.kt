@@ -183,6 +183,8 @@ class ProfileFragment : Fragment() {
 
                         val acerca_alert = acerca_builder.show()
 
+                        acerca_alert.window.setBackgroundDrawableResource(R.drawable.dialog_bg)
+
                         acerca.update_button.setOnClickListener {
                             acerca_alert.dismiss()
                         }

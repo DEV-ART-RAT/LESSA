@@ -3,6 +3,7 @@ package com.DevRAT.lessa.UI.Activities
 import android.content.Context
 import android.net.Uri
 import android.os.Bundle
+import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import com.DevRAT.lessa.R
@@ -18,12 +19,25 @@ import com.DevRAT.lessa.BuildConfig
 import android.view.LayoutInflater
 import androidx.appcompat.app.AlertDialog
 import androidx.lifecycle.ViewModelProviders
+import com.DevRAT.lessa.Database.Entities.Senas
 import com.DevRAT.lessa.Database.ViewModel.SenaViewModel
+import com.DevRAT.lessa.Database.ViewModel.WordViewModel
+import com.DevRAT.lessa.firebase.SenaFire
+import com.DevRAT.lessa.firebase.Statics
+import com.google.android.material.snackbar.Snackbar
+import com.google.firebase.database.ChildEventListener
+import com.google.firebase.database.DataSnapshot
+import com.google.firebase.database.DatabaseError
+import com.google.firebase.database.FirebaseDatabase
+import kotlinx.android.synthetic.main.fragment_profile.*
 import kotlinx.android.synthetic.main.welcome_layout.view.*
 
 
 
 class MainActivity : AppCompatActivity(), HomeFragment.OnFragmentInteractionListener {
+
+    private lateinit var vmW: WordViewModel
+
     override fun onFragmentInteraction(uri: Uri) {
 
     }
@@ -106,7 +120,11 @@ class MainActivity : AppCompatActivity(), HomeFragment.OnFragmentInteractionList
         val welcome_builder =  AlertDialog.Builder(this)
             .setView(welcome)
 
+
         val welcome_alert = welcome_builder.show()
+
+        welcome_alert.window.setBackgroundDrawableResource(R.drawable.dialog_bg)
+
 
         welcome.update_button.setOnClickListener {
             welcome_alert.dismiss()
@@ -122,6 +140,9 @@ class MainActivity : AppCompatActivity(), HomeFragment.OnFragmentInteractionList
 
         val welcome_alert = welcome_builder.show()
 
+        welcome_alert.window.setBackgroundDrawableResource(R.drawable.dialog_bg)
+
+
         welcome.update_button.setOnClickListener {
             welcome_alert.dismiss()
         }
@@ -134,6 +155,8 @@ class MainActivity : AppCompatActivity(), HomeFragment.OnFragmentInteractionList
         //val displayMetrics = DisplayMetrics()
 
     }
+
+
 
     /*fun firebaseData() {
 

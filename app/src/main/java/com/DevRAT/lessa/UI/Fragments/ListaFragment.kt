@@ -117,7 +117,23 @@ class ListaFragment : Fragment(){
               "trabajos"->{
               img.setImageResource(com.DevRAT.lessa.R.drawable.icon_farmer)
                   texto.setText(palabra)
-          }
+              }
+              "abecedario"->{
+                  img.setImageResource(com.DevRAT.lessa.R.drawable.icon_abc)
+                  texto.setText(palabra)
+              }
+              "departamentos"->{
+                  img.setImageResource(com.DevRAT.lessa.R.drawable.icon_departamentos)
+                  texto.setText(palabra)
+              }
+              "paises"->{
+                  img.setImageResource(com.DevRAT.lessa.R.drawable.icon_america)
+                  texto.setText(palabra)
+              }
+              "ejemplos"->{
+                  img.setImageResource(com.DevRAT.lessa.R.drawable.icon_ejemplo)
+                  texto.setText(palabra)
+              }
           }
 
 
