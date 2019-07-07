@@ -31,7 +31,7 @@ interface SenasDao {
     @Query("select * from senas_table where palabra like :name order by palabra")
     suspend fun searchSenaByName(name: String): List<Senas>
 
-    @Update(onConflict = OnConflictStrategy.REPLACE)
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun update (senas: Senas)
 
 }

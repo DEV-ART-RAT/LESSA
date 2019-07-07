@@ -36,7 +36,7 @@ import kotlinx.android.synthetic.main.welcome_layout.view.*
 class ProfileFragment : Fragment() {
 
 
-    private lateinit var vmW: WordViewModel
+    //private lateinit var vmW: WordViewModel
     private lateinit var vm: SenasViewModel
     private lateinit var rv: RecyclerView
     private lateinit var observer : Observer<List<Senas>>
@@ -199,7 +199,7 @@ class ProfileFragment : Fragment() {
 
                 when (menuItem.itemId) {
                     com.DevRAT.lessa.R.id.actualizar_base -> {
-                        updateBase()
+                        Statics.updateBase()
                         Snackbar.make(profile_container,"La base de datos a sido actualizada", Snackbar.LENGTH_LONG)
                             .setAction("Action", null)
                             .show()
@@ -224,25 +224,35 @@ class ProfileFragment : Fragment() {
         //vm.getSenaByNombre("%${searchView!!.query.toString()}%")
     }
 
-    fun updateBase(){
+    /*fun updateBase(){
         vmW = ViewModelProviders.of(conext as MainActivity).get(WordViewModel::class.java)
         val database = FirebaseDatabase.getInstance().reference.child(Statics.FIREBASE_TASK)
         val senaListener = object : ChildEventListener {
             override fun onCancelled(databaseError: DatabaseError) {}
-            override fun onChildMoved(dataSnapshot: DataSnapshot, previousName: String?) {}
-            override fun onChildChanged(dataSnapshot: DataSnapshot, previousName: String?) {}
-            override fun onChildRemoved(dataSnapshot: DataSnapshot) {}
-            override fun onChildAdded(dataSnapshot: DataSnapshot, p1: String?) {
+            override fun onChildMoved(dataSnapshot: DataSnapshot, previousName: String?) {
+                val mark = dataSnapshot.getValue(SenaFire::class.java)
+                var sena = Senas(mark!!.palabra!!,mark.sena?.get(0)!!,mark.categoria!!,false)
+                vmW.updateSena(sena)
+                Log.d("aqui stoy moved", sena.toString())
+            }
+            override fun onChildChanged(dataSnapshot: DataSnapshot, previousName: String?) {
                 val mark = dataSnapshot.getValue(SenaFire::class.java)
                 var sena = Senas(mark!!.palabra!!,mark!!.sena?.get(0)!!,mark!!.categoria!!,false)
-
                 vmW.updateSena(sena)
-                Log.d("aqui stoy", sena.toString())
+                Log.d("aqui stoy change", sena.toString())
+            }
+            override fun onChildRemoved(dataSnapshot: DataSnapshot) {}
+            override fun onChildAdded(dataSnapshot: DataSnapshot, p1: String?) {
+                //Log.d("actualizando",":v")
+                val mark = dataSnapshot.getValue(SenaFire::class.java)
+                var sena = Senas(mark!!.palabra!!,mark.sena?.get(0)!!,mark.categoria!!,false)
+                vmW.updateSena(sena)
+                //Log.d("aqui stoy", sena.toString())
 
             }
         }
-        database!!.addChildEventListener(senaListener)
-    }
+        database.addChildEventListener(senaListener)
+    }*/
 
 
 

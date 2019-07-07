@@ -133,6 +133,8 @@ class MainActivity : AppCompatActivity(), HomeFragment.OnFragmentInteractionList
     }
 
     fun update_menu() {
+        
+        Statics.updateBase()
         val welcome = LayoutInflater.from(this).inflate(R.layout.update_layout, null)
 
         val welcome_builder =  AlertDialog.Builder(this)
