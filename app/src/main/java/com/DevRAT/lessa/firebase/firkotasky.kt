@@ -1,6 +1,8 @@
 package com.DevRAT.lessa.firebase
 
+import android.content.Context
 import android.util.Log
+import androidx.fragment.app.FragmentActivity
 import androidx.lifecycle.ViewModelProviders
 import com.DevRAT.lessa.Database.Entities.Senas
 import com.DevRAT.lessa.Database.ViewModel.WordViewModel
@@ -14,8 +16,8 @@ import com.google.firebase.database.FirebaseDatabase
 object Statics {
     @JvmStatic val FIREBASE_TASK: String = "sena"
 
-    fun updateBase(){
-        val vmW = ViewModelProviders.of(ProfileFragment.conext as MainActivity).get(WordViewModel::class.java)
+    fun updateBase(context: Context){
+        val vmW = ViewModelProviders.of(context as FragmentActivity).get(WordViewModel::class.java)
         val database = FirebaseDatabase.getInstance().reference.child(Statics.FIREBASE_TASK)
         val senaListener = object : ChildEventListener {
             override fun onCancelled(databaseError: DatabaseError) {}

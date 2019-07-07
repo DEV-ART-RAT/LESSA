@@ -199,7 +199,7 @@ class ProfileFragment : Fragment() {
 
                 when (menuItem.itemId) {
                     com.DevRAT.lessa.R.id.actualizar_base -> {
-                        Statics.updateBase()
+                        Statics.updateBase(ProfileFragment.conext as MainActivity)
                         Snackbar.make(profile_container,"La base de datos a sido actualizada", Snackbar.LENGTH_LONG)
                             .setAction("Action", null)
                             .show()
